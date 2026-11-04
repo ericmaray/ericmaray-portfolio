@@ -1,6 +1,7 @@
 <!DOCTYPE html>
+
 <html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta name="description" content="Selected projects by Eric Maray in learning experience design, workforce development, safety, and process improvement."/><title>Things I’ve Built | Eric T. Maray</title><script src="https://cdn.tailwindcss.com"></script>
+<meta content="Selected projects by Eric Maray in learning experience design, workforce development, safety, and process improvement." name="description"/><title>Things I’ve Built | Eric T. Maray</title><script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&amp;family=JetBrains+Mono:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
 <style>
@@ -94,6 +95,23 @@
 @media(max-width:640px){.route-card{min-height:150px;padding:22px}}
 .page-intro{padding-top:155px;padding-bottom:65px;max-width:1400px;margin:auto;padding-left:clamp(24px,5vw,64px);padding-right:clamp(24px,5vw,64px)}
 .page-intro h1{font-size:clamp(44px,6vw,90px);font-weight:300;letter-spacing:-.04em;line-height:1.07;margin:15px 0 24px}
+
+/* Work gallery refinements */
+.work-featured{overflow:hidden;background:radial-gradient(circle at 85% 8%,rgba(212,165,116,.12),transparent 42%),linear-gradient(135deg,rgba(244,241,234,.055),rgba(244,241,234,.008));border-color:rgba(212,165,116,.32)}
+.feature-visual{min-height:210px;display:flex;align-items:center;justify-content:center;position:relative;border:1px solid rgba(212,165,116,.2);background:repeating-linear-gradient(0deg,transparent 0,transparent 29px,rgba(212,165,116,.06) 30px),repeating-linear-gradient(90deg,transparent 0,transparent 29px,rgba(212,165,116,.06) 30px);overflow:hidden}
+.feature-visual::before{content:'LEARNING / BY DESIGN';font-family:'JetBrains Mono',monospace;font-size:clamp(18px,3vw,30px);letter-spacing:.1em;color:#d4a574;transform:rotate(-7deg);border:1px solid rgba(212,165,116,.4);padding:32px 25px;max-width:85%;text-align:center}
+.feature-visual::after{content:'01 / CASE STUDY';position:absolute;bottom:15px;left:18px;color:#8b8680;font:10px 'JetBrains Mono',monospace;letter-spacing:.12em}
+.work-projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.work-projects .case-card{padding:30px;min-height:290px}
+.work-projects .case-card h3{font-size:clamp(23px,2.4vw,30px);line-height:1.18;padding-right:15px}
+.work-projects .case-card p{font-size:15px;line-height:1.75}
+.work-projects .case-card .arrow{display:none}
+.work-projects .case-card ul{margin-top:20px}
+.work-projects .case-card .grid.grid-cols-3{margin-top:20px}
+.work-projects .case-card .text-2xl{font-size:25px}
+.gallery-label{font:11px 'JetBrains Mono',monospace;color:#d4a574;letter-spacing:.22em;text-transform:uppercase}
+@media(max-width:800px){.work-projects{grid-template-columns:1fr}.work-projects .case-card{padding:24px;min-height:unset}}
+@media(prefers-reduced-motion:reduce){.work-projects .case-card,.work-featured{transition:none}}
 </style></head><body class="grain"><aside class="hidden lg:flex fixed left-6 top-0 h-screen items-center z-30 mono text-[11px] text-[#8b8680] tracking-[0.2em] uppercase">
 <span class="vertical">Eric Maray · Portfolio MMXXVI</span>
 </aside><header class="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-black/30 border-b hairline">
@@ -130,15 +148,15 @@
 <div class="hidden md:block mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em]">Selected projects</div>
 </div>
 <div class="section-rule mb-12"></div>
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-<!-- FEATURED CASE STUDY -->
-<article class="case-card lg:col-span-2 group">
+
+
+<div class="gallery-label mb-5">01 / In depth</div><article class="case-card lg:col-span-2 group work-featured">
 <div class="grid grid-cols-12 gap-6 lg:gap-10">
 <div class="col-span-12 lg:col-span-4">
 <div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">Featured / Learning Experience Design</div>
 <h3 class="text-3xl md:text-4xl font-medium leading-tight pr-12 lg:pr-0">Designing Learning Around the Learner</h3>
 <div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.18em] mt-4">CoServ · 2024–2025</div>
-</div>
+<div aria-label="Decorative learning design artwork" class="feature-visual mt-7 mb-1" role="img"></div></div>
 <div class="col-span-12 lg:col-span-7 lg:col-start-6">
 <p class="leading-relaxed text-lg" style="color:rgba(244,241,234,0.8)">A learning catalog shouldn't simply tell employees what's available. It should reflect what they actually need. I brought together employee conversations, leadership priorities, and subject-matter expertise to shape a learning experience grounded in the people it was designed to serve.</p>
 <div class="flex flex-wrap gap-2 mt-6">
@@ -150,16 +168,14 @@
 <a class="cta mt-8" href="/work/designing-learning-around-the-learner/"><span class="dot"></span>Explore the Case Study <span aria-hidden="true">↗</span></a>
 </div>
 </div>
-</article>
-<article class="case-card lg:col-span-2 group">
+</article><div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mt-20 mb-7"><div><div class="gallery-label mb-3">02 / Across disciplines</div><h2 class="text-4xl md:text-5xl font-light tracking-tight">Other work, <em style="color:var(--accent)">other perspectives.</em></h2></div><p class="text-sm max-w-sm leading-relaxed" style="color:var(--muted)">Selected project snapshots. More in-depth stories will join the collection as they're developed.</p></div><div class="work-projects"><article class="case-card group">
 <span class="arrow">↗</span>
-<div class="grid grid-cols-12 gap-6 lg:gap-10">
-<div class="col-span-12 lg:col-span-4">
+
+
 <div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">01 / Learning Platform</div>
 <h3 class="text-3xl md:text-4xl font-medium leading-tight pr-12 lg:pr-0">Standing up an LMS from scratch</h3>
 <div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.18em] mt-4">CoServ Gas &amp; Electric · ~500 employees</div>
-</div>
-<div class="col-span-12 lg:col-span-7 lg:col-start-6">
+
 <p class="leading-relaxed text-lg" style="color:rgba(244,241,234,0.8)">We didn't have an LMS before this. Rather than build a content library and ask people to find what they needed, I organized the architecture around distinct user groups — so each role landed on content relevant to their work, not just available to everyone. Role-segmented dashboards, automated reporting, SCORM/xAPI deployment across a blended workforce.</p>
 <div class="grid grid-cols-3 gap-4 mt-8 pt-6 border-t hairline">
 <div><div class="mono text-[10px] text-[#8b8680] uppercase tracking-[0.18em] mb-1">Compliance</div><div class="text-2xl" style="color:var(--accent)">97%</div><div class="text-xs" style="color:rgba(244,241,234,0.6)">company-wide</div></div>
@@ -167,10 +183,7 @@
 <div><div class="mono text-[10px] text-[#8b8680] uppercase tracking-[0.18em] mb-1">Platforms</div><div class="text-2xl" style="color:var(--accent)">4</div><div class="text-xs" style="color:rgba(244,241,234,0.6)">stitched together</div></div>
 </div>
 <div class="flex flex-wrap gap-2 mt-6"><span class="tag mono">UKG Pro Learning</span><span class="tag mono">SCORM / xAPI</span><span class="tag mono">LMS Admin</span><span class="tag mono">Content Architecture</span></div>
-</div>
-</div>
-</article>
-<article class="case-card group">
+</article><article class="case-card group">
 <span class="arrow">↗</span>
 <div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">02 / Leadership Development</div>
 <h3 class="text-2xl md:text-3xl font-medium leading-tight pr-12">Developing leaders before the promotion</h3>
@@ -182,8 +195,7 @@
 <li class="flex gap-3"><span class="mono" style="color:var(--accent)">→</span>Built alongside senior leadership</li>
 </ul>
 <div class="flex flex-wrap gap-2 mt-6"><span class="tag mono">Succession Planning</span><span class="tag mono">Competency Mapping</span><span class="tag mono">ADDIE</span></div>
-</article>
-<article class="case-card group">
+</article><article class="case-card group">
 <span class="arrow">↗</span>
 <div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">03 / Engagement</div>
 <h3 class="text-2xl md:text-3xl font-medium leading-tight pr-12">A weekly safety series, all year</h3>
@@ -195,14 +207,7 @@
 <li class="flex gap-3"><span class="mono" style="color:var(--accent)">→</span>Integrated into the regular work rhythm</li>
 </ul>
 <div class="flex flex-wrap gap-2 mt-6"><span class="tag mono">Safety Culture</span><span class="tag mono">Internal Comms</span><span class="tag mono">Behavioral Design</span></div>
-</article>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-<article class="case-card group"><span class="arrow">↗</span><div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">04 / Safety</div><h3 class="text-xl font-medium leading-tight pr-12">Four years without a major incident</h3><p class="text-sm mt-4 leading-relaxed" style="color:rgba(244,241,234,0.7)">Zero major OSHA incidents over four consecutive years at a fast-growing utility. The field crews deserve most of that credit. My contribution was helping shift safety training from an annual event into something woven into how people worked day to day.</p></article>
-<article class="case-card group"><span class="arrow">↗</span><div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">05 / Vendor Work</div><h3 class="text-xl font-medium leading-tight pr-12">Cleaning up a vendor relationship</h3><p class="text-sm mt-4 leading-relaxed" style="color:rgba(244,241,234,0.7)">Found pricing inconsistencies in a long-running vendor relationship, documented the financial impact, and worked through a renegotiation. Recovered around $15K annually that the organization had been quietly overpaying.</p></article>
-<article class="case-card group"><span class="arrow">↗</span><div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">06 / Onboarding</div><h3 class="text-xl font-medium leading-tight pr-12">Smoothing out the new-hire experience</h3><p class="text-sm mt-4 leading-relaxed" style="color:rgba(244,241,234,0.7)">New hires were having very different first-week experiences depending on role and manager. Reworked the intake materials and feedback loops to make the early days more consistent — regardless of which door someone came in through.</p></article>
-</div>
-</section><section class="px-6 lg:px-16 py-16 max-w-[1400px] mx-auto border-t hairline"><span class="mono text-[11px] uppercase tracking-[.2em] text-[#d4a574]">Keep exploring</span><div class="flex flex-wrap gap-5 mt-6"><a class="cta-ghost" href="/">Back to introduction ↗</a><a class="cta-ghost" href="/work/">Selected work ↗</a><a class="cta-ghost" href="/contact/">Say hello ↗</a></div></section></main><footer class="relative z-10 px-6 lg:px-16 py-10 mx-auto max-w-[1400px] border-t hairline flex flex-wrap gap-6 justify-between mono text-[11px] uppercase tracking-[0.14em] text-[#8b8680]">
+</article><article class="case-card group"><span class="arrow">↗</span><div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">04 / Safety</div><h3 class="text-xl font-medium leading-tight pr-12">Four years without a major incident</h3><p class="text-sm mt-4 leading-relaxed" style="color:rgba(244,241,234,0.7)">Zero major OSHA incidents over four consecutive years at a fast-growing utility. The field crews deserve most of that credit. My contribution was helping shift safety training from an annual event into something woven into how people worked day to day.</p></article><article class="case-card group"><span class="arrow">↗</span><div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">05 / Vendor Work</div><h3 class="text-xl font-medium leading-tight pr-12">Cleaning up a vendor relationship</h3><p class="text-sm mt-4 leading-relaxed" style="color:rgba(244,241,234,0.7)">Found pricing inconsistencies in a long-running vendor relationship, documented the financial impact, and worked through a renegotiation. Recovered around $15K annually that the organization had been quietly overpaying.</p></article><article class="case-card group"><span class="arrow">↗</span><div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">06 / Onboarding</div><h3 class="text-xl font-medium leading-tight pr-12">Smoothing out the new-hire experience</h3><p class="text-sm mt-4 leading-relaxed" style="color:rgba(244,241,234,0.7)">New hires were having very different first-week experiences depending on role and manager. Reworked the intake materials and feedback loops to make the early days more consistent — regardless of which door someone came in through.</p></article></div></section><section class="px-6 lg:px-16 py-16 max-w-[1400px] mx-auto border-t hairline"><span class="mono text-[11px] uppercase tracking-[.2em] text-[#d4a574]">Keep exploring</span><div class="flex flex-wrap gap-5 mt-6"><a class="cta-ghost" href="/">Back to introduction ↗</a><a class="cta-ghost" href="/contact/">Say hello ↗</a></div></section></main><footer class="relative z-10 px-6 lg:px-16 py-10 mx-auto max-w-[1400px] border-t hairline flex flex-wrap gap-6 justify-between mono text-[11px] uppercase tracking-[0.14em] text-[#8b8680]">
 <span>© 2026 Eric T. Maray · Semper Prorsum · Always Forward</span><div class="flex gap-6"><a href="/">Home</a><a href="/work/">Work</a><a href="/contact/">Say hello ↗</a></div></footer><script>
   const clock = document.getElementById('clock');
   function tick() {
