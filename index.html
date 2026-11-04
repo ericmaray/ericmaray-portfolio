@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Welcome | Eric T. Maray</title><script src="https://cdn.tailwindcss.com"></script>
+<meta name="description" content="Meet Eric T. Maray, a curious, multidisciplinary thinker and doer connecting people, ideas, and complex systems."/><title>Welcome | Eric T. Maray</title><script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&amp;family=JetBrains+Mono:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
 <style>
@@ -147,30 +147,14 @@
   closeBtn.addEventListener('click', () => { mobileMenu.classList.add('hidden'); mobileMenu.classList.remove('flex'); });
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mobileMenu.classList.add('hidden'); mobileMenu.classList.remove('flex'); }));
 
-  let recs = JSON.parse(sessionStorage.getItem('bookRecs') || '[]');
-  function renderRecs() {
-    const list = document.getElementById('recList');
-    if (!list) return;
-    if (!recs.length) { list.innerHTML = ''; return; }
-    list.innerHTML = '<div class="mono text-[10px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">Recommended by visitors</div>' +
-      recs.map(r => `<div class="rec-item"><span class="bullet">✦</span><span><em>${r.title}</em>${r.author ? ' — ' + r.author : ''}${r.note ? '<span style="color:#8b8680"> · ' + r.note + '</span>' : ''}</span></div>`).join('');
-  }
   function submitBook(e) {
     e.preventDefault();
     const title = document.getElementById('bookTitle').value.trim();
     const author = document.getElementById('bookAuthor').value.trim();
     const note = document.getElementById('bookNote').value.trim();
     if (!title) return;
-    recs.unshift({ title, author, note });
-    sessionStorage.setItem('bookRecs', JSON.stringify(recs));
-    document.getElementById('bookForm').reset();
-    const thanks = document.getElementById('bookThanks');
-    thanks.classList.remove('hidden');
-    setTimeout(() => thanks.classList.add('hidden'), 3000);
-    renderRecs();
     const subject = encodeURIComponent('Book recommendation: ' + title);
     const body = encodeURIComponent(`Title: ${title}\nAuthor: ${author}\nWhy it stuck: ${note}`);
     window.location.href = `mailto:ericmaray@gmail.com?subject=${subject}&body=${body}`;
   }
-  renderRecs();
 </script></body></html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>What I’m Reading | Eric T. Maray</title><script src="https://cdn.tailwindcss.com"></script>
+<meta name="description" content="Books, ideas, and reading recommendations that influence Eric Maray’s curiosity about people, leadership, and learning."/><title>What I’m Reading | Eric T. Maray</title><script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&amp;family=JetBrains+Mono:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
 <style>
@@ -147,7 +147,7 @@
 <div class="col-span-12 lg:col-span-4">
 <div class="mono text-[11px] uppercase tracking-[0.2em] mb-3" style="color:var(--accent)">Your turn</div>
 <h3 class="text-2xl font-light leading-snug">What should I read next?</h3>
-<p class="mt-4 text-sm leading-relaxed" style="color:rgba(244,241,234,0.6)">If a book has shaped how you think about people, learning, or leadership — drop it here. I read every recommendation.</p>
+<p class="mt-4 text-sm leading-relaxed" style="color:rgba(244,241,234,0.6)">If a book has shaped how you think about people, learning, or leadership, tell me about it. The form opens a pre-filled message in your email app; you can review it before sending.</p>
 </div>
 <div class="col-span-12 lg:col-span-8">
 <form class="space-y-3" id="bookForm" onsubmit="submitBook(event)">
@@ -156,10 +156,10 @@
 <input id="bookAuthor" placeholder="Author" type="text"/>
 </div>
 <input id="bookNote" placeholder="Why it stuck with you (optional)" type="text"/>
-<div class="flex justify-end"><button type="submit">Submit recommendation →</button></div>
+<div class="flex justify-end"><button type="submit">Open email draft →</button></div>
 </form>
-<div class="hidden mono text-[11px] uppercase tracking-[0.15em] mt-4" id="bookThanks" style="color:var(--accent)">✦   Got it — thank you.</div>
-<div class="mt-6 space-y-1" id="recList"></div>
+
+
 </div>
 </div>
 </div>
@@ -179,30 +179,14 @@
   closeBtn.addEventListener('click', () => { mobileMenu.classList.add('hidden'); mobileMenu.classList.remove('flex'); });
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mobileMenu.classList.add('hidden'); mobileMenu.classList.remove('flex'); }));
 
-  let recs = JSON.parse(sessionStorage.getItem('bookRecs') || '[]');
-  function renderRecs() {
-    const list = document.getElementById('recList');
-    if (!list) return;
-    if (!recs.length) { list.innerHTML = ''; return; }
-    list.innerHTML = '<div class="mono text-[10px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">Recommended by visitors</div>' +
-      recs.map(r => `<div class="rec-item"><span class="bullet">✦</span><span><em>${r.title}</em>${r.author ? ' — ' + r.author : ''}${r.note ? '<span style="color:#8b8680"> · ' + r.note + '</span>' : ''}</span></div>`).join('');
-  }
   function submitBook(e) {
     e.preventDefault();
     const title = document.getElementById('bookTitle').value.trim();
     const author = document.getElementById('bookAuthor').value.trim();
     const note = document.getElementById('bookNote').value.trim();
     if (!title) return;
-    recs.unshift({ title, author, note });
-    sessionStorage.setItem('bookRecs', JSON.stringify(recs));
-    document.getElementById('bookForm').reset();
-    const thanks = document.getElementById('bookThanks');
-    thanks.classList.remove('hidden');
-    setTimeout(() => thanks.classList.add('hidden'), 3000);
-    renderRecs();
     const subject = encodeURIComponent('Book recommendation: ' + title);
     const body = encodeURIComponent(`Title: ${title}\nAuthor: ${author}\nWhy it stuck: ${note}`);
     window.location.href = `mailto:ericmaray@gmail.com?subject=${subject}&body=${body}`;
   }
-  renderRecs();
 </script></body></html>

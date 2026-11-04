@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Things I’ve Built | Eric T. Maray</title><script src="https://cdn.tailwindcss.com"></script>
+<meta name="description" content="Selected projects by Eric Maray in learning experience design, workforce development, safety, and process improvement."/><title>Things I’ve Built | Eric T. Maray</title><script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&amp;family=JetBrains+Mono:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
 <style>
@@ -124,10 +124,10 @@
 </svg>
 <div class="flex items-end justify-between mb-16 gap-6 flex-wrap">
 <div>
-<div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.25em] mb-2">Work</div>
+<div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.25em] mb-2">Selected Work</div>
 <h2 class="text-5xl md:text-7xl font-light leading-none tracking-tight">A few things I've <em style="color:var(--accent)">worked on</em>.</h2>
 </div>
-<div class="hidden md:block mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em]">2006 — Present</div>
+<div class="hidden md:block mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em]">Selected projects</div>
 </div>
 <div class="section-rule mb-12"></div>
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -187,7 +187,7 @@
 <span class="arrow">↗</span>
 <div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">03 / Engagement</div>
 <h3 class="text-2xl md:text-3xl font-medium leading-tight pr-12">A weekly safety series, all year</h3>
-<div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.18em] mt-3">Mustang Special Utility District · 2025–Present</div>
+<div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.18em] mt-3">Mustang Special Utility District · 2025–2026</div>
 <p class="leading-relaxed mt-6" style="color:rgba(244,241,234,0.75)">One-off compliance posts disappear. This is a 52-week series where each month builds on the last — treating safety as a habit being formed rather than a topic being covered. Behavior-focused, cumulative, woven into the regular work rhythm rather than added on top of it.</p>
 <ul class="mt-6 space-y-2 text-sm list-none" style="color:rgba(244,241,234,0.7)">
 <li class="flex gap-3"><span class="mono" style="color:var(--accent)">→</span>Behavior-focused rather than checklist-focused</li>
@@ -218,30 +218,14 @@
   closeBtn.addEventListener('click', () => { mobileMenu.classList.add('hidden'); mobileMenu.classList.remove('flex'); });
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mobileMenu.classList.add('hidden'); mobileMenu.classList.remove('flex'); }));
 
-  let recs = JSON.parse(sessionStorage.getItem('bookRecs') || '[]');
-  function renderRecs() {
-    const list = document.getElementById('recList');
-    if (!list) return;
-    if (!recs.length) { list.innerHTML = ''; return; }
-    list.innerHTML = '<div class="mono text-[10px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">Recommended by visitors</div>' +
-      recs.map(r => `<div class="rec-item"><span class="bullet">✦</span><span><em>${r.title}</em>${r.author ? ' — ' + r.author : ''}${r.note ? '<span style="color:#8b8680"> · ' + r.note + '</span>' : ''}</span></div>`).join('');
-  }
   function submitBook(e) {
     e.preventDefault();
     const title = document.getElementById('bookTitle').value.trim();
     const author = document.getElementById('bookAuthor').value.trim();
     const note = document.getElementById('bookNote').value.trim();
     if (!title) return;
-    recs.unshift({ title, author, note });
-    sessionStorage.setItem('bookRecs', JSON.stringify(recs));
-    document.getElementById('bookForm').reset();
-    const thanks = document.getElementById('bookThanks');
-    thanks.classList.remove('hidden');
-    setTimeout(() => thanks.classList.add('hidden'), 3000);
-    renderRecs();
     const subject = encodeURIComponent('Book recommendation: ' + title);
     const body = encodeURIComponent(`Title: ${title}\nAuthor: ${author}\nWhy it stuck: ${note}`);
     window.location.href = `mailto:ericmaray@gmail.com?subject=${subject}&body=${body}`;
   }
-  renderRecs();
 </script></body></html>

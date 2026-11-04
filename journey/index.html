@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Where I’ve Been | Eric T. Maray</title><script src="https://cdn.tailwindcss.com"></script>
+<meta name="description" content="Eric Maray’s professional journey through military intelligence, electric cooperative operations, learning, and workforce safety."/><title>Where I’ve Been | Eric T. Maray</title><script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&amp;family=JetBrains+Mono:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
 <style>
@@ -119,9 +119,9 @@
 </svg>
 <div class="grid grid-cols-12 gap-6 lg:gap-12 mb-16">
 <div class="col-span-12 lg:col-span-3">
-<div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.25em] mb-2">Where I've Been</div>
+<div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.25em] mb-2">The Journey</div>
 <div class="section-rule"></div>
-<p class="italic mt-6 text-2xl" style="color:var(--accent)">A career without straight lines.</p>
+<p class="italic mt-6 text-2xl" style="color:var(--accent)">Different paths. Shared perspective.</p>
 </div>
 <div class="col-span-12 lg:col-span-9">
 <h2 class="text-4xl md:text-6xl font-light leading-tight tracking-tight">A path built through<br/><em style="color:var(--accent)">curiosity</em>.</h2>
@@ -204,30 +204,14 @@
   closeBtn.addEventListener('click', () => { mobileMenu.classList.add('hidden'); mobileMenu.classList.remove('flex'); });
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mobileMenu.classList.add('hidden'); mobileMenu.classList.remove('flex'); }));
 
-  let recs = JSON.parse(sessionStorage.getItem('bookRecs') || '[]');
-  function renderRecs() {
-    const list = document.getElementById('recList');
-    if (!list) return;
-    if (!recs.length) { list.innerHTML = ''; return; }
-    list.innerHTML = '<div class="mono text-[10px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">Recommended by visitors</div>' +
-      recs.map(r => `<div class="rec-item"><span class="bullet">✦</span><span><em>${r.title}</em>${r.author ? ' — ' + r.author : ''}${r.note ? '<span style="color:#8b8680"> · ' + r.note + '</span>' : ''}</span></div>`).join('');
-  }
   function submitBook(e) {
     e.preventDefault();
     const title = document.getElementById('bookTitle').value.trim();
     const author = document.getElementById('bookAuthor').value.trim();
     const note = document.getElementById('bookNote').value.trim();
     if (!title) return;
-    recs.unshift({ title, author, note });
-    sessionStorage.setItem('bookRecs', JSON.stringify(recs));
-    document.getElementById('bookForm').reset();
-    const thanks = document.getElementById('bookThanks');
-    thanks.classList.remove('hidden');
-    setTimeout(() => thanks.classList.add('hidden'), 3000);
-    renderRecs();
     const subject = encodeURIComponent('Book recommendation: ' + title);
     const body = encodeURIComponent(`Title: ${title}\nAuthor: ${author}\nWhy it stuck: ${note}`);
     window.location.href = `mailto:ericmaray@gmail.com?subject=${subject}&body=${body}`;
   }
-  renderRecs();
 </script></body></html>
