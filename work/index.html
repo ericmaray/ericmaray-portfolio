@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Selected projects by Eric Maray in learning experience design, workforce development, safety, and process improvement." name="description"/><title>Things I’ve Built | Eric T. Maray</title><script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&amp;family=JetBrains+Mono:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --ink: #0a0a0a;
+    --paper: #f4f1ea;
+    --muted: #8b8680;
+    --accent: #d4a574;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--ink); color: var(--paper); font-family: 'Fraunces', serif; -webkit-font-smoothing: antialiased; }
+
+  .grain::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 1; opacity: 0.04;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .hairline { border-color: rgba(244,241,234,0.12); }
+
+  .reveal { opacity:0; transform:translateY(12px); animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards; }
+  @keyframes rise { to { opacity:1; transform:translateY(0); } }
+
+  .link-underline { background-image:linear-gradient(currentColor,currentColor); background-size:0% 1px; background-repeat:no-repeat; background-position:0 100%; transition:background-size .4s cubic-bezier(.2,.7,.2,1); padding-bottom:2px; }
+  .link-underline:hover { background-size:100% 1px; }
+
+  .marquee { display:flex; overflow:hidden; gap:3rem; mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); }
+  .marquee-track { display:flex; gap:3rem; flex-shrink:0; animation:scroll 55s linear infinite; }
+  @keyframes scroll { from{transform:translateX(0)} to{transform:translateX(-100%)} }
+
+  .tag { border:1px solid rgba(244,241,234,0.18); border-radius:999px; padding:3px 10px; font-size:11px; letter-spacing:0.04em; }
+
+  .cta { position:relative; display:inline-flex; align-items:center; gap:14px; padding:16px 28px; border:1px solid var(--paper); border-radius:999px; color:var(--paper); font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; overflow:hidden; transition:color .4s ease; z-index:1; text-decoration:none; }
+  .cta::before { content:""; position:absolute; inset:0; background:var(--paper); transform:translateY(101%); transition:transform .5s cubic-bezier(.2,.7,.2,1); z-index:-1; }
+  .cta:hover { color:var(--ink); }
+  .cta:hover::before { transform:translateY(0); }
+  .cta .dot { width:6px; height:6px; border-radius:999px; background:var(--accent); }
+
+  .cta-ghost { display:inline-flex; align-items:center; gap:12px; padding:16px 24px; border:1px solid rgba(244,241,234,0.2); border-radius:999px; color:var(--muted); font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; transition:all .3s ease; text-decoration:none; }
+  .cta-ghost:hover { border-color:var(--paper); color:var(--paper); }
+
+  .vertical { writing-mode:vertical-rl; transform:rotate(180deg); letter-spacing:0.3em; }
+  .section-rule { height:1px; background:rgba(244,241,234,0.14); }
+
+  /* Section vector backgrounds */
+  .section-bg { position:relative; overflow:hidden; }
+  .section-bg .vec { position:absolute; pointer-events:none; opacity:0.045; }
+
+  .case-card { position:relative; border:1px solid rgba(244,241,234,0.12); background:linear-gradient(180deg,rgba(244,241,234,0.025) 0%,rgba(244,241,234,0) 100%); padding:2.5rem; transition:border-color .4s ease,background .4s ease; }
+  .case-card:hover { border-color:rgba(212,165,116,0.45); background:linear-gradient(180deg,rgba(212,165,116,0.04) 0%,rgba(244,241,234,0) 100%); }
+  .case-card .arrow { position:absolute; top:2rem; right:2rem; width:38px; height:38px; border-radius:999px; border:1px solid rgba(244,241,234,0.18); display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:14px; transition:all .4s ease; }
+  .case-card:hover .arrow { background:var(--accent); color:var(--ink); border-color:var(--accent); transform:translate(3px,-3px); }
+
+  .kpi { border:1px solid rgba(244,241,234,0.12); padding:2rem 1.5rem; background:rgba(244,241,234,0.015); transition:background .4s ease; }
+  .kpi:hover { background:rgba(212,165,116,0.05); }
+  .kpi-value { font-family:'Fraunces',serif; font-weight:300; font-size:clamp(2.5rem,5vw,3.75rem); line-height:1; color:var(--accent); letter-spacing:-0.02em; }
+  .kpi-label { font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.12em; color:var(--muted); margin-top:1rem; line-height:1.5; }
+
+  .pillar-group { position:relative; }
+  .pillar-group::after { content:""; position:absolute; left:0; right:0; bottom:0; height:1px; background:linear-gradient(90deg,transparent 0%,rgba(212,165,116,0.4) 15%,rgba(212,165,116,0.4) 85%,transparent 100%); }
+  .pillar { position:relative; transition:transform .6s cubic-bezier(.2,.7,.2,1); }
+  .pillar:hover { transform:translateY(-4px); }
+  .pillar svg { display:block; margin:0 auto; }
+  .pillar:hover .pillar-shaft { fill:var(--accent); opacity:0.95; }
+  .pillar-shaft { transition:fill .5s ease,opacity .5s ease; }
+  .pillar-num { font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.25em; color:var(--accent); text-transform:uppercase; }
+
+  .timeline-rail { position:absolute; left:0; top:0; bottom:0; width:1px; background:rgba(244,241,234,0.12); }
+  .timeline-dot { position:absolute; left:-5px; width:9px; height:9px; border-radius:999px; background:var(--ink); border:1px solid var(--accent); }
+  .timeline-dot.active { background:var(--accent); box-shadow:0 0 0 4px rgba(212,165,116,0.15); }
+
+  .book-card { border:1px solid rgba(244,241,234,0.1); padding:1.5rem; background:rgba(244,241,234,0.02); transition:all .4s ease; }
+  .book-card:hover { border-color:rgba(212,165,116,0.35); background:rgba(212,165,116,0.03); transform:translateY(-2px); }
+
+  .mindset-bar { height:3px; background:rgba(244,241,234,0.1); border-radius:999px; overflow:hidden; margin-top:8px; }
+  .mindset-fill { height:100%; background:var(--accent); border-radius:999px; }
+
+  #bookForm input { background:rgba(244,241,234,0.05); border:1px solid rgba(244,241,234,0.15); color:var(--paper); padding:10px 14px; font-family:'JetBrains Mono',monospace; font-size:12px; width:100%; outline:none; transition:border-color .3s ease; }
+  #bookForm input:focus { border-color:var(--accent); }
+  #bookForm input::placeholder { color:var(--muted); }
+  #bookForm button { background:transparent; border:1px solid var(--accent); color:var(--accent); padding:10px 20px; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer; transition:all .3s ease; white-space:nowrap; }
+  #bookForm button:hover { background:var(--accent); color:var(--ink); }
+  .rec-item { border-bottom:1px solid rgba(244,241,234,0.08); padding:8px 0; font-size:13px; color:rgba(244,241,234,0.7); display:flex; gap:8px; align-items:baseline; }
+  .rec-item .bullet { color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:10px; flex-shrink:0; }
+
+  /* Pillar SVG shorthand */
+  .p-col rect, .p-col g { }
+
+.route-card{display:flex;flex-direction:column;justify-content:space-between;min-height:172px;position:relative;background:rgba(244,241,234,.035);border:1px solid rgba(244,241,234,.17);padding:26px;transition:border-color .25s,transform .25s,background .25s;text-decoration:none;border-radius:2px}
+.route-card:hover,.route-card:focus-visible{border-color:var(--accent);background:rgba(212,165,116,.075);transform:translateY(-3px)}
+.route-card .route-arrow{position:absolute;right:24px;top:21px;color:var(--accent);font-size:20px}
+@media(max-width:640px){.route-card{min-height:150px;padding:22px}}
+.page-intro{padding-top:155px;padding-bottom:65px;max-width:1400px;margin:auto;padding-left:clamp(24px,5vw,64px);padding-right:clamp(24px,5vw,64px)}
+.page-intro h1{font-size:clamp(44px,6vw,90px);font-weight:300;letter-spacing:-.04em;line-height:1.07;margin:15px 0 24px}
+
+/* Work gallery refinements */
+.work-featured{overflow:hidden;background:radial-gradient(circle at 85% 8%,rgba(212,165,116,.12),transparent 42%),linear-gradient(135deg,rgba(244,241,234,.055),rgba(244,241,234,.008));border-color:rgba(212,165,116,.32)}
+.feature-visual{min-height:210px;display:flex;align-items:center;justify-content:center;position:relative;border:1px solid rgba(212,165,116,.2);background:repeating-linear-gradient(0deg,transparent 0,transparent 29px,rgba(212,165,116,.06) 30px),repeating-linear-gradient(90deg,transparent 0,transparent 29px,rgba(212,165,116,.06) 30px);overflow:hidden}
+.feature-visual::before{content:'LEARNING / BY DESIGN';font-family:'JetBrains Mono',monospace;font-size:clamp(18px,3vw,30px);letter-spacing:.1em;color:#d4a574;transform:rotate(-7deg);border:1px solid rgba(212,165,116,.4);padding:32px 25px;max-width:85%;text-align:center}
+.feature-visual::after{content:'01 / CASE STUDY';position:absolute;bottom:15px;left:18px;color:#8b8680;font:10px 'JetBrains Mono',monospace;letter-spacing:.12em}
+.work-projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.work-projects .case-card{padding:30px;min-height:290px}
+.work-projects .case-card h3{font-size:clamp(23px,2.4vw,30px);line-height:1.18;padding-right:15px}
+.work-projects .case-card p{font-size:15px;line-height:1.75}
+.work-projects .case-card .arrow{display:none}
+.work-projects .case-card ul{margin-top:20px}
+.work-projects .case-card .grid.grid-cols-3{margin-top:20px}
+.work-projects .case-card .text-2xl{font-size:25px}
+.gallery-label{font:11px 'JetBrains Mono',monospace;color:#d4a574;letter-spacing:.22em;text-transform:uppercase}
+@media(max-width:800px){.work-projects{grid-template-columns:1fr}.work-projects .case-card{padding:24px;min-height:unset}}
+@media(prefers-reduced-motion:reduce){.work-projects .case-card,.work-featured{transition:none}}
+</style></head><body class="grain"><aside class="hidden lg:flex fixed left-6 top-0 h-screen items-center z-30 mono text-[11px] text-[#8b8680] tracking-[0.2em] uppercase">
+<span class="vertical">Eric Maray · Portfolio MMXXVI</span>
+</aside><header class="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-black/30 border-b hairline">
+<nav class="max-w-[1400px] mx-auto px-6 lg:px-16 py-5 flex items-center justify-between mono text-[12px] tracking-[0.12em] uppercase">
+<a class="flex items-center gap-2 no-underline text-[#f4f1ea]" href="/">
+<span style="color:var(--accent)">●</span>
+<span>E. Maray</span>
+<span class="text-[#8b8680] hidden sm:inline">/ L&amp;D · OD</span>
+</a>
+<ul class="hidden md:flex gap-8 text-[#8b8680] list-none"><li><a class="link-underline hover:text-[#f4f1ea]" href="/">Home</a></li><li><a class="link-underline hover:text-[#f4f1ea]" href="/philosophy/">Philosophy</a></li><li><a class="link-underline hover:text-[#f4f1ea]" href="/personal/">Personal</a></li><li><a class="link-underline hover:text-[#f4f1ea]" href="/work/">Work</a></li><li><a class="link-underline hover:text-[#f4f1ea]" href="/journey/">Journey</a></li><li><a class="link-underline hover:text-[#f4f1ea]" href="/capabilities/">Skills</a></li><li><a class="link-underline hover:text-[#f4f1ea]" href="/reading/">Reading</a></li></ul>
+<a class="hidden lg:inline-flex items-center gap-2 link-underline text-[#f4f1ea] no-underline mono text-[12px] tracking-[0.12em] uppercase" href="/contact/">
+<span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background:var(--accent)"></span>
+      Happy to chat
+    </a>
+<button class="md:hidden text-[#f4f1ea] text-xl" id="menuBtn">☰</button>
+</nav>
+</header><div class="fixed inset-0 z-50 bg-[#0a0a0a] hidden flex-col items-center justify-center gap-8 mono uppercase tracking-[0.2em]" id="mobileMenu">
+<button class="absolute top-6 right-6 text-2xl" id="closeBtn">×</button>
+<a href="/">Home</a><a href="/philosophy/">How I Think</a><a href="/personal/">Beyond the Work</a><a href="/work/">Things I’ve Built</a><a href="/journey/">Where I’ve Been</a><a href="/capabilities/">Skills &amp; Capabilities</a><a href="/reading/">What I’m Reading</a><a href="/contact/">Contact</a></div><main class="relative z-10" id="top"><div class="page-intro"><div class="mono text-[11px] uppercase tracking-[.22em] text-[#d4a574]">Eric T. Maray / Things I’ve Built</div><h1>Things I’ve Built</h1><p class="text-lg text-[#aaa39a]">Some projects and ideas put into practice.</p></div><section class="section-bg px-6 lg:px-16 py-24 max-w-[1400px] mx-auto border-t hairline" id="work">
+<!-- Blueprint grid vector -->
+<svg class="vec" style="right:0;top:0;width:300px;height:300px;opacity:0.03" viewbox="0 0 300 300">
+<g stroke="#f4f1ea" stroke-width="0.4">
+<line x1="0" x2="300" y1="50" y2="50"></line><line x1="0" x2="300" y1="100" y2="100"></line><line x1="0" x2="300" y1="150" y2="150"></line><line x1="0" x2="300" y1="200" y2="200"></line><line x1="0" x2="300" y1="250" y2="250"></line>
+<line x1="50" x2="50" y1="0" y2="300"></line><line x1="100" x2="100" y1="0" y2="300"></line><line x1="150" x2="150" y1="0" y2="300"></line><line x1="200" x2="200" y1="0" y2="300"></line><line x1="250" x2="250" y1="0" y2="300"></line>
+<circle cx="150" cy="150" fill="none" r="80"></circle><circle cx="150" cy="150" fill="none" r="40"></circle>
+<line x1="150" x2="150" y1="70" y2="230"></line><line x1="70" x2="230" y1="150" y2="150"></line>
+</g>
+</svg>
+<div class="flex items-end justify-between mb-16 gap-6 flex-wrap">
+<div>
+<div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.25em] mb-2">Selected Work</div>
+<h2 class="text-3xl md:text-5xl font-light leading-tight tracking-tight">A few things I've <em style="color:var(--accent)">worked on</em>.</h2>
+</div>
+<div class="hidden md:block mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em]">Selected projects</div>
+</div>
+<div class="section-rule mb-12"></div>
+
+
+<div class="gallery-label mb-5">01 / In depth</div><article class="case-card lg:col-span-2 group work-featured">
+<div class="grid grid-cols-12 gap-6 lg:gap-10">
+<div class="col-span-12 lg:col-span-4">
+<div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">Featured / Learning Experience Design</div>
+<h3 class="text-3xl md:text-4xl font-medium leading-tight pr-12 lg:pr-0">Designing Learning Around the Learner</h3>
+<div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.18em] mt-4">CoServ · 2024–2025</div>
+<div aria-label="Decorative learning design artwork" class="feature-visual mt-7 mb-1" role="img"></div></div>
+<div class="col-span-12 lg:col-span-7 lg:col-start-6">
+<p class="leading-relaxed text-lg" style="color:rgba(244,241,234,0.8)">A learning catalog shouldn't simply tell employees what's available. It should reflect what they actually need. I brought together employee conversations, leadership priorities, and subject-matter expertise to shape a learning experience grounded in the people it was designed to serve.</p>
+<div class="flex flex-wrap gap-2 mt-6">
+<span class="tag mono">Learning Experience Design</span>
+<span class="tag mono">Needs Analysis</span>
+<span class="tag mono">Content Curation</span>
+<span class="tag mono">Employee Development</span>
+</div>
+<a class="cta mt-8" href="/work/designing-learning-around-the-learner/"><span class="dot"></span>Explore the Case Study <span aria-hidden="true">↗</span></a>
+</div>
+</div>
+</article><div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mt-20 mb-7"><div><div class="gallery-label mb-3">02 / Across disciplines</div><h2 class="text-4xl md:text-5xl font-light tracking-tight">Other work, <em style="color:var(--accent)">other perspectives.</em></h2></div><p class="text-sm max-w-sm leading-relaxed" style="color:var(--muted)">Selected project snapshots. More in-depth stories will join the collection as they're developed.</p></div><div class="work-projects"><article class="case-card group">
+<span class="arrow">↗</span>
+
+
+<div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">01 / Learning Platform</div>
+<h3 class="text-3xl md:text-4xl font-medium leading-tight pr-12 lg:pr-0">Standing up an LMS from scratch</h3>
+<div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.18em] mt-4">CoServ Gas &amp; Electric · ~500 employees</div>
+
+<p class="leading-relaxed text-lg" style="color:rgba(244,241,234,0.8)">We didn't have an LMS before this. Rather than build a content library and ask people to find what they needed, I organized the architecture around distinct user groups — so each role landed on content relevant to their work, not just available to everyone. Role-segmented dashboards, automated reporting, SCORM/xAPI deployment across a blended workforce.</p>
+<div class="grid grid-cols-3 gap-4 mt-8 pt-6 border-t hairline">
+<div><div class="mono text-[10px] text-[#8b8680] uppercase tracking-[0.18em] mb-1">Compliance</div><div class="text-2xl" style="color:var(--accent)">97%</div><div class="text-xs" style="color:rgba(244,241,234,0.6)">company-wide</div></div>
+<div><div class="mono text-[10px] text-[#8b8680] uppercase tracking-[0.18em] mb-1">Reach</div><div class="text-2xl" style="color:var(--accent)">500+</div><div class="text-xs" style="color:rgba(244,241,234,0.6)">learners</div></div>
+<div><div class="mono text-[10px] text-[#8b8680] uppercase tracking-[0.18em] mb-1">Platforms</div><div class="text-2xl" style="color:var(--accent)">4</div><div class="text-xs" style="color:rgba(244,241,234,0.6)">stitched together</div></div>
+</div>
+<div class="flex flex-wrap gap-2 mt-6"><span class="tag mono">UKG Pro Learning</span><span class="tag mono">SCORM / xAPI</span><span class="tag mono">LMS Admin</span><span class="tag mono">Content Architecture</span></div>
+</article><article class="case-card group">
+<span class="arrow">↗</span>
+<div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">02 / Leadership Development</div>
+<h3 class="text-2xl md:text-3xl font-medium leading-tight pr-12">Developing leaders before the promotion</h3>
+<div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.18em] mt-3">CoServ · Multi-year initiative</div>
+<p class="leading-relaxed mt-6" style="color:rgba(244,241,234,0.75)">The pattern was clear: people were stepping into leadership roles without the foundation they needed, and it was showing in the teams around them. I made the formal case to leadership, earned the buy-in, and built a development track that started before the promotion — so the first day in a new seat wasn't also the first day learning how to lead.</p>
+<ul class="mt-6 space-y-2 text-sm list-none" style="color:rgba(244,241,234,0.7)">
+<li class="flex gap-3"><span class="mono" style="color:var(--accent)">→</span>Improved retention and pipeline depth</li>
+<li class="flex gap-3"><span class="mono" style="color:var(--accent)">→</span>Role-based, multi-year progression</li>
+<li class="flex gap-3"><span class="mono" style="color:var(--accent)">→</span>Built alongside senior leadership</li>
+</ul>
+<div class="flex flex-wrap gap-2 mt-6"><span class="tag mono">Succession Planning</span><span class="tag mono">Competency Mapping</span><span class="tag mono">ADDIE</span></div>
+</article><article class="case-card group">
+<span class="arrow">↗</span>
+<div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">03 / Engagement</div>
+<h3 class="text-2xl md:text-3xl font-medium leading-tight pr-12">A weekly safety series, all year</h3>
+<div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.18em] mt-3">Mustang Special Utility District · 2025–2026</div>
+<p class="leading-relaxed mt-6" style="color:rgba(244,241,234,0.75)">One-off compliance posts disappear. This is a 52-week series where each month builds on the last — treating safety as a habit being formed rather than a topic being covered. Behavior-focused, cumulative, woven into the regular work rhythm rather than added on top of it.</p>
+<ul class="mt-6 space-y-2 text-sm list-none" style="color:rgba(244,241,234,0.7)">
+<li class="flex gap-3"><span class="mono" style="color:var(--accent)">→</span>Behavior-focused rather than checklist-focused</li>
+<li class="flex gap-3"><span class="mono" style="color:var(--accent)">→</span>Themes that build cumulatively</li>
+<li class="flex gap-3"><span class="mono" style="color:var(--accent)">→</span>Integrated into the regular work rhythm</li>
+</ul>
+<div class="flex flex-wrap gap-2 mt-6"><span class="tag mono">Safety Culture</span><span class="tag mono">Internal Comms</span><span class="tag mono">Behavioral Design</span></div>
+</article><article class="case-card group"><span class="arrow">↗</span><div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">04 / Safety</div><h3 class="text-xl font-medium leading-tight pr-12">Four years without a major incident</h3><p class="text-sm mt-4 leading-relaxed" style="color:rgba(244,241,234,0.7)">Zero major OSHA incidents over four consecutive years at a fast-growing utility. The field crews deserve most of that credit. My contribution was helping shift safety training from an annual event into something woven into how people worked day to day.</p></article><article class="case-card group"><span class="arrow">↗</span><div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">05 / Vendor Work</div><h3 class="text-xl font-medium leading-tight pr-12">Cleaning up a vendor relationship</h3><p class="text-sm mt-4 leading-relaxed" style="color:rgba(244,241,234,0.7)">Found pricing inconsistencies in a long-running vendor relationship, documented the financial impact, and worked through a renegotiation. Recovered around $15K annually that the organization had been quietly overpaying.</p></article><article class="case-card group"><span class="arrow">↗</span><div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">06 / Onboarding</div><h3 class="text-xl font-medium leading-tight pr-12">Smoothing out the new-hire experience</h3><p class="text-sm mt-4 leading-relaxed" style="color:rgba(244,241,234,0.7)">New hires were having very different first-week experiences depending on role and manager. Reworked the intake materials and feedback loops to make the early days more consistent — regardless of which door someone came in through.</p></article></div></section><section class="px-6 lg:px-16 py-16 max-w-[1400px] mx-auto border-t hairline"><span class="mono text-[11px] uppercase tracking-[.2em] text-[#d4a574]">Keep exploring</span><div class="flex flex-wrap gap-5 mt-6"><a class="cta-ghost" href="/">Back to introduction ↗</a><a class="cta-ghost" href="/contact/">Say hello ↗</a></div></section></main><footer class="relative z-10 px-6 lg:px-16 py-10 mx-auto max-w-[1400px] border-t hairline flex flex-wrap gap-6 justify-between mono text-[11px] uppercase tracking-[0.14em] text-[#8b8680]">
+<span>© 2026 Eric T. Maray · Semper Prorsum · Always Forward</span><div class="flex gap-6"><a href="/">Home</a><a href="/work/">Work</a><a href="/contact/">Say hello ↗</a></div></footer><script>
+  const clock = document.getElementById('clock');
+  function tick() {
+    const opts = { hour:'2-digit', minute:'2-digit', timeZone:'America/Chicago', hour12:false };
+    if (clock) clock.textContent = `DEN · ${new Date().toLocaleTimeString('en-US', opts)}`;
+  }
+  tick(); setInterval(tick, 30000);
+
+  const menuBtn = document.getElementById('menuBtn');
+  const closeBtn = document.getElementById('closeBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => { mobileMenu.classList.remove('hidden'); mobileMenu.classList.add('flex'); });
+  closeBtn.addEventListener('click', () => { mobileMenu.classList.add('hidden'); mobileMenu.classList.remove('flex'); });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mobileMenu.classList.add('hidden'); mobileMenu.classList.remove('flex'); }));
+
+  function submitBook(e) {
+    e.preventDefault();
+    const title = document.getElementById('bookTitle').value.trim();
+    const author = document.getElementById('bookAuthor').value.trim();
+    const note = document.getElementById('bookNote').value.trim();
+    if (!title) return;
+    const subject = encodeURIComponent('Book recommendation: ' + title);
+    const body = encodeURIComponent(`Title: ${title}\nAuthor: ${author}\nWhy it stuck: ${note}`);
+    window.location.href = `mailto:ericmaray@gmail.com?subject=${subject}&body=${body}`;
+  }
+</script></body></html>
