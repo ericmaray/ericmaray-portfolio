@@ -118,6 +118,35 @@
 .checklist-cover-frame{width:100%;height:78%;transform:rotate(-6deg);border:1px solid #a8794a;display:flex;flex-direction:column;justify-content:center;gap:21px;padding:18px;color:#d4a574;font:400 22px/1.35 'JetBrains Mono',monospace;letter-spacing:.12em}
 .checklist-cover-frame strong{font-weight:400}.checklist-cover-frame span{font-size:8px;letter-spacing:.16em;color:#a79e95}
 @media(max-width:450px){.checklist-cover-frame{font-size:18px}}
+
+.safety-cover{width:100%;max-width:296px;aspect-ratio:1.35;border:1px solid #59483b;background:radial-gradient(circle at 80% 10%,#344a54,transparent 55%),linear-gradient(135deg,#10181c,#0d0d0d);display:flex;align-items:center;justify-content:center;padding:18px;box-shadow:0 20px 40px #0008;overflow:hidden}.safety-cover-inner{border:1px solid #b68e65;transform:rotate(-4deg);padding:22px 17px;width:100%;color:#d4a574;font:400 22px/1.36 'JetBrains Mono',monospace;letter-spacing:.08em}.safety-cover-inner span{display:block;margin-top:16px;font-size:9px;color:#aea39b;letter-spacing:.16em}@media(max-width:450px){.safety-cover-inner{font-size:18px}}
+
+/* Unified case study cover system — same dimensions and typographic hierarchy across all four cards. */
+.series-cover{
+  width:100%;max-width:296px;aspect-ratio:1.35;
+  display:flex;align-items:center;justify-content:center;
+  padding:18px;overflow:hidden;
+  background:radial-gradient(circle at 78% 16%,rgba(212,165,116,.12),transparent 57%),
+    repeating-linear-gradient(0deg,transparent 0 25px,rgba(255,255,255,.018) 26px),#13110f;
+  border:1px solid #59483b;box-shadow:0 20px 40px rgba(0,0,0,.52);
+}
+.series-cover-frame{
+  width:100%;height:79%;border:1px solid #ae8253;
+  padding:16px 19px;display:flex;flex-direction:column;
+  align-items:flex-start;justify-content:center;gap:14px;
+  transform:rotate(-4deg);
+}
+.series-cover-title{
+  display:flex;flex-direction:column;gap:2px;
+  font:400 clamp(15px,1.65vw,20px)/1.3 'JetBrains Mono',monospace;
+  color:#d4a574;letter-spacing:.105em;
+}
+.series-cover-line{display:block;white-space:nowrap}
+.series-cover-number{
+  display:block;color:#a9a095;font:400 9px/1.5 'JetBrains Mono',monospace;
+  letter-spacing:.14em;
+}
+@media(max-width:450px){.series-cover-title{font-size:17px}.series-cover-frame{padding:12px 15px}}
 </style></head><body class="grain"><aside class="hidden lg:flex fixed left-6 top-0 h-screen items-center z-30 mono text-[11px] text-[#8b8680] tracking-[0.2em] uppercase">
 <span class="vertical">Eric Maray · Portfolio MMXXVI</span>
 </aside><header class="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-black/30 border-b hairline">
@@ -160,7 +189,7 @@
 <div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">Featured / Learning Experience Design</div>
 <h3 class="text-3xl md:text-4xl font-medium leading-tight pr-12 lg:pr-0">Designing Learning Around the Learner</h3>
 <div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.18em] mt-4">CoServ · 2024–2025</div>
-<div aria-label="Decorative learning design artwork" class="feature-visual mt-7 mb-1" role="img"></div></div>
+<div class="series-cover mt-7" role="img" aria-label="Case study 01: Learning by Design"><div class="series-cover-frame"><div class="series-cover-title"><span class="series-cover-line">LEARNING</span><span class="series-cover-line">BY DESIGN</span></div><span class="series-cover-number">01 / CASE STUDY</span></div></div></div>
 <div class="col-span-12 lg:col-span-7 lg:col-start-6">
 <p class="leading-relaxed text-lg" style="color:rgba(244,241,234,0.8)">A learning catalog shouldn't simply tell employees what's available. It should reflect what they actually need. I brought together employee conversations, leadership priorities, and subject-matter expertise to shape a learning experience grounded in the people it was designed to serve.</p>
 <div class="flex flex-wrap gap-2 mt-6">
@@ -172,7 +201,7 @@
 <a class="cta mt-8" href="/work/designing-learning-around-the-learner/"><span class="dot"></span>Explore the Case Study <span aria-hidden="true">↗</span></a>
 </div>
 </div>
-</article><div class="gallery-label mb-5 mt-12">02 / In depth</div><article class="case-card group work-featured"><div class="grid grid-cols-12 gap-6 lg:gap-10"><div class="col-span-12 lg:col-span-4"><div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">Featured / Learning Communications</div><h3 class="text-3xl md:text-4xl font-medium leading-tight pr-12 lg:pr-0">Beyond the Reminder</h3><div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.18em] mt-4">Denton County Electric Cooperative · 2024–2025</div><a aria-label="Explore the monthly learning newsletter case study" class="block mt-7" href="/work/monthly-learning-newsletter/"><img alt="Beyond the Reminder — dark and gold case study cover illustration" height="1086" loading="lazy" src="/work/monthly-learning-newsletter/assets/beyond-the-reminder-cover.webp" style="max-width:296px;width:100%;height:auto;object-fit:contain;border:1px solid #59483b;background:#101010;box-shadow:0 20px 40px #0008" width="1448"/></a></div><div class="col-span-12 lg:col-span-7 lg:col-start-6"><p class="leading-relaxed text-lg" style="color:rgba(244,241,234,0.8)">The monthly newsletter had a practical job: keep training visible. I used that familiar channel to connect required learning with course opportunities, timely resources, and questions that invited employees to think beyond the next deadline.</p><div class="flex flex-wrap gap-2 mt-6"><span class="tag mono">Learning Communications</span><span class="tag mono">Content Strategy</span><span class="tag mono">Visual Design</span><span class="tag mono">Employee Development</span></div><a class="cta mt-8" href="/work/monthly-learning-newsletter/"><span class="dot"></span>Explore the Case Study <span aria-hidden="true">↗</span></a></div></div></article><div class="gallery-label mb-5 mt-12">03 / In depth</div>
+</article><div class="gallery-label mb-5 mt-12">02 / In depth</div><article class="case-card group work-featured"><div class="grid grid-cols-12 gap-6 lg:gap-10"><div class="col-span-12 lg:col-span-4"><div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">Featured / Learning Communications</div><h3 class="text-3xl md:text-4xl font-medium leading-tight pr-12 lg:pr-0">Beyond the Reminder</h3><div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.18em] mt-4">Denton County Electric Cooperative · 2024–2025</div><a aria-label="Explore the monthly learning newsletter case study" class="block mt-7" href="/work/monthly-learning-newsletter/"><div class="series-cover" role="img" aria-label="Case study 02: Beyond the Reminder"><div class="series-cover-frame"><div class="series-cover-title"><span class="series-cover-line">BEYOND</span><span class="series-cover-line">THE REMINDER</span></div><span class="series-cover-number">02 / CASE STUDY</span></div></div></a></div><div class="col-span-12 lg:col-span-7 lg:col-start-6"><p class="leading-relaxed text-lg" style="color:rgba(244,241,234,0.8)">The monthly newsletter had a practical job: keep training visible. I used that familiar channel to connect required learning with course opportunities, timely resources, and questions that invited employees to think beyond the next deadline.</p><div class="flex flex-wrap gap-2 mt-6"><span class="tag mono">Learning Communications</span><span class="tag mono">Content Strategy</span><span class="tag mono">Visual Design</span><span class="tag mono">Employee Development</span></div><a class="cta mt-8" href="/work/monthly-learning-newsletter/"><span class="dot"></span>Explore the Case Study <span aria-hidden="true">↗</span></a></div></div></article><div class="gallery-label mb-5 mt-12">03 / In depth</div>
 <article class="case-card group work-featured">
   <div class="grid grid-cols-12 gap-6 lg:gap-10">
     <div class="col-span-12 lg:col-span-4">
@@ -180,9 +209,7 @@
       <h3 class="text-3xl md:text-4xl font-medium leading-tight pr-12 lg:pr-0">Beyond the Checklist</h3>
       <div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.18em] mt-4">Mustang Special Utility District · 2026</div>
       <a class="block mt-7" href="/work/beyond-the-checklist/" aria-label="Explore the Beyond the Checklist case study">
-        <div class="checklist-cover" role="img" aria-label="Graphic reading SYSTEMS / BY DESIGN, 03 / CASE STUDY">
-           <div class="checklist-cover-frame"><strong>SYSTEMS /<br>BY DESIGN</strong><span>03 / CASE STUDY</span></div>
-        </div>
+        <div class="series-cover" role="img" aria-label="Case study 03: Systems by Design"><div class="series-cover-frame"><div class="series-cover-title"><span class="series-cover-line">SYSTEMS</span><span class="series-cover-line">BY DESIGN</span></div><span class="series-cover-number">03 / CASE STUDY</span></div></div>
       </a>
     </div>
     <div class="col-span-12 lg:col-span-7 lg:col-start-6">
@@ -192,7 +219,15 @@
     </div>
   </div>
 </article>
-<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mt-20 mb-7"><div><div class="gallery-label mb-3">04 / Across disciplines</div><h2 class="text-4xl md:text-5xl font-light tracking-tight">Other work, <em style="color:var(--accent)">other perspectives.</em></h2></div><p class="text-sm max-w-sm leading-relaxed" style="color:var(--muted)">Selected project snapshots. More in-depth stories will join the collection as they're developed.</p></div><div class="work-projects"><article class="case-card group">
+<div class="gallery-label mb-5 mt-12">04 / In depth</div>
+<article class="case-card lg:col-span-2 group work-featured"><div class="grid grid-cols-12 gap-6 lg:gap-10"><div class="col-span-12 lg:col-span-4">
+<div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">Featured / Digital Safety Systems</div>
+<h3 class="text-3xl md:text-4xl font-medium leading-tight pr-12 lg:pr-0">From Reporting to Response</h3>
+<div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.18em] mt-4">Mustang Special Utility District · 2025–2026</div>
+<a class="block mt-7" href="/work/safety-reporting-ehs/" aria-label="Explore the Safety Reporting and EHS case study"><div class="series-cover" role="img" aria-label="Case study 04: Report and Respond"><div class="series-cover-frame"><div class="series-cover-title"><span class="series-cover-line">REPORT</span><span class="series-cover-line">RESPOND</span></div><span class="series-cover-number">04 / CASE STUDY</span></div></div></a></div>
+<div class="col-span-12 lg:col-span-7 lg:col-start-6"><p class="leading-relaxed text-lg" style="color:rgba(244,241,234,0.8)">I redesigned the employee safety-reporting experience around one adaptive Jotform and began building the broader EHS workflows around it—connecting accessible reporting, relevant information, and a clearer path to follow-through.</p><div class="flex flex-wrap gap-2 mt-6"><span class="tag mono">Systems Design</span><span class="tag mono">Jotform</span><span class="tag mono">Microsoft 365</span><span class="tag mono">Safety Culture</span></div><a class="cta mt-8" href="/work/safety-reporting-ehs/"><span class="dot"></span>Explore the Case Study <span aria-hidden="true">↗</span></a></div></div></article>
+<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mt-20 mb-7"><div>
+<div class="gallery-label mb-3">05 / Across disciplines</div><h2 class="text-4xl md:text-5xl font-light tracking-tight">Other work, <em style="color:var(--accent)">other perspectives.</em></h2></div><p class="text-sm max-w-sm leading-relaxed" style="color:var(--muted)">Selected project snapshots. More in-depth stories will join the collection as they're developed.</p></div><div class="work-projects"><article class="case-card group">
 <span class="arrow">↗</span>
 <div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">01 / Learning Platform</div>
 <h3 class="text-3xl md:text-4xl font-medium leading-tight pr-12 lg:pr-0">Standing up an LMS from scratch</h3>
