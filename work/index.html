@@ -147,54 +147,25 @@
   letter-spacing:.14em;
 }
 @media(max-width:450px){.series-cover-title{font-size:17px}.series-cover-frame{padding:12px 15px}}
-  
-.image-lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background: rgba(0, 0, 0, 0.92);
-  border: none;
-  padding: 60px 24px 24px;
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  max-height: none;
-  box-sizing: border-box;
-}
 
-.image-lightbox:not([open]) {
-  display: none;
+/* Reusable image lightbox: on-page popup with keyboard support */
+.portfolio-lightbox {
+  position:fixed; inset:0; z-index:9999;
+  box-sizing:border-box; width:100vw; max-width:none;
+  height:100dvh; max-height:none; margin:0;
+  border:0; padding:64px 20px 24px;
+  background:rgba(6,6,6,.96); color:#f4f1ea;
+  overflow:auto;
 }
+.portfolio-lightbox:not([open]){display:none}
+.portfolio-lightbox[open]{display:flex; align-items:center; justify-content:center}
+.portfolio-lightbox::backdrop{background:rgba(0,0,0,.91)}
+.portfolio-lightbox img{display:block; max-width:min(96%,1600px); max-height:calc(100dvh - 96px); width:auto; height:auto; object-fit:contain; margin:auto; border:1px solid rgba(212,165,116,.3)}
+.portfolio-lightbox-close{position:fixed; top:16px; right:20px; width:44px; height:44px; border:1px solid rgba(244,241,234,.35); border-radius:50%; background:#212121; color:#f4f1ea; font-size:26px; line-height:1; cursor:pointer; z-index:1}
+.portfolio-lightbox-close:hover,.portfolio-lightbox-close:focus-visible{border-color:#d4a574;color:#d4a574}
+a[data-lightbox]{cursor:zoom-in}
+@media(max-width:640px){.portfolio-lightbox{padding:72px 12px 20px}.portfolio-lightbox-close{right:12px;top:12px}.portfolio-lightbox img{max-width:100%;max-height:calc(100dvh - 105px)}}
 
-.image-lightbox[open] {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.image-lightbox img {
-  display: block;
-  max-width: 95%;
-  max-height: 90%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-}
-
-.lightbox-close {
-  position: absolute;
-  top: 20px;
-  right: 24px;
-  width: 42px;
-  height: 42px;
-  border: 1px solid rgba(244,241,234,0.35);
-  border-radius: 50%;
-  background: #222;
-  color: #f4f1ea;
-  font-size: 26px;
-  cursor: pointer;
-}
-  
 </style></head><body class="grain"><aside class="hidden lg:flex fixed left-6 top-0 h-screen items-center z-30 mono text-[11px] text-[#8b8680] tracking-[0.2em] uppercase">
 <span class="vertical">Eric Maray · Portfolio MMXXVI</span>
 </aside><header class="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-black/30 border-b hairline">
@@ -236,7 +207,7 @@
 <div class="col-span-12 lg:col-span-4">
 <div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">Featured / Learning Experience Design</div>
 <h3 class="text-3xl md:text-4xl font-medium leading-tight pr-12 lg:pr-0">Designing Learning Around the Learner</h3>
-<div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.18em] mt-4">CoServ (Denton County Electric Cooperative) · 2024–2025</div>
+<div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.18em] mt-4">CoServ · 2024–2025</div>
 <div class="series-cover mt-7" role="img" aria-label="Case study 01: Learning by Design"><div class="series-cover-frame"><div class="series-cover-title"><span class="series-cover-line">LEARNING</span><span class="series-cover-line">BY DESIGN</span></div><span class="series-cover-number">01 / CASE STUDY</span></div></div></div>
 <div class="col-span-12 lg:col-span-7 lg:col-start-6">
 <p class="leading-relaxed text-lg" style="color:rgba(244,241,234,0.8)">A learning catalog shouldn't simply tell employees what's available. It should reflect what they actually need. I brought together employee conversations, leadership priorities, and subject-matter expertise to shape a learning experience grounded in the people it was designed to serve.</p>
@@ -249,7 +220,7 @@
 <a class="cta mt-8" href="/work/designing-learning-around-the-learner/"><span class="dot"></span>Explore the Case Study <span aria-hidden="true">↗</span></a>
 </div>
 </div>
-</article><div class="gallery-label mb-5 mt-12">02 / In depth</div><article class="case-card group work-featured"><div class="grid grid-cols-12 gap-6 lg:gap-10"><div class="col-span-12 lg:col-span-4"><div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">Featured / Learning Communications</div><h3 class="text-3xl md:text-4xl font-medium leading-tight pr-12 lg:pr-0">Beyond the Reminder</h3><div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.18em] mt-4">CoServ (Denton County Electric Cooperative) · 2024–2025</div><a aria-label="Explore the monthly learning newsletter case study" class="block mt-7" href="/work/monthly-learning-newsletter/"><div class="series-cover" role="img" aria-label="Case study 02: Beyond the Reminder"><div class="series-cover-frame"><div class="series-cover-title"><span class="series-cover-line">BEYOND</span><span class="series-cover-line">THE REMINDER</span></div><span class="series-cover-number">02 / CASE STUDY</span></div></div></a></div><div class="col-span-12 lg:col-span-7 lg:col-start-6"><p class="leading-relaxed text-lg" style="color:rgba(244,241,234,0.8)">The monthly newsletter had a practical job: keep training visible. I used that familiar channel to connect required learning with course opportunities, timely resources, and questions that invited employees to think beyond the next deadline.</p><div class="flex flex-wrap gap-2 mt-6"><span class="tag mono">Learning Communications</span><span class="tag mono">Content Strategy</span><span class="tag mono">Visual Design</span><span class="tag mono">Employee Development</span></div><a class="cta mt-8" href="/work/monthly-learning-newsletter/"><span class="dot"></span>Explore the Case Study <span aria-hidden="true">↗</span></a></div></div></article><div class="gallery-label mb-5 mt-12">03 / In depth</div>
+</article><div class="gallery-label mb-5 mt-12">02 / In depth</div><article class="case-card group work-featured"><div class="grid grid-cols-12 gap-6 lg:gap-10"><div class="col-span-12 lg:col-span-4"><div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">Featured / Learning Communications</div><h3 class="text-3xl md:text-4xl font-medium leading-tight pr-12 lg:pr-0">Beyond the Reminder</h3><div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.18em] mt-4">Denton County Electric Cooperative · 2024–2025</div><a aria-label="Explore the monthly learning newsletter case study" class="block mt-7" href="/work/monthly-learning-newsletter/"><div class="series-cover" role="img" aria-label="Case study 02: Beyond the Reminder"><div class="series-cover-frame"><div class="series-cover-title"><span class="series-cover-line">BEYOND</span><span class="series-cover-line">THE REMINDER</span></div><span class="series-cover-number">02 / CASE STUDY</span></div></div></a></div><div class="col-span-12 lg:col-span-7 lg:col-start-6"><p class="leading-relaxed text-lg" style="color:rgba(244,241,234,0.8)">The monthly newsletter had a practical job: keep training visible. I used that familiar channel to connect required learning with course opportunities, timely resources, and questions that invited employees to think beyond the next deadline.</p><div class="flex flex-wrap gap-2 mt-6"><span class="tag mono">Learning Communications</span><span class="tag mono">Content Strategy</span><span class="tag mono">Visual Design</span><span class="tag mono">Employee Development</span></div><a class="cta mt-8" href="/work/monthly-learning-newsletter/"><span class="dot"></span>Explore the Case Study <span aria-hidden="true">↗</span></a></div></div></article><div class="gallery-label mb-5 mt-12">03 / In depth</div>
 <article class="case-card group work-featured">
   <div class="grid grid-cols-12 gap-6 lg:gap-10">
     <div class="col-span-12 lg:col-span-4">
@@ -277,255 +248,123 @@
 <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mt-20 mb-7"><div>
 <div class="gallery-label mb-3">05 / Across disciplines</div><h2 class="text-4xl md:text-5xl font-light tracking-tight">Other work, <em style="color:var(--accent)">other perspectives.</em></h2></div><p class="text-sm max-w-sm leading-relaxed" style="color:var(--muted)">Selected project snapshots. More in-depth stories will join the collection as they're developed.</p></div><div class="work-projects">
 <article class="case-card group" style="display:flex;flex-direction:column">
-  <div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">01 / Safety Communications</div>
-  <h3 class="text-xl font-medium leading-tight">Safety Spotlight: Building awareness, one week at a time</h3>
-  <div class="mono text-[10px] text-[#8b8680] uppercase tracking-[0.18em] mt-3">Mustang Special Utility District · 2026</div>
-  <p class="text-sm mt-4 leading-relaxed" style="color:rgba(244,241,234,0.75)">
+<div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">01 / Safety Communications</div>
+<h3 class="text-xl font-medium leading-tight">Safety Spotlight: Building awareness, one week at a time</h3>
+<div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.18em] mt-3">Mustang Special Utility District · 2026</div>
+<p class="text-sm mt-4 leading-relaxed" style="color:rgba(244,241,234,0.75)">
     I designed Safety Spotlight 2026 as a yearlong communication strategy: 12 monthly safety themes, with weekly messages intended to build on one another. Instead of isolated reminders, the structure connected awareness, practical understanding, reflection, and reinforcement across operational safety, employee well-being, and emerging workplace risks.
   </p>
-  <div class="flex flex-wrap gap-2 mt-6">
-    <span class="tag mono">Safety Communications</span>
-    <span class="tag mono">Content Strategy</span>
-    <span class="tag mono">Learning Reinforcement</span>
-    <span class="tag mono">Employee Engagement</span>
-  </div>
-  
-  <div class="grid grid-cols-3 gap-3 mt-6 pt-5 border-t hairline" aria-label="Project highlights">
-    <div><div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">Themes</div><div class="text-xl mt-1" style="color:var(--accent)">12</div><div class="text-[11px] leading-snug" style="color:#aaa39a">monthly safety topics</div></div>
-    <div><div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">Cadence</div><div class="text-xl mt-1" style="color:var(--accent)">52</div><div class="text-[11px] leading-snug" style="color:#aaa39a">weekly messages planned</div></div>
-  </div>
-
-
-   <details class="mt-6" style="border-top:1px solid rgba(244,241,234,.14);padding-top:18px">
-    <summary class="mono cursor-pointer text-sm" style="color:var(--accent);letter-spacing:.04em">
-      View Safety Spotlight plan
+<div class="flex flex-wrap gap-2 mt-6">
+<span class="tag mono">Safety Communications</span>
+<span class="tag mono">Content Strategy</span>
+<span class="tag mono">Learning Reinforcement</span>
+<span class="tag mono">Employee Engagement</span>
+</div>
+<div aria-label="Project highlights" class="grid grid-cols-3 gap-3 mt-6 pt-5 border-t hairline">
+<div><div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">Themes</div><div class="text-xl mt-1" style="color:var(--accent)">12</div><div class="text-[11px] leading-snug" style="color:#aaa39a">monthly safety topics</div></div>
+<div><div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">Cadence</div><div class="text-xl mt-1" style="color:var(--accent)">52</div><div class="text-[11px] leading-snug" style="color:#aaa39a">weekly messages planned</div></div>
+<div><div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">Progression</div><div class="text-xl mt-1" style="color:var(--accent)">4</div><div class="text-[11px] leading-snug" style="color:#aaa39a">illustrative stages</div></div>
+</div>
+<details class="mt-6" style="border-top:1px solid rgba(244,241,234,.14);padding-top:18px">
+<summary class="mono cursor-pointer" style="color:var(--accent);font-size:12px;letter-spacing:.025em;line-height:1.6">
+      Safety Spotlight plan
     </summary>
-    <div class="mt-5" style="border:1px solid rgba(212,165,116,.26);background:rgba(12,12,12,.58);padding:clamp(14px,2.5vw,25px)">
-      <div class="mono uppercase text-[10px] tracking-[.18em]" style="color:var(--accent)">The annual architecture</div>
-      <p class="mt-2 mb-5 text-sm" style="color:rgba(244,241,234,.75)">One topic per month. A connected communication rhythm from week to week.</p>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-2" aria-label="Safety Spotlight 2026 monthly themes">
-        <div class="p-3" style="border:1px solid #554537"><span class="mono text-[10px]" style="color:var(--accent)">JAN</span><p class="text-sm mt-1 mb-0">Safety as Our Foundation</p></div>
-        <div class="p-3" style="border:1px solid #554537"><span class="mono text-[10px]" style="color:var(--accent)">FEB</span><p class="text-sm mt-1 mb-0">Reporting &amp; Safety Systems</p></div>
-        <div class="p-3" style="border:1px solid #554537"><span class="mono text-[10px]" style="color:var(--accent)">MAR</span><p class="text-sm mt-1 mb-0">Slips, Trips, &amp; Falls</p></div>
-        <div class="p-3" style="border:1px solid #554537"><span class="mono text-[10px]" style="color:var(--accent)">APR</span><p class="text-sm mt-1 mb-0">Vehicle &amp; Driving Safety</p></div>
-        <div class="p-3" style="border:1px solid #554537"><span class="mono text-[10px]" style="color:var(--accent)">MAY</span><p class="text-sm mt-1 mb-0">Mental Health Awareness</p></div>
-        <div class="p-3" style="border:1px solid #554537"><span class="mono text-[10px]" style="color:var(--accent)">JUN</span><p class="text-sm mt-1 mb-0">Heat Stress &amp; Hydration</p></div>
-        <div class="p-3" style="border:1px solid #554537"><span class="mono text-[10px]" style="color:var(--accent)">JUL</span><p class="text-sm mt-1 mb-0">PPE &amp; Equipment Safety</p></div>
-        <div class="p-3" style="border:1px solid #554537"><span class="mono text-[10px]" style="color:var(--accent)">AUG</span><p class="text-sm mt-1 mb-0">Physical Wellness</p></div>
-        <div class="p-3" style="border:1px solid #554537"><span class="mono text-[10px]" style="color:var(--accent)">SEP</span><p class="text-sm mt-1 mb-0">Emergency Preparedness</p></div>
-        <div class="p-3" style="border:1px solid #554537"><span class="mono text-[10px]" style="color:var(--accent)">OCT</span><p class="text-sm mt-1 mb-0">Cybersecurity Awareness</p></div>
-        <div class="p-3" style="border:1px solid #554537"><span class="mono text-[10px]" style="color:var(--accent)">NOV</span><p class="text-sm mt-1 mb-0">Electrical Safety</p></div>
-        <div class="p-3" style="border:1px solid #554537"><span class="mono text-[10px]" style="color:var(--accent)">DEC</span><p class="text-sm mt-1 mb-0">Holiday Safety &amp; Reflection</p></div>
-      </div>
-      <div class="mono uppercase text-[10px] tracking-[.18em] mt-7" style="color:var(--accent)">Within each theme · Example of weekly learning progression</div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 mt-3">
-        <div class="p-3" style="background:#221c17;border-top:2px solid #d4a574"><span class="mono text-[10px]" style="color:var(--accent)">WEEK 01</span><strong class="block mt-2 text-base font-normal">Introduce</strong><p class="text-xs mt-1 mb-0" style="color:#c7bdb2">Why the topic matters</p></div>
-        <div class="p-3" style="background:#221c17;border-top:2px solid #d4a574"><span class="mono text-[10px]" style="color:var(--accent)">WEEK 02</span><strong class="block mt-2 text-base font-normal">Understand</strong><p class="text-xs mt-1 mb-0" style="color:#c7bdb2">Recognize risks and practices</p></div>
-        <div class="p-3" style="background:#221c17;border-top:2px solid #d4a574"><span class="mono text-[10px]" style="color:var(--accent)">WEEK 03</span><strong class="block mt-2 text-base font-normal">Apply</strong><p class="text-xs mt-1 mb-0" style="color:#c7bdb2">Connect the idea to field and office employees</p></div>
-        <div class="p-3" style="background:#221c17;border-top:2px solid #d4a574"><span class="mono text-[10px]" style="color:var(--accent)">WEEK 04</span><strong class="block mt-2 text-base font-normal">Reinforce</strong><p class="text-xs mt-1 mb-0" style="color:#c7bdb2">Reflect and carry the lesson forward</p></div>
-      </div>
-      <p class="text-xs mt-4 mb-0" style="color:#aaa39a;line-height:1.7">Portfolio reconstruction of the planned learning strategy. The four weekly stages illustrate the sequencing approach; they are not copies of published messages or evidence that all 52 installments were delivered.</p>
-    </div>
-  </details>
-</article>
-
-<article class="case-card group" style="display:flex;flex-direction:column">
-  <div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">02 / Onboarding &amp; Employee Experience</div>
-  <h3 class="text-xl font-medium leading-tight">Redesigning onboarding around culture and role readiness</h3>
-  <div class="mono text-[10px] text-[#8b8680] uppercase tracking-[0.15em] mt-3">Mustang Special Utility District · 2026</div>
-  <p class="text-sm mt-4 leading-relaxed" style="color:rgba(244,241,234,.77)">I modernized pre-hire checklists that were more than two years out of date, developed role-appropriate e-learning paths for exempt and nonexempt employees, and rebuilt orientation around Respect, Integrity, Safety, and Innovation.</p>
-  <p class="text-sm mt-4 leading-relaxed" style="color:rgba(244,241,234,.77)">Instead of leading with rules, the presentation connected policies, Paycom, safety systems, and operational technology to how employees experience the organization.</p>
-
- <div class="grid grid-cols-3 gap-3 mt-6 pt-5 border-t hairline"
-     aria-label="Project highlights">
-
-  <div>
-    <div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">
-      Orientation
-    </div>
-    <div class="text-xl mt-1" style="color:var(--accent)">
-      Values-Based
-    </div>
-    <div class="text-[11px] leading-snug" style="color:#aaa39a">
-      connected culture to practice
-    </div>
-  </div>
-
-  <div>
-    <div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">
-      Learning Design
-    </div>
-    <div class="text-xl mt-1" style="color:var(--accent)">
-      Role-Based
-    </div>
-    <div class="text-[11px] leading-snug" style="color:#aaa39a">
-      tailored to employee needs
-    </div>
-  </div>
-
-  <div>
-    <div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">
-      Process Improvement
-    </div>
-    <div class="text-xl mt-1" style="color:var(--accent)">
-      Onboarding
-    </div>
-    <div class="text-[11px] leading-snug" style="color:#aaa39a">
-      rebuilt workflows
-    </div>
-  </div>
-
+<div class="mt-5" style="border:1px solid rgba(212,165,116,.26);background:rgba(12,12,12,.58);padding:clamp(14px,2.5vw,25px)">
+<div class="mono uppercase text-[10px] tracking-[.18em]" style="color:var(--accent)">The annual architecture</div>
+<p class="mt-2 mb-5 text-sm" style="color:rgba(244,241,234,.75)">One topic per month. A connected communication rhythm from week to week.</p>
+<div aria-label="Safety Spotlight 2026 monthly themes" class="grid grid-cols-2 md:grid-cols-3 gap-2">
+<div class="p-3" style="border:1px solid #554537"><span class="mono text-[10px]" style="color:var(--accent)">JAN</span><p class="text-sm mt-1 mb-0">Safety as Our Foundation</p></div>
+<div class="p-3" style="border:1px solid #554537"><span class="mono text-[10px]" style="color:var(--accent)">FEB</span><p class="text-sm mt-1 mb-0">Reporting &amp; Safety Systems</p></div>
+<div class="p-3" style="border:1px solid #554537"><span class="mono text-[10px]" style="color:var(--accent)">MAR</span><p class="text-sm mt-1 mb-0">Slips, Trips, &amp; Falls</p></div>
+<div class="p-3" style="border:1px solid #554537"><span class="mono text-[10px]" style="color:var(--accent)">APR</span><p class="text-sm mt-1 mb-0">Vehicle &amp; Driving Safety</p></div>
+<div class="p-3" style="border:1px solid #554537"><span class="mono text-[10px]" style="color:var(--accent)">MAY</span><p class="text-sm mt-1 mb-0">Mental Health Awareness</p></div>
+<div class="p-3" style="border:1px solid #554537"><span class="mono text-[10px]" style="color:var(--accent)">JUN</span><p class="text-sm mt-1 mb-0">Heat Stress &amp; Hydration</p></div>
+<div class="p-3" style="border:1px solid #554537"><span class="mono text-[10px]" style="color:var(--accent)">JUL</span><p class="text-sm mt-1 mb-0">PPE &amp; Equipment Safety</p></div>
+<div class="p-3" style="border:1px solid #554537"><span class="mono text-[10px]" style="color:var(--accent)">AUG</span><p class="text-sm mt-1 mb-0">Physical Wellness</p></div>
+<div class="p-3" style="border:1px solid #554537"><span class="mono text-[10px]" style="color:var(--accent)">SEP</span><p class="text-sm mt-1 mb-0">Emergency Preparedness</p></div>
+<div class="p-3" style="border:1px solid #554537"><span class="mono text-[10px]" style="color:var(--accent)">OCT</span><p class="text-sm mt-1 mb-0">Cybersecurity Awareness</p></div>
+<div class="p-3" style="border:1px solid #554537"><span class="mono text-[10px]" style="color:var(--accent)">NOV</span><p class="text-sm mt-1 mb-0">Electrical Safety</p></div>
+<div class="p-3" style="border:1px solid #554537"><span class="mono text-[10px]" style="color:var(--accent)">DEC</span><p class="text-sm mt-1 mb-0">Holiday Safety &amp; Reflection</p></div>
 </div>
-
-  <div class="flex flex-wrap gap-2 mt-5"><span class="tag mono">Onboarding Design</span><span class="tag mono">Learning Paths</span><span class="tag mono">Process Improvement</span><span class="tag mono">Culture</span></div>
-
-  <details class="mt-6" style="border-top:1px solid rgba(244,241,234,.14);padding-top:18px">
-    <summary class="mono cursor-pointer text-sm" style="color:var(--accent);letter-spacing:.04em">Explore the onboarding redesign — before &amp; after</summary>
-    <figure class="mt-5" style="margin-left:0;margin-right:0">
-      <a href="/work/assets/onboarding-before-after.webp"
-   data-lightbox
-   aria-label="Enlarge onboarding comparison"> aria-label="Open full-size onboarding before-and-after diagram">
-        <img src="/work/assets/onboarding-before-after.webp" alt="Comparison of rules-first onboarding and a people-centered, values-led orientation organized around Respect, Integrity, Safety, and Innovation" loading="lazy" width="1491" height="1055" style="display:block;width:100%;height:auto;border:1px solid rgba(212,165,116,.35);border-radius:3px" />
-      </a>
-      <figcaption style="color:#aaa39a;font-size:12px;line-height:1.6;margin-top:10px">Conceptual comparison of the previous orientation and the redesign. Select the image to enlarge.</figcaption>
-    </figure>
-  </details>
+<div class="mono uppercase text-[10px] tracking-[.18em] mt-7" style="color:var(--accent)">Within each theme · Example of weekly learning progression</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 mt-3">
+<div class="p-3" style="background:#221c17;border-top:2px solid #d4a574"><span class="mono text-[10px]" style="color:var(--accent)">WEEK 01</span><strong class="block mt-2 text-base font-normal">Introduce</strong><p class="text-xs mt-1 mb-0" style="color:#c7bdb2">Why the topic matters</p></div>
+<div class="p-3" style="background:#221c17;border-top:2px solid #d4a574"><span class="mono text-[10px]" style="color:var(--accent)">WEEK 02</span><strong class="block mt-2 text-base font-normal">Understand</strong><p class="text-xs mt-1 mb-0" style="color:#c7bdb2">Recognize risks and practices</p></div>
+<div class="p-3" style="background:#221c17;border-top:2px solid #d4a574"><span class="mono text-[10px]" style="color:var(--accent)">WEEK 03</span><strong class="block mt-2 text-base font-normal">Apply</strong><p class="text-xs mt-1 mb-0" style="color:#c7bdb2">Connect the idea to field decisions</p></div>
+<div class="p-3" style="background:#221c17;border-top:2px solid #d4a574"><span class="mono text-[10px]" style="color:var(--accent)">WEEK 04</span><strong class="block mt-2 text-base font-normal">Reinforce</strong><p class="text-xs mt-1 mb-0" style="color:#c7bdb2">Reflect and carry the lesson forward</p></div>
+</div>
+<p class="text-xs mt-4 mb-0" style="color:#aaa39a;line-height:1.7">Portfolio reconstruction of the planned learning strategy. The four weekly stages illustrate the sequencing approach; they are not copies of published messages or evidence that all 52 installments were delivered.</p>
+</div>
+</details>
 </article>
 <article class="case-card group" style="display:flex;flex-direction:column">
-  <div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">03 / Facilitator Procurement &amp; Experience</div>
-  <h3 class="text-xl font-medium leading-tight">Bringing in the right facilitators and setting them up to teach</h3>
-  <div class="mono text-[10px] text-[#8b8680] uppercase tracking-[0.15em] mt-3">CoServ (Denton County Electric Cooperative) · 2024–2025</div>
-  <p class="text-sm mt-4 leading-relaxed" style="color:rgba(244,241,234,.77)">I interviewed and selected outside facilitators for their expertise and willingness to tailor sessions to employees’ work. I also worked through procurement and contractual arrangements that accounted for most of the approximately $15,000 in annual savings I identified.</p>
-  <p class="text-sm mt-4 leading-relaxed" style="color:rgba(244,241,234,.77)">To improve the experience, I built a digital facilitator welcome guide covering arrival, classroom setup, and what to expect. I arranged lunch for full-day visits and shared participant feedback to inform future sessions.</p>
-
-  <div class="grid grid-cols-3 gap-3 mt-6 pt-5 border-t hairline" aria-label="Project highlights">
-    <div><div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">Cost opportunity</div><div class="text-xl mt-1" style="color:var(--accent)">~$15K</div><div class="text-[11px] leading-snug" style="color:#aaa39a">annual savings identified</div></div>
-    <div><div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">Experience</div><div class="text-xl mt-1" style="color:var(--accent)">End-to-end</div><div class="text-[11px] leading-snug" style="color:#aaa39a">selection through follow-up</div></div>
-  </div>
-
-  <div class="flex flex-wrap gap-2 mt-5"><span class="tag mono">Facilitator Selection</span><span class="tag mono">Vendor Procurement</span><span class="tag mono">Contract Negotiation</span><span class="tag mono">Facilitator Onboarding</span></div>
-
-  <details class="mt-6" style="border-top:1px solid rgba(244,241,234,.14);padding-top:18px">
-    <summary class="mono cursor-pointer text-sm" style="color:var(--accent);letter-spacing:.04em">Preview the facilitator guide</summary>
-    <video class="mt-4 block w-full rounded" controls playsinline preload="none" aria-label="Silent walkthrough of the guest facilitator guide">
-      <source src="./facilitator-guide-full-preview.mp4" type="video/mp4" />
-      <a href="./facilitator-guide-full-preview.mp4">Open the video</a>
-    </video>
-    <p class="text-xs mt-2" style="color:#aaa39a">17-second silent walkthrough.</p>
-  </details>
+<div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">02 / Onboarding &amp; Employee Experience</div>
+<h3 class="text-xl font-medium leading-tight">Redesigning onboarding around culture and role readiness</h3>
+<div class="mono text-[10px] text-[#8b8680] uppercase tracking-[0.15em] mt-3">Mustang Special Utility District · 2026</div>
+<p class="text-sm mt-4 leading-relaxed" style="color:rgba(244,241,234,.77)">I modernized pre-hire checklists that were more than two years out of date, developed role-appropriate e-learning paths for exempt and nonexempt employees, and rebuilt orientation around Respect, Integrity, Safety, and Innovation.</p>
+<p class="text-sm mt-4 leading-relaxed" style="color:rgba(244,241,234,.77)">Instead of leading with rules, the presentation connected policies, Paycom, safety systems, and operational technology to how employees experience the organization.</p>
+<div aria-label="Project highlights" class="grid grid-cols-3 gap-3 mt-6 pt-5 border-t hairline">
+<div style="min-width:0"><div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">Orientation</div><div class="text-xl mt-1" style="color:var(--accent)">4 Values</div><div class="text-[11px] leading-snug" style="color:#aaa39a">connected culture to practice</div></div>
+<div style="min-width:0"><div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">Learning Design</div><div class="text-xl mt-1" style="color:var(--accent)">Role-Based</div><div class="text-[11px] leading-snug" style="color:#aaa39a">tailored to employee needs</div></div>
+<div style="min-width:0"><div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">Process Improvement</div><div class="text-xl mt-1" style="color:var(--accent)">Pre-Hire</div><div class="text-[11px] leading-snug" style="color:#aaa39a">rebuilt onboarding workflows</div></div>
+</div>
+<div class="flex flex-wrap gap-2 mt-5"><span class="tag mono">Onboarding Design</span><span class="tag mono">Learning Paths</span><span class="tag mono">Process Improvement</span><span class="tag mono">Culture</span></div>
+<details class="mt-6" style="border-top:1px solid rgba(244,241,234,.14);padding-top:18px">
+<summary class="mono cursor-pointer text-sm" style="color:var(--accent);letter-spacing:.04em">Explore the onboarding redesign — before &amp; after</summary>
+<figure class="mt-5" style="margin-left:0;margin-right:0">
+<a aria-label="Enlarge onboarding before-and-after diagram" data-lightbox="" href="/work/assets/onboarding-before-after.webp">
+<img alt="Comparison of rules-first onboarding and a people-centered, values-led orientation organized around Respect, Integrity, Safety, and Innovation" height="1055" loading="lazy" src="/work/assets/onboarding-before-after.webp" style="display:block;width:100%;height:auto;border:1px solid rgba(212,165,116,.35);border-radius:3px" width="1491"/>
+</a>
+<figcaption style="color:#aaa39a;font-size:12px;line-height:1.6;margin-top:10px">Conceptual comparison of the previous orientation and the redesign. Select the image to enlarge.</figcaption>
+</figure>
+</details>
 </article>
 <article class="case-card group" style="display:flex;flex-direction:column">
-  <div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">04 / Leadership Development</div>
-  <h3 class="text-xl font-medium leading-tight">Developing leaders before the promotion</h3>
-  <div class="mono text-[10px] text-[#8b8680] uppercase tracking-[0.15em] mt-3">CoServ (Denton County Electric Cooperative) · 2024–2025</div>
-  <p class="text-sm mt-4 leading-relaxed" style="color:rgba(244,241,234,.77)">In an organization of more than 500 employees, including over 100 in leadership positions, leadership development traditionally began after promotion. While an established program supported newly appointed leaders, there was no structured pathway for employees aspiring to leadership roles. I helped challenge this reactive approach and establish a pre-leadership development cohort, giving more than 30 high-potential employees—nominated by their existing leaders—the opportunity to build foundational leadership capabilities before stepping into formal leadership positions. The initiative shifted the emphasis from developing employees because they had been promoted to preparing them for the responsibilities and expectations of leadership before advancement.</p>
-
-<div class="mt-6 pt-5 border-t hairline"
-     aria-label="Project highlights"
-     style="width:100%;">
-
-  <div style="display:grid;
-              grid-template-columns:repeat(3,minmax(0,1fr));
-              gap:12px;
-              width:100%;">
-
-    <div style="min-width:0;">
-      <div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">
-        Workforce
-      </div>
-      <div class="text-xl mt-1" style="color:var(--accent)">
-        500+
-      </div>
-      <div class="text-[11px] leading-snug" style="color:#aaa39a">
-        employees
-      </div>
-    </div>
-
-    <div style="min-width:0;">
-      <div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">
-        Leadership
-      </div>
-      <div class="text-xl mt-1" style="color:var(--accent)">
-        100+
-      </div>
-      <div class="text-[11px] leading-snug" style="color:#aaa39a">
-        leadership roles
-      </div>
-    </div>
-
-    <div style="min-width:0;">
-      <div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">
-        Pre-Leadership
-      </div>
-      <div class="text-xl mt-1" style="color:var(--accent)">
-        30+
-      </div>
-      <div class="text-[11px] leading-snug" style="color:#aaa39a">
-        cohort participants
-      </div>
-    </div>
-
-  </div>
+<div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">03 / Facilitator Procurement &amp; Experience</div>
+<h3 class="text-xl font-medium leading-tight">Bringing in the right facilitators and setting them up to teach</h3>
+<div class="mono text-[10px] text-[#8b8680] uppercase tracking-[0.15em] mt-3">CoServ (Denton County Electric Cooperative) · 2024–2025</div>
+<p class="text-sm mt-4 leading-relaxed" style="color:rgba(244,241,234,.77)">I interviewed and selected outside facilitators for their expertise and willingness to tailor sessions to employees’ work. I also worked through procurement and contractual arrangements that accounted for most of the approximately $15,000 in annual savings I identified.</p>
+<p class="text-sm mt-4 leading-relaxed" style="color:rgba(244,241,234,.77)">To improve the experience, I built a digital facilitator welcome guide covering arrival, classroom setup, and what to expect. I arranged lunch for full-day visits and shared participant feedback to inform future sessions.</p>
+<div aria-label="Project highlights" class="grid grid-cols-3 gap-3 mt-6 pt-5 border-t hairline">
+<div><div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">Cost opportunity</div><div class="text-xl mt-1" style="color:var(--accent)">~$15K</div><div class="text-[11px] leading-snug" style="color:#aaa39a">annual savings identified</div></div>
+<div><div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">Guide preview</div><div class="text-xl mt-1" style="color:var(--accent)">17 sec</div><div class="text-[11px] leading-snug" style="color:#aaa39a">silent walkthrough</div></div>
+<div><div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">Experience</div><div class="text-xl mt-1" style="color:var(--accent)">End-to-end</div><div class="text-[11px] leading-snug" style="color:#aaa39a">selection through follow-up</div></div>
 </div>
-
-  <div class="flex flex-wrap gap-2 mt-5">
-  <span class="tag mono">Leadership Development</span>
-  <span class="tag mono">Needs Analysis</span>
-  <span class="tag mono">Competency Mapping</span>
-  <span class="tag mono">Learning Design</span>
-</div>
-
+<div class="flex flex-wrap gap-2 mt-5"><span class="tag mono">Facilitator Selection</span><span class="tag mono">Vendor Procurement</span><span class="tag mono">Contract Negotiation</span><span class="tag mono">Facilitator Onboarding</span></div>
+<details class="mt-6" style="border-top:1px solid rgba(244,241,234,.14);padding-top:18px">
+<summary class="mono cursor-pointer text-sm" style="color:var(--accent);letter-spacing:.04em">Preview the facilitator guide</summary>
+<video aria-label="Silent walkthrough of the guest facilitator guide" class="mt-4 block w-full rounded" controls="" playsinline="" preload="none">
+<source src="./facilitator-guide-full-preview.mp4" type="video/mp4"/>
+<a href="./facilitator-guide-full-preview.mp4">Open the video</a>
+</video>
+<p class="text-xs mt-2" style="color:#aaa39a">17-second silent walkthrough.</p>
+</details>
 </article>
 <article class="case-card group" style="display:flex;flex-direction:column">
-  <div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">05 / Learning Systems</div>
-  <h3 class="text-xl font-medium leading-tight">Standing up an LMS from scratch</h3>
-  <div class="mono text-[10px] text-[#8b8680] uppercase tracking-[0.15em] mt-3">CoServ (Denton County Electric Cooperative) · 2024–2025</div>
-  <p class="text-sm mt-4 leading-relaxed" style="color:rgba(244,241,234,.77)">I played a key role in establishing the organization’s first Learning Management System, helping transition existing training records into a centralized, role-based learning environment. Initially serving as one of two learning administrators for a workforce of more than 500 employees, I later assumed sole responsibility for the platform. My work focused on organizing learning content, developing role-relevant pathways, streamlining compliance training, and improving reporting visibility so employees could access meaningful development opportunities and leaders could better track progress.</p>
-
-  <div class="grid grid-cols-3 gap-3 mt-6 pt-5 border-t hairline"
-     aria-label="Project highlights">
-
-  <div>
-    <div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">
-      Learners
-    </div>
-    <div class="text-xl mt-1" style="color:var(--accent)">
-      500+
-    </div>
-    <div class="text-[11px] leading-snug" style="color:#aaa39a">
-      employees supported
-    </div>
-  </div>
-
-  <div>
-    <div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">
-      Compliance
-    </div>
-    <div class="text-xl mt-1" style="color:var(--accent)">
-      97%+
-    </div>
-    <div class="text-[11px] leading-snug" style="color:#aaa39a">
-      training completion
-    </div>
-  </div>
-
-  <div>
-    <div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">
-      Administration
-    </div>
-    <div class="text-xl mt-1" style="color:var(--accent)">
-      Primary
-    </div>
-    <div class="text-[11px] leading-snug" style="color:#aaa39a">
-      LMS administrator
-    </div>
-  </div>
-
+<div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">04 / Leadership Development</div>
+<h3 class="text-xl font-medium leading-tight">Developing leaders before the promotion</h3>
+<div class="mono text-[10px] text-[#8b8680] uppercase tracking-[0.15em] mt-3">CoServ (Denton County Electric Cooperative) · 2024–2025</div>
+<p class="text-sm mt-4 leading-relaxed" style="color:rgba(244,241,234,.77)">In an organization of more than 500 employees, including over 100 in leadership positions, leadership development traditionally began after promotion. While an established program supported newly appointed leaders, there was no structured pathway for employees aspiring to leadership roles. I helped challenge this reactive approach and establish a pre-leadership development cohort, giving more than 30 high-potential employees—nominated by their existing leaders—the opportunity to build foundational leadership capabilities before stepping into formal leadership positions. The initiative shifted the emphasis from developing employees because they had been promoted to preparing them for the responsibilities and expectations of leadership before advancement.</p>
+<div aria-label="Project highlights" class="grid grid-cols-3 gap-3 mt-6 pt-5 border-t hairline">
+<div style="min-width:0"><div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">Workforce</div><div class="text-xl mt-1" style="color:var(--accent)">500+</div><div class="text-[11px] leading-snug" style="color:#aaa39a">employees</div></div>
+<div style="min-width:0"><div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">Leadership</div><div class="text-xl mt-1" style="color:var(--accent)">100+</div><div class="text-[11px] leading-snug" style="color:#aaa39a">leadership roles</div></div>
+<div style="min-width:0"><div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">Pre-Leadership</div><div class="text-xl mt-1" style="color:var(--accent)">30+</div><div class="text-[11px] leading-snug" style="color:#aaa39a">cohort participants</div></div>
 </div>
-  <div class="flex flex-wrap gap-2 mt-5"><span class="tag mono">UKG Pro Learning</span><span class="tag mono">SCORM / xAPI</span><span class="tag mono">LMS Administration</span><span class="tag mono">Content Architecture</span></div>
+<div class="flex flex-wrap gap-2 mt-5"><span class="tag mono">Leadership Development</span><span class="tag mono">Needs Analysis</span><span class="tag mono">Competency Mapping</span><span class="tag mono">Learning Design</span></div>
 </article>
+<article class="case-card group" style="display:flex;flex-direction:column">
+<div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">05 / Learning Systems</div>
+<h3 class="text-xl font-medium leading-tight">Standing up an LMS from scratch</h3>
+<div class="mono text-[10px] text-[#8b8680] uppercase tracking-[0.15em] mt-3">CoServ (Denton County Electric Cooperative) · 2024–2025</div>
+<p class="text-sm mt-4 leading-relaxed" style="color:rgba(244,241,234,.77)">I played a key role in establishing the organization’s first Learning Management System, helping transition existing training records into a centralized, role-based learning environment. Initially serving as one of two learning administrators for a workforce of more than 500 employees, I later assumed sole responsibility for the platform. My work focused on organizing learning content, developing role-relevant pathways, streamlining compliance training, and improving reporting visibility so employees could access meaningful development opportunities and leaders could better track progress.</p>
+<div aria-label="Project highlights" class="grid grid-cols-3 gap-3 mt-6 pt-5 border-t hairline">
+<div style="min-width:0"><div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">Learners</div><div class="text-xl mt-1" style="color:var(--accent)">500+</div><div class="text-[11px] leading-snug" style="color:#aaa39a">employees supported</div></div>
+<div style="min-width:0"><div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">Compliance</div><div class="text-xl mt-1" style="color:var(--accent)">97%+</div><div class="text-[11px] leading-snug" style="color:#aaa39a">training completion</div></div>
+<div style="min-width:0"><div class="mono text-[9px] text-[#8b8680] uppercase tracking-[0.12em]">Administration</div><div class="text-xl mt-1" style="color:var(--accent)">Sole</div><div class="text-[11px] leading-snug" style="color:#aaa39a">LMS administrator</div></div>
 </div>
-</article></div></section><section class="px-6 lg:px-16 py-16 max-w-[1400px] mx-auto border-t hairline"><span class="mono text-[11px] uppercase tracking-[.2em] text-[#d4a574]">Keep exploring</span><div class="flex flex-wrap gap-5 mt-6"><a class="cta-ghost" href="/">Back to introduction ↗</a><a class="cta-ghost" href="/contact/">Say hello ↗</a></div></section></main><footer class="relative z-10 px-6 lg:px-16 py-10 mx-auto max-w-[1400px] border-t hairline flex flex-wrap gap-6 justify-between mono text-[11px] uppercase tracking-[0.14em] text-[#8b8680]">
+<div class="flex flex-wrap gap-2 mt-5"><span class="tag mono">UKG Pro Learning</span><span class="tag mono">SCORM / xAPI</span><span class="tag mono">LMS Administration</span><span class="tag mono">Content Architecture</span></div>
+</article>
+</div></section><section class="px-6 lg:px-16 py-16 max-w-[1400px] mx-auto border-t hairline"><span class="mono text-[11px] uppercase tracking-[.2em] text-[#d4a574]">Keep exploring</span><div class="flex flex-wrap gap-5 mt-6"><a class="cta-ghost" href="/">Back to introduction ↗</a><a class="cta-ghost" href="/contact/">Say hello ↗</a></div></section></main><footer class="relative z-10 px-6 lg:px-16 py-10 mx-auto max-w-[1400px] border-t hairline flex flex-wrap gap-6 justify-between mono text-[11px] uppercase tracking-[0.14em] text-[#8b8680]">
 <span>© 2026 Eric T. Maray · Semper Prorsum · Always Forward</span><div class="flex gap-6"><a href="/">Home</a><a href="/work/">Work</a><a href="/contact/">Say hello ↗</a></div></footer><script>
   const clock = document.getElementById('clock');
   function tick() {
@@ -552,44 +391,33 @@
     window.location.href = `mailto:ericmaray@gmail.com?subject=${subject}&body=${body}`;
   }
 </script>
-const lightbox = document.createElement('dialog');
-lightbox.className = 'image-lightbox';
-lightbox.setAttribute('aria-label', 'Enlarged image');
-
-lightbox.innerHTML = `
-  <button class="lightbox-close"
-          type="button"
-          aria-label="Close image">&times;</button>
-  <img alt="">
-`;
-
-document.body.appendChild(lightbox);
-
-const lightboxImage = lightbox.querySelector('img');
-
-document.querySelectorAll('a[data-lightbox]').forEach(link => {
-  link.addEventListener('click', event => {
+<script>
+/* Work gallery image lightbox. Runs after all cards have been rendered. */
+(() => {
+  const dialog = document.createElement('dialog');
+  dialog.className = 'portfolio-lightbox';
+  dialog.setAttribute('aria-label', 'Enlarged project image');
+  dialog.innerHTML = '<button class="portfolio-lightbox-close" type="button" aria-label="Close image">&times;</button><img alt="">';
+  document.body.appendChild(dialog);
+  const image = dialog.querySelector('img');
+  let opener = null;
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest('a[data-lightbox]');
+    if (!link || !link.querySelector('img')) return;
     event.preventDefault();
-
-    const thumbnail = link.querySelector('img');
-
-    lightboxImage.src = link.href;
-    lightboxImage.alt = thumbnail?.alt || 'Enlarged image';
-
-    lightbox.showModal();
+    opener = link;
+    image.alt = link.querySelector('img').alt || 'Enlarged project image';
+    image.src = link.href;
+    if (!dialog.open) dialog.showModal();
   });
-});
-
-lightbox.querySelector('.lightbox-close').addEventListener(
-  'click',
-  () => lightbox.close()
-);
-
-lightbox.addEventListener('click', event => {
-  if (event.target === lightbox) lightbox.close();
-});
-
-lightbox.addEventListener('close', () => {
-  lightboxImage.removeAttribute('src');
-});
+  dialog.querySelector('.portfolio-lightbox-close').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+  dialog.addEventListener('close', () => {
+    image.removeAttribute('src');
+    if (opener && opener.isConnected) opener.focus({preventScroll:true});
+  });
+})();
+</script>
 </body></html>
