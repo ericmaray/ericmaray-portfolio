@@ -35,14 +35,263 @@ header{border-bottom:1px solid var(--line);padding:16px clamp(22px,5.4vw,76px);d
 .scope-note{border:1px solid #70533a;background:#211b16;padding:19px 21px;margin:26px 0 24px;font:14px/1.65 'DM Sans',sans-serif;color:#e0d7cc}
 .scope-note strong{color:#d4a574}
 @media(max-width:620px){.mobile-menu{display:block}header{padding:12px 18px;gap:10px;flex-wrap:nowrap}header>.back-link{display:none}header>.site-brand{font-size:9px;letter-spacing:.04em}.portfolio-rail{display:none}}
+
+/* End-of-case-study navigation */
+.case-study-end-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:1320px;margin:0 auto;padding:45px clamp(22px,5.4vw,76px) 75px;border-top:1px solid var(--line)}
+.case-study-end-link{display:flex;flex-direction:column;justify-content:space-between;gap:14px;min-width:0;padding:26px 30px;border:1px solid #554236;background:#171411;text-decoration:none;transition:border-color .2s,background .2s,transform .2s}
+.case-study-end-link:hover,.case-study-end-link:focus-visible{border-color:var(--gold);background:#251b14;transform:translateY(-2px)}
+.case-study-end-kicker{color:var(--gold);font:10px/1.5 'JetBrains Mono',monospace;letter-spacing:.15em;text-transform:uppercase}
+.case-study-end-title{font:400 clamp(1.25rem,2vw,1.8rem)/1.3 'Fraunces',Georgia,serif;color:var(--paper)}
+.back-to-top{position:fixed;right:24px;bottom:24px;z-index:1000;width:48px;height:48px;border:1px solid rgba(212,165,116,.55);border-radius:50%;background:#191919;color:var(--gold);font:24px/1 'DM Sans',sans-serif;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .25s,visibility .25s,transform .25s}
+.back-to-top.is-visible{opacity:1;visibility:visible;transform:translateY(0)}
+.back-to-top:hover{background:#302217;border-color:var(--gold)}
+.back-to-top:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+@media(max-width:640px){.case-study-end-nav{grid-template-columns:1fr;padding:35px 22px 56px}.case-study-end-link{padding:22px}.back-to-top{right:16px;bottom:20px;width:44px;height:44px}}
+@media(prefers-reduced-motion:reduce){.case-study-end-link,.back-to-top{transition:none}}
+  
+.portfolio-header {
+  gap: 24px;
+}
+
+.portfolio-header .site-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.brand-subtitle {
+  color: #8b8680;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.portfolio-header .navlinks {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 1.8vw, 28px);
+}
+
+.portfolio-header .navlinks a {
+  white-space: nowrap;
+}
+
+.portfolio-header .header-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  text-decoration: none;
+  color: #f4f1ea;
+  font-size: 11px;
+}
+
+.contact-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #d4a574;
+}
+
+.portfolio-header a[aria-current="page"] {
+  color: #d4a574;
+}
+
+@media (max-width: 1120px) {
+  .portfolio-header .navlinks,
+  .portfolio-header .header-contact {
+    display: none;
+  }
+
+  .portfolio-header .mobile-menu {
+    display: block;
+    margin-left: auto;
+  }
+}
+
+@media (min-width: 1121px) {
+  .portfolio-header .mobile-menu {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-subtitle {
+    display: none;
+  }
+}
+
 </style></head><body><aside class="portfolio-rail" aria-hidden="true"><span>Eric Maray · Portfolio MMXXVI</span></aside>
-<header><a class="site-brand" href="/"><span class="gold">●</span> ERIC T. MARAY / PORTFOLIO</a><nav class="navlinks" aria-label="Main navigation"><a href="/">HOME</a><a href="/work/">WORK</a><a href="/philosophy/">PHILOSOPHY</a><a href="/capabilities/">SKILLS</a><a href="/contact/">CONTACT</a></nav><a class="gold back-link" href="/work/">← BACK TO WORK</a><details class="mobile-menu"><summary aria-label="Open navigation">MENU ☰</summary><nav class="mobile-links" aria-label="Mobile navigation"><a href="/">Home</a><a href="/work/">Work</a><a href="/philosophy/">Philosophy</a><a href="/personal/">Personal</a><a href="/journey/">Journey</a><a href="/capabilities/">Skills</a><a href="/reading/">Reading</a><a href="/contact/">Contact</a></nav></details></header>
+
+<header class="portfolio-header">
+  <a class="site-brand" href="/" aria-label="Eric Maray — Home">
+    <span class="gold">●</span>
+    <span>E. Maray</span>
+    <span class="brand-subtitle">/ L&amp;D · OD</span>
+  </a>
+
+  <nav class="navlinks" aria-label="Main navigation">
+    <a href="/">Home</a>
+    <a href="/philosophy/">Philosophy</a>
+    <a href="/personal/">Personal</a>
+    <a href="/work/" aria-current="page">Work</a>
+    <a href="/journey/">Journey</a>
+    <a href="/capabilities/">Skills</a>
+    <a href="/reading/">Reading</a>
+  </nav>
+
+  <a class="header-contact" href="/contact/">
+    <span class="contact-dot" aria-hidden="true"></span>
+    Happy to chat
+  </a>
+
+  <details class="mobile-menu">
+    <summary aria-label="Open navigation">MENU ☰</summary>
+
+    <nav class="mobile-links" aria-label="Mobile navigation">
+      <a href="/">Home</a>
+      <a href="/philosophy/">Philosophy</a>
+      <a href="/personal/">Personal</a>
+      <a href="/work/" aria-current="page">Work</a>
+      <a href="/journey/">Journey</a>
+      <a href="/capabilities/">Skills</a>
+      <a href="/reading/">Reading</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+  </details>
+</header>
+
 <main class="wrap">
 <section class="hero"><div><div class="eyebrow">✦ CASE STUDY / SYSTEMS THINKING &amp; RISK MANAGEMENT</div><h1>Beyond the <em>Checklist.</em></h1><p class="lede">Finding the gaps. Fixing the process. What began as a respiratory protection program became an investigation into how occupational health safeguards can fall through the cracks between hiring, vendors, and operations.</p><div class="metadata"><div><b>ORGANIZATION</b><span>Mustang Special Utility District</span></div><div><b>ROLE</b><span>Senior Safety Specialist / Workforce Operations</span></div><div><b>PERIOD</b><span>2026</span></div></div></div><div><div class="cover" role="img" aria-label="Dark and gold cover artwork reading Systems by Design, case study three"><div class="cover-frame"><strong>SYSTEMS /<br>BY DESIGN</strong><span>03 / CASE STUDY</span></div></div><p class="cover-caption">03 / CASE STUDY · OCCUPATIONAL HEALTH</p></div></section>
 <section class="section chapter"><aside class="side">01 — THE DISCOVERY<em>A problem behind<br>the problem.</em></aside><div class="content"><h2>The first gap wasn't the only one.</h2><p>While developing a respiratory protection program, I reviewed occupational health records to understand whether employees were ready for the medical evaluations and fit testing their roles required. That review exposed missing respiratory medical-clearance documentation following an earlier occupational health vendor transition.</p><p>As I traced the records and processes behind that gap, I found a second, separate issue: <strong>more than 100 field employees had not completed pre-employment physical screening.</strong> The inconsistencies extended across hire dates and could not be attributed to the vendor transition alone.</p><p>Two weaknesses had surfaced through one investigation. But they didn't share the same origin, and treating them as a single administrative cleanup would have missed the larger problem.</p><div class="statgrid"><div class="stat"><strong>100+</strong><span>HISTORICAL SCREENING GAPS IDENTIFIED</span></div><div class="stat"><strong>2</strong><span>DISTINCT WORKFLOWS EXAMINED</span></div><div class="stat"><strong>2</strong><span>FORWARD-LOOKING PROCESSES CORRECTED</span></div></div><div class="scope-note"><strong>What was corrected:</strong> Both screening and respiratory medical-clearance workflows were corrected for future employees. <strong>What remained separate:</strong> The 100+ historical screening gap required its own follow-up; these figures do not claim that past records or exposures were fully resolved.</div></div></section>
 <section class="section chapter"><aside class="side">02 — THE SYSTEM<em>Separate origins.<br>Connected risk.</em></aside><div class="content"><h2>The records were symptoms. The workflows were the problem.</h2><p>One gap emerged when a vendor transition failed to preserve an occupational health requirement. The other was a broader records-integrity and hiring-process issue that extended beyond that transition. Each called for a different response, even though both intersected with workforce operations and employee safety.</p><div class="split"><article class="problem"><div class="eyebrow">TRACK A / RESPIRATORY CLEARANCE</div><h3>Continuity across vendors</h3><p>A health-provider transition interrupted the medical-clearance pathway for roles requiring respiratory protection. The correction needed to reconnect job hazards, evaluation requirements, scheduling, and fit testing.</p><div class="foot">ORIGIN: VENDOR TRANSITION</div></article><article class="problem"><div class="eyebrow">TRACK B / PRE-EMPLOYMENT SCREENING</div><h3>Consistency from the first day</h3><p>The broader screening gap revealed a weakness in how field-role occupational health expectations were built into hiring and verified before employees started work.</p><div class="foot">ORIGIN: PREEXISTING PROCESS GAP</div></article></div><div class="callout">The important question wasn't only <em>“Who is missing a record?”</em> It was <em>“What allowed the requirement to be missed in the first place?”</em></div></div></section>
 <section class="section chapter"><aside class="side">03 — THE APPROACH<em>Follow the work,<br>not just the form.</em></aside><div class="content"><h2>Connecting the dots across functions.</h2><p>The investigation moved beyond a single program file. I looked at how medical requirements were determined, how records were maintained, how vendors supported the process, and where supervisors and Workforce Operations needed clearer checkpoints.</p><div class="flow" role="img" aria-label="Process map: identification of gaps leads to hazard-specific requirements, screening checkpoints, and vendor transition safeguards"><div class="flow-top"><b>Identify the missed safeguard</b><span>RESPIRATORY PROGRAM REVIEW → OCCUPATIONAL HEALTH PROCESS INVESTIGATION</span></div><div class="connector"></div><div class="flow-bottom"><div><strong>Define by role and hazard</strong><p>Distinguish respiratory protection needs from broader field-role physical screening.</p></div><div><strong>Build checkpoints into hiring</strong><p>Connect requirements to the onboarding process before a worker's start date.</p></div><div><strong>Protect process continuity</strong><p>Identify vendor-transition continuity and record verification as additional controls to formalize.</p></div></div></div><p>To communicate the findings, I developed two complementary resources: a concise leadership assessment of the exposure and a phased working plan that outlined coordination, tracking, escalation, and employee considerations. Those materials informed the corrective approach; the original internal documents are not reproduced here.</p></div></section>
 <section class="section chapter"><aside class="side">04 — THE RESPONSE<em>Design for<br>the next hire.</em></aside><div class="content"><h2>Making the safeguards part of the process.</h2><div class="step"><div class="n">01</div><div><h3>Separate the remediation tracks</h3><p>Clarified the different origins, affected roles, and actions required for respiratory clearance and general occupational health screening, rather than imposing a single response on both issues.</p></div></div><div class="step"><div class="n">02</div><div><h3>Translate findings into decisions</h3><p>Prepared a leadership-level brief and detailed implementation plan covering responsibilities, provider coordination, employee protections, progress tracking, and escalation points.</p></div></div><div class="step"><div class="n">03</div><div><h3>Correct the forward-looking workflows</h3><p>Established corrections to the prospective pre-employment physical screening and respiratory medical-clearance processes, embedding the requirements into the appropriate field-role and onboarding workflows.</p></div></div><div class="step"><div class="n">04</div><div><h3>Address recurrence, not just exceptions</h3><p>Strengthened the prospective screening and clearance workflows. I also proposed additional safeguards for future occupational health vendor transitions; the vendor-transition checklist was a separate preventive measure, not a completed implementation outcome.</p></div></div></div></section>
-<section class="section chapter"><aside class="side">05 — THE RESULT<em>A more reliable<br>starting point.</em></aside><div class="content"><h2>Two processes corrected going forward.</h2><p>The most important result was not the production of a report. It was putting the organization in a better position to prevent the same gaps from being created for future employees.</p><div class="outcome"><article><h3>Pre-employment screening</h3><p>The forward-looking field-employee physical screening process was corrected so screening requirements would be addressed as part of onboarding rather than discovered after employees were already working.</p></article><article><h3>Respiratory medical clearance</h3><p>The prospective clearance pathway was corrected so respiratory requirements could be identified and coordinated for applicable roles before employees reached the fit-testing and respirator-use stages.</p></article></div><div class="callout"><strong>Scope matters:</strong> correcting a process going forward is distinct from resolving historical deficiencies. The original findings required separate follow-up; this case study does not claim that every previously missing physical or clearance was completed.</div><p>The experience reinforced something I return to across disciplines: the visible problem is not always the problem that needs solving. Sustainable improvement comes from understanding the relationships between people, workflows, and systems, then changing the conditions that allowed the failure to occur.</p><a class="cta" href="/work/">← EXPLORE MORE WORK</a></div></section>
-</main><footer><div class="wrap"><span>ERIC MARAY · PORTFOLIO MMXXVI</span><span>SEMPER PRORSUM · ALWAYS FORWARD</span><a href="/contact/">CONNECT ↗</a></div></footer>
-</body></html>
+<section class="section chapter"><aside class="side">05 — THE RESULT<em>A more reliable<br>starting point.</em></aside><div class="content"><h2>Two processes corrected going forward.</h2><p>The most important result was not the production of a report. It was putting the organization in a better position to prevent the same gaps from being created for future employees.</p><div class="outcome"><article><h3>Pre-employment screening</h3><p>The forward-looking field-employee physical screening process was corrected so screening requirements would be addressed as part of onboarding rather than discovered after employees were already working.</p></article><article><h3>Respiratory medical clearance</h3><p>The prospective clearance pathway was corrected so respiratory requirements could be identified and coordinated for applicable roles before employees reached the fit-testing and respirator-use stages.</p></article></div><div class="callout"><strong>Scope matters:</strong> correcting a process going forward is distinct from resolving historical deficiencies. The original findings required separate follow-up; this case study does not claim that every previously missing physical or clearance was completed.</div><p>The experience reinforced something I return to across disciplines: the visible problem is not always the problem that needs solving. Sustainable improvement comes from understanding the relationships between people, workflows, and systems, then changing the conditions that allowed the failure to occur.</p></div></section>
+<nav class="case-study-end-nav" aria-label="Case study navigation">
+  <a href="/work/" class="case-study-end-link">
+    <span class="case-study-end-kicker">All projects</span>
+    <span class="case-study-end-title">← Return to Work</span>
+  </a>
+  <a href="/work/safety-reporting-ehs/" class="case-study-end-link">
+    <span class="case-study-end-kicker">Next case study</span>
+    <span class="case-study-end-title">From Reporting to Response →</span>
+  </a>
+</nav>
+
+<span>© 2026 Eric T. Maray · Semper Prorsum · Always Forward</span>
+<div class="opacity-40 mb-1">Local Time</div>
+<div id="clock">— : —</div>
+</div>
+<div class="flex gap-6">
+  <a href="/work/">Work</a>
+  <a href="/contact/">Say hello ↗</a>
+</div>
+</footer>
+
+<script>
+  const clock = document.getElementById('clock');
+
+  function tick() {
+    const opts = {
+      hour: '2-digit',
+      minute: '2-digit',
+      timeZone: 'America/Chicago',
+      hour12: false
+    };
+
+    if (clock) {
+      clock.textContent =
+        `DFW · ${new Date().toLocaleTimeString('en-US', opts)}`;
+    }
+  }
+
+  tick();
+  setInterval(tick, 30000);
+
+  const menuBtn = document.getElementById('menuBtn');
+  const closeBtn = document.getElementById('closeBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  if (menuBtn && closeBtn && mobileMenu) {
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.remove('hidden');
+      mobileMenu.classList.add('flex');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('flex');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+      })
+    );
+  }
+
+  function submitBook(e) {
+    e.preventDefault();
+
+    const title = document.getElementById('bookTitle').value.trim();
+    const author = document.getElementById('bookAuthor').value.trim();
+    const note = document.getElementById('bookNote').value.trim();
+
+    if (!title) return;
+
+    const subject = encodeURIComponent('Book recommendation: ' + title);
+    const body = encodeURIComponent(
+      `Title: ${title}\nAuthor: ${author}\nWhy it stuck: ${note}`
+    );
+
+    window.location.href =
+      `mailto:ericmaray@gmail.com?subject=${subject}&body=${body}`;
+  }
+</script>
+
+<!-- Floating Back to Top -->
+<button
+  type="button"
+  id="backToTop"
+  class="back-to-top"
+  aria-label="Back to top"
+  title="Back to top"
+>↑</button>
+
+<script>
+(function () {
+  const backToTop = document.getElementById('backToTop');
+  if (!backToTop) return;
+
+  function updateBackToTop() {
+    backToTop.classList.toggle(
+      'is-visible',
+      window.scrollY > 500
+    );
+  }
+
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: window.matchMedia(
+        '(prefers-reduced-motion: reduce)'
+      ).matches ? 'auto' : 'smooth'
+    });
+  });
+
+  window.addEventListener(
+    'scroll',
+    updateBackToTop,
+    { passive: true }
+  );
+
+  updateBackToTop();
+})();
+</script>
+
+</body>
+</html>
