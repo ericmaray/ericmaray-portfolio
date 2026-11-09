@@ -147,6 +147,54 @@
   letter-spacing:.14em;
 }
 @media(max-width:450px){.series-cover-title{font-size:17px}.series-cover-frame{padding:12px 15px}}
+  
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.92);
+  border: none;
+  padding: 60px 24px 24px;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  box-sizing: border-box;
+}
+
+.image-lightbox:not([open]) {
+  display: none;
+}
+
+.image-lightbox[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-lightbox img {
+  display: block;
+  max-width: 95%;
+  max-height: 90%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(244,241,234,0.35);
+  border-radius: 50%;
+  background: #222;
+  color: #f4f1ea;
+  font-size: 26px;
+  cursor: pointer;
+}
+  
 </style></head><body class="grain"><aside class="hidden lg:flex fixed left-6 top-0 h-screen items-center z-30 mono text-[11px] text-[#8b8680] tracking-[0.2em] uppercase">
 <span class="vertical">Eric Maray · Portfolio MMXXVI</span>
 </aside><header class="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-black/30 border-b hairline">
@@ -188,7 +236,7 @@
 <div class="col-span-12 lg:col-span-4">
 <div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">Featured / Learning Experience Design</div>
 <h3 class="text-3xl md:text-4xl font-medium leading-tight pr-12 lg:pr-0">Designing Learning Around the Learner</h3>
-<div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.18em] mt-4">CoServ · 2024–2025</div>
+<div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.18em] mt-4">CoServ (Denton County Electric Cooperative) · 2024–2025</div>
 <div class="series-cover mt-7" role="img" aria-label="Case study 01: Learning by Design"><div class="series-cover-frame"><div class="series-cover-title"><span class="series-cover-line">LEARNING</span><span class="series-cover-line">BY DESIGN</span></div><span class="series-cover-number">01 / CASE STUDY</span></div></div></div>
 <div class="col-span-12 lg:col-span-7 lg:col-start-6">
 <p class="leading-relaxed text-lg" style="color:rgba(244,241,234,0.8)">A learning catalog shouldn't simply tell employees what's available. It should reflect what they actually need. I brought together employee conversations, leadership priorities, and subject-matter expertise to shape a learning experience grounded in the people it was designed to serve.</p>
@@ -201,7 +249,7 @@
 <a class="cta mt-8" href="/work/designing-learning-around-the-learner/"><span class="dot"></span>Explore the Case Study <span aria-hidden="true">↗</span></a>
 </div>
 </div>
-</article><div class="gallery-label mb-5 mt-12">02 / In depth</div><article class="case-card group work-featured"><div class="grid grid-cols-12 gap-6 lg:gap-10"><div class="col-span-12 lg:col-span-4"><div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">Featured / Learning Communications</div><h3 class="text-3xl md:text-4xl font-medium leading-tight pr-12 lg:pr-0">Beyond the Reminder</h3><div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.18em] mt-4">Denton County Electric Cooperative · 2024–2025</div><a aria-label="Explore the monthly learning newsletter case study" class="block mt-7" href="/work/monthly-learning-newsletter/"><div class="series-cover" role="img" aria-label="Case study 02: Beyond the Reminder"><div class="series-cover-frame"><div class="series-cover-title"><span class="series-cover-line">BEYOND</span><span class="series-cover-line">THE REMINDER</span></div><span class="series-cover-number">02 / CASE STUDY</span></div></div></a></div><div class="col-span-12 lg:col-span-7 lg:col-start-6"><p class="leading-relaxed text-lg" style="color:rgba(244,241,234,0.8)">The monthly newsletter had a practical job: keep training visible. I used that familiar channel to connect required learning with course opportunities, timely resources, and questions that invited employees to think beyond the next deadline.</p><div class="flex flex-wrap gap-2 mt-6"><span class="tag mono">Learning Communications</span><span class="tag mono">Content Strategy</span><span class="tag mono">Visual Design</span><span class="tag mono">Employee Development</span></div><a class="cta mt-8" href="/work/monthly-learning-newsletter/"><span class="dot"></span>Explore the Case Study <span aria-hidden="true">↗</span></a></div></div></article><div class="gallery-label mb-5 mt-12">03 / In depth</div>
+</article><div class="gallery-label mb-5 mt-12">02 / In depth</div><article class="case-card group work-featured"><div class="grid grid-cols-12 gap-6 lg:gap-10"><div class="col-span-12 lg:col-span-4"><div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">Featured / Learning Communications</div><h3 class="text-3xl md:text-4xl font-medium leading-tight pr-12 lg:pr-0">Beyond the Reminder</h3><div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.18em] mt-4">CoServ (Denton County Electric Cooperative) · 2024–2025</div><a aria-label="Explore the monthly learning newsletter case study" class="block mt-7" href="/work/monthly-learning-newsletter/"><div class="series-cover" role="img" aria-label="Case study 02: Beyond the Reminder"><div class="series-cover-frame"><div class="series-cover-title"><span class="series-cover-line">BEYOND</span><span class="series-cover-line">THE REMINDER</span></div><span class="series-cover-number">02 / CASE STUDY</span></div></div></a></div><div class="col-span-12 lg:col-span-7 lg:col-start-6"><p class="leading-relaxed text-lg" style="color:rgba(244,241,234,0.8)">The monthly newsletter had a practical job: keep training visible. I used that familiar channel to connect required learning with course opportunities, timely resources, and questions that invited employees to think beyond the next deadline.</p><div class="flex flex-wrap gap-2 mt-6"><span class="tag mono">Learning Communications</span><span class="tag mono">Content Strategy</span><span class="tag mono">Visual Design</span><span class="tag mono">Employee Development</span></div><a class="cta mt-8" href="/work/monthly-learning-newsletter/"><span class="dot"></span>Explore the Case Study <span aria-hidden="true">↗</span></a></div></div></article><div class="gallery-label mb-5 mt-12">03 / In depth</div>
 <article class="case-card group work-featured">
   <div class="grid grid-cols-12 gap-6 lg:gap-10">
     <div class="col-span-12 lg:col-span-4">
@@ -231,7 +279,7 @@
 <article class="case-card group" style="display:flex;flex-direction:column">
   <div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.2em] mb-3">01 / Safety Communications</div>
   <h3 class="text-xl font-medium leading-tight">Safety Spotlight: Building awareness, one week at a time</h3>
-  <div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.18em] mt-3">Mustang Special Utility District · 2026</div>
+  <div class="mono text-[10px] text-[#8b8680] uppercase tracking-[0.18em] mt-3">Mustang Special Utility District · 2026</div>
   <p class="text-sm mt-4 leading-relaxed" style="color:rgba(244,241,234,0.75)">
     I designed Safety Spotlight 2026 as a yearlong communication strategy: 12 monthly safety themes, with weekly messages intended to build on one another. Instead of isolated reminders, the structure connected awareness, practical understanding, reflection, and reinforcement across operational safety, employee well-being, and emerging workplace risks.
   </p>
@@ -334,7 +382,9 @@
   <details class="mt-6" style="border-top:1px solid rgba(244,241,234,.14);padding-top:18px">
     <summary class="mono cursor-pointer text-sm" style="color:var(--accent);letter-spacing:.04em">Explore the onboarding redesign — before &amp; after</summary>
     <figure class="mt-5" style="margin-left:0;margin-right:0">
-      <a href="/work/assets/onboarding-before-after.webp" target="_blank" rel="noopener" aria-label="Open full-size onboarding before-and-after diagram">
+      <a href="/work/assets/onboarding-before-after.webp"
+   data-lightbox
+   aria-label="Enlarge onboarding comparison"> aria-label="Open full-size onboarding before-and-after diagram">
         <img src="/work/assets/onboarding-before-after.webp" alt="Comparison of rules-first onboarding and a people-centered, values-led orientation organized around Respect, Integrity, Safety, and Innovation" loading="lazy" width="1491" height="1055" style="display:block;width:100%;height:auto;border:1px solid rgba(212,165,116,.35);border-radius:3px" />
       </a>
       <figcaption style="color:#aaa39a;font-size:12px;line-height:1.6;margin-top:10px">Conceptual comparison of the previous orientation and the redesign. Select the image to enlarge.</figcaption>
@@ -501,4 +551,45 @@
     const body = encodeURIComponent(`Title: ${title}\nAuthor: ${author}\nWhy it stuck: ${note}`);
     window.location.href = `mailto:ericmaray@gmail.com?subject=${subject}&body=${body}`;
   }
-</script></body></html>
+</script>
+const lightbox = document.createElement('dialog');
+lightbox.className = 'image-lightbox';
+lightbox.setAttribute('aria-label', 'Enlarged image');
+
+lightbox.innerHTML = `
+  <button class="lightbox-close"
+          type="button"
+          aria-label="Close image">&times;</button>
+  <img alt="">
+`;
+
+document.body.appendChild(lightbox);
+
+const lightboxImage = lightbox.querySelector('img');
+
+document.querySelectorAll('a[data-lightbox]').forEach(link => {
+  link.addEventListener('click', event => {
+    event.preventDefault();
+
+    const thumbnail = link.querySelector('img');
+
+    lightboxImage.src = link.href;
+    lightboxImage.alt = thumbnail?.alt || 'Enlarged image';
+
+    lightbox.showModal();
+  });
+});
+
+lightbox.querySelector('.lightbox-close').addEventListener(
+  'click',
+  () => lightbox.close()
+);
+
+lightbox.addEventListener('click', event => {
+  if (event.target === lightbox) lightbox.close();
+});
+
+lightbox.addEventListener('close', () => {
+  lightboxImage.removeAttribute('src');
+});
+</body></html>
