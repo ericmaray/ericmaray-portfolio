@@ -65,8 +65,133 @@
 .issue-controls button:disabled{opacity:.35;cursor:not-allowed}
 .issue-progress{text-align:center;color:#c8b9aa;font-size:10px;letter-spacing:.12em}
 @media(max-width:680px){.issue-carousel{padding:12px}.issue-tabs{gap:3px}.month-tab{font-size:10px;letter-spacing:0;padding:10px 0}.issue-meta{display:block}.slide-count{display:none}.issue-controls button span{display:none}.issue-controls button{padding:10px 12px}.issue-progress{font-size:9px}}
+
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  box-sizing: border-box;
+  border: none;
+  padding: 65px 20px 25px;
+  background: rgba(0, 0, 0, 0.94);
+}
+
+.image-lightbox:not([open]) {
+  display: none;
+}
+
+.image-lightbox[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-lightbox img {
+  display: block;
+  max-width: 96%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 22px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(244,241,234,.35);
+  border-radius: 50%;
+  background: #222;
+  color: #f4f1ea;
+  font-size: 26px;
+  cursor: pointer;
+}
+.case-study-end-nav {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 50px 0 24px;
+}
+.case-study-end-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 104px;
+  padding: 22px;
+  border: 1px solid rgba(244,241,234,.2);
+  border-radius: 3px;
+  color: #f4f1ea;
+  text-decoration: none;
+  transition: border-color .25s, background .25s;
+}
+.case-study-end-link:hover,
+.case-study-end-link:focus-visible {
+  border-color: #d4a574;
+  background: rgba(212,165,116,.06);
+}
+.case-study-end-kicker {
+  color: #8b8680;
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: 10px;
+  margin-bottom: 12px;
+}
+.case-study-end-title {
+  font-size: clamp(16px, 2vw, 21px);
+  line-height: 1.4;
+}
+.back-to-top {
+  position: fixed;
+  right: max(18px, env(safe-area-inset-right));
+  bottom: max(18px, env(safe-area-inset-bottom));
+  z-index: 1000;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(212,165,116,.65);
+  border-radius: 50%;
+  color: #0a0a0a;
+  background: #d4a574;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 6px 22px rgba(0,0,0,.28);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity .22s, visibility .22s, transform .22s;
+}
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.back-to-top:focus-visible { outline: 2px solid #f4f1ea; outline-offset: 3px; }
+@media (max-width: 600px) {
+  .case-study-end-nav { grid-template-columns: 1fr; gap: 10px; }
+  .case-study-end-link { min-height: 82px; padding: 18px; }
+  .back-to-top { right: max(14px, env(safe-area-inset-right)); bottom: max(14px, env(safe-area-inset-bottom)); width: 44px; height: 44px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .case-study-end-link, .back-to-top { transition: none; }
+}
 </style></head><body>
-<header class="nav"><a href="/"><span class="gold">●</span> ERIC T. MARAY / PORTFOLIO</a><nav aria-label="Main navigation" class="navlinks"><a href="/">HOME</a><a href="/work/">WORK</a><a href="/philosophy/">PHILOSOPHY</a><a href="/capabilities/">SKILLS</a><a href="/contact/">CONTACT</a></nav><a class="gold" href="/work/">← BACK TO WORK</a></header>
+<header class="nav"><a href="/"><span class="gold">●</span> ERIC T. MARAY / PORTFOLIO</a><nav class="case-study-end-nav" aria-label="Case study navigation">
+  <a href="/work/" class="case-study-end-link">
+    <span class="case-study-end-kicker">All projects</span>
+    <span class="case-study-end-title">← Return to Work</span>
+  </a>
+  <a href="/work/beyond-the-checklist/" class="case-study-end-link">
+    <span class="case-study-end-kicker">Next case study</span>
+    <span class="case-study-end-title">Beyond the Checklist →</span>
+  </a>
+</nav><a class="gold" href="/work/">← BACK TO WORK</a></header>
 <main><div class="wrap"><section class="hero"><div><div class="eyebrow">✦   CASE STUDY / LEARNING COMMUNICATIONS</div><h1>Beyond the <em>Reminder.</em></h1><p class="lede">A monthly training newsletter became an opportunity to do more than announce deadlines. It could connect employees to learning, invite reflection, and give development a more human voice.</p><div class="hero-metadata"><div><b>ORGANIZATION</b><span>Denton County Electric Cooperative (CoServ)</span></div><div><b>ROLE</b><span>Training &amp; Development Specialist</span></div><div><b>PERIOD</b><span>2024–2025</span></div></div></div><div><div class="cover-stack"><img alt="Beyond the Reminder — case study cover artwork" class="case-cover-image" height="1086" src="assets/beyond-the-reminder-cover.webp" width="1448"/></div><p class="cover-caption">02 / CASE STUDY · LEARNING COMMUNICATIONS</p></div></section>
 <section class="section chapter"><aside class="side"><div class="mono">01 — THE OPPORTUNITY</div><em>A familiar channel,<br/>reimagined.</em></aside><div class="content"><h2>The message had a job to do. So did the experience.</h2><p>When I began managing the monthly Training &amp; Development newsletter, I inherited an established communication channel. It already served an important purpose: keeping training in front of employees. But repetition had made it easy for the message to become another monthly reminder rather than something worth opening.</p><p>Employee feedback helped sharpen the question: what would make this communication genuinely useful, not simply another item in the inbox?</p><p>The opportunity wasn't to make it longer for the sake of being longer. It was to connect required learning with the courses, resources, ideas, and conversations that could help employees grow.</p><div class="note">The original pre-redesign newsletter issues aren't included in this portfolio. The examples below document the January–July 2025 approach and its expansion into a two-page format beginning in February.</div></div></section>
 <section class="section chapter"><aside class="side"><div class="mono">02 — THE DESIGN</div><em>Give the content<br/>a reason to matter.</em></aside><div class="content"><h2>A predictable structure, with room for curiosity.</h2><p>I kept the essentials easy to find and made room for something more useful alongside them. The recurring training topic remained prominent, while each issue gave employees another reason to engage with the communication.</p><div class="intent-grid"><div class="intent-card"><div class="mono">01 / MAKE IT FINDABLE</div><h3>Know what matters now.</h3><p>Put the current training topic, deadline, and key announcements where employees can find them quickly.</p></div><div class="intent-card"><div class="mono">02 / MAKE IT RELEVANT</div><h3>Connect learning to the moment.</h3><p>Use seasonal themes, current programs, practical resources, and real workplace context instead of repeating a generic message.</p></div><div class="intent-card"><div class="mono">03 / MAKE IT HUMAN</div><h3>Invite a little reflection.</h3><p>Use the expanded space for questions and small prompts about mindset, practice, wellbeing, and self-directed growth.</p></div></div></div></section>
@@ -75,44 +200,65 @@
 <div class="carousel-toolbar"><div class="issue-tabs" role="tablist" aria-label="Choose newsletter month"><button type="button" class="month-tab is-active" role="tab" id="tab-january" aria-selected="true" aria-controls="panel-january" data-index="0" tabindex="0">JAN</button><button type="button" class="month-tab" role="tab" id="tab-february" aria-selected="false" aria-controls="panel-february" data-index="1" tabindex="-1">FEB</button><button type="button" class="month-tab" role="tab" id="tab-march" aria-selected="false" aria-controls="panel-march" data-index="2" tabindex="-1">MAR</button><button type="button" class="month-tab" role="tab" id="tab-april" aria-selected="false" aria-controls="panel-april" data-index="3" tabindex="-1">APR</button><button type="button" class="month-tab" role="tab" id="tab-may" aria-selected="false" aria-controls="panel-may" data-index="4" tabindex="-1">MAY</button><button type="button" class="month-tab" role="tab" id="tab-june" aria-selected="false" aria-controls="panel-june" data-index="5" tabindex="-1">JUN</button><button type="button" class="month-tab" role="tab" id="tab-july" aria-selected="false" aria-controls="panel-july" data-index="6" tabindex="-1">JUL</button></div></div>
 <div class="issue-stage"><article class="issue-slide" id="panel-january" role="tabpanel" aria-labelledby="tab-january" data-index="0" >
 <div class="issue-meta"><div><span class="eyebrow">01 / JANUARY 2025 · TWO-PAGE ISSUE</span><h3>The new year begins</h3><p>The 2025 training plan, Academy housekeeping, the cold-stress topic, and practical suggestions for staying motivated.</p></div><span class="slide-count">01 / 07</span></div>
-<a class="issue-image-link" href="assets/january-spread.webp" target="_blank" rel="noopener" aria-label="View full-size January 2025 newsletter spread"><img class="issue-image" src="assets/january-spread.webp" alt="Original January 2025 Training and Development newsletter, both pages together" loading="eager" decoding="async"></a>
+<a class="issue-image-link"
+   href="assets/january-spread.webp"
+   data-lightbox
+   aria-label="Enlarge January 2025 newsletter spread">
+  <img class="issue-image"
+       src="assets/january-spread.webp"
+       alt="Original January 2025 Training and Development newsletter, both pages together"
+       loading="eager"
+       decoding="async">
+</a>
 <div class="issue-image-note mono">SELECT IMAGE TO VIEW FULL SIZE ↗</div>
 </article>
 <article class="issue-slide" id="panel-february" role="tabpanel" aria-labelledby="tab-february" data-index="1" hidden>
 <div class="issue-meta"><div><span class="eyebrow">02 / FEBRUARY 2025 · TWO-PAGE ISSUE</span><h3>CoServ U begins</h3><p>Course registration updates, emergency preparedness, and growth-focused learning opportunities.</p></div><span class="slide-count">02 / 07</span></div>
-<a class="issue-image-link" href="assets/february-spread.webp" target="_blank" rel="noopener" aria-label="View full-size February 2025 newsletter spread"><img class="issue-image" src="assets/february-spread.webp" alt="Original February 2025 Training and Development newsletter, both pages together" loading="lazy" decoding="async"></a>
+<a class="issue-image-link" href="assets/february-spread.webp" data-lightbox aria-label="Enlarge February 2025 newsletter spread">
+  <img class="issue-image" src="assets/february-spread.webp" alt="Original February 2025 Training and Development newsletter, both pages together" loading="lazy" decoding="async">
+</a>
 <div class="issue-image-note mono">SELECT IMAGE TO VIEW FULL SIZE ↗</div>
 </article>
 <article class="issue-slide" id="panel-march" role="tabpanel" aria-labelledby="tab-march" data-index="2" hidden>
 <div class="issue-meta"><div><span class="eyebrow">03 / MARCH 2025 · TWO-PAGE ISSUE</span><h3>The luck of learning</h3><p>A monthly training reminder paired with reflection on practice and building skills.</p></div><span class="slide-count">03 / 07</span></div>
-<a class="issue-image-link" href="assets/march-spread.webp" target="_blank" rel="noopener" aria-label="View full-size March 2025 newsletter spread"><img class="issue-image" src="assets/march-spread.webp" alt="Original March 2025 Training and Development newsletter, both pages together" loading="lazy" decoding="async"></a>
+<a class="issue-image-link" href="assets/march-spread.webp" data-lightbox aria-label="Enlarge March 2025 newsletter spread">
+  <img class="issue-image" src="assets/march-spread.webp" alt="Original March 2025 Training and Development newsletter, both pages together" loading="lazy" decoding="async">
+</a>
 <div class="issue-image-note mono">SELECT IMAGE TO VIEW FULL SIZE ↗</div>
 </article>
 <article class="issue-slide" id="panel-april" role="tabpanel" aria-labelledby="tab-april" data-index="3" hidden>
 <div class="issue-meta"><div><span class="eyebrow">04 / APRIL 2025 · TWO-PAGE ISSUE</span><h3>Spring into growth</h3><p>Training updates and course events alongside a practical growth-mindset feature.</p></div><span class="slide-count">04 / 07</span></div>
-<a class="issue-image-link" href="assets/april-spread.webp" target="_blank" rel="noopener" aria-label="View full-size April 2025 newsletter spread"><img class="issue-image" src="assets/april-spread.webp" alt="Original April 2025 Training and Development newsletter, both pages together" loading="lazy" decoding="async"></a>
+<a class="issue-image-link" href="assets/april-spread.webp" data-lightbox aria-label="Enlarge April 2025 newsletter spread">
+  <img class="issue-image" src="assets/april-spread.webp" alt="Original April 2025 Training and Development newsletter, both pages together" loading="lazy" decoding="async">
+</a>
 <div class="issue-image-note mono">SELECT IMAGE TO VIEW FULL SIZE ↗</div>
 </article>
 <article class="issue-slide" id="panel-may" role="tabpanel" aria-labelledby="tab-may" data-index="4" hidden>
 <div class="issue-meta"><div><span class="eyebrow">05 / MAY 2025 · TWO-PAGE ISSUE</span><h3>Mental health matters</h3><p>Heat-stress training and learning opportunities complemented by wellness resources and grounding techniques.</p></div><span class="slide-count">05 / 07</span></div>
-<a class="issue-image-link" href="assets/may-spread.webp" target="_blank" rel="noopener" aria-label="View full-size May 2025 newsletter spread"><img class="issue-image" src="assets/may-spread.webp" alt="Original May 2025 Training and Development newsletter, both pages together" loading="lazy" decoding="async"></a>
+<a class="issue-image-link" href="assets/may-spread.webp" data-lightbox aria-label="Enlarge May 2025 newsletter spread">
+  <img class="issue-image" src="assets/may-spread.webp" alt="Original May 2025 Training and Development newsletter, both pages together" loading="lazy" decoding="async">
+</a>
 <div class="issue-image-note mono">SELECT IMAGE TO VIEW FULL SIZE ↗</div>
 </article>
 <article class="issue-slide" id="panel-june" role="tabpanel" aria-labelledby="tab-june" data-index="5" hidden>
 <div class="issue-meta"><div><span class="eyebrow">06 / JUNE 2025 · TWO-PAGE ISSUE</span><h3>Mid-year momentum</h3><p>Hazard awareness, development opportunities, and prompts for reflecting on midyear goals.</p></div><span class="slide-count">06 / 07</span></div>
-<a class="issue-image-link" href="assets/june-spread.webp" target="_blank" rel="noopener" aria-label="View full-size June 2025 newsletter spread"><img class="issue-image" src="assets/june-spread.webp" alt="Original June 2025 Training and Development newsletter, both pages together" loading="lazy" decoding="async"></a>
+<a class="issue-image-link" href="assets/june-spread.webp" data-lightbox aria-label="Enlarge June 2025 newsletter spread">
+  <img class="issue-image" src="assets/june-spread.webp" alt="Original June 2025 Training and Development newsletter, both pages together" loading="lazy" decoding="async">
+</a>
 <div class="issue-image-note mono">SELECT IMAGE TO VIEW FULL SIZE ↗</div>
 </article>
 <article class="issue-slide" id="panel-july" role="tabpanel" aria-labelledby="tab-july" data-index="6" hidden>
 <div class="issue-meta"><div><span class="eyebrow">07 / JULY 2025 · TWO-PAGE ISSUE</span><h3>Ignite learning &amp; growth</h3><p>Social engineering, feedback, upcoming events, and encouragement for self-directed learning.</p></div><span class="slide-count">07 / 07</span></div>
-<a class="issue-image-link" href="assets/july-spread.webp" target="_blank" rel="noopener" aria-label="View full-size July 2025 newsletter spread"><img class="issue-image" src="assets/july-spread.webp" alt="Original July 2025 Training and Development newsletter, both pages together" loading="lazy" decoding="async"></a>
+<a class="issue-image-link" href="assets/july-spread.webp" data-lightbox aria-label="Enlarge July 2025 newsletter spread">
+  <img class="issue-image" src="assets/july-spread.webp" alt="Original July 2025 Training and Development newsletter, both pages together" loading="lazy" decoding="async">
+</a>
 <div class="issue-image-note mono">SELECT IMAGE TO VIEW FULL SIZE ↗</div>
 </article></div>
 <div class="issue-controls"><button type="button" id="previousIssue" aria-label="Previous newsletter month">← <span>PREVIOUS</span></button><span class="issue-progress mono" id="issueProgress" aria-live="polite" aria-atomic="true">JANUARY 2025 · 01 / 07</span><button type="button" id="nextIssue" aria-label="Next newsletter month"><span>NEXT</span> →</button></div>
 </div>
 <p class="proof">Source: original Training &amp; Development newsletters, January–July 2025. All fourteen pages are included in the seven spreads, without additional cropping.</p></div></section>
 <section class="section chapter"><aside class="side"><div class="mono">04 — THE SIGNALS</div><em>Keeping it<br/>practical.</em></aside><div class="content"><h2>Give people something they can act on.</h2><p>The issues connect communications with concrete actions: complete required e-learning, register for CoServ U courses, view upcoming events, review resources, and share feedback about the learning experience.</p><p>The February issue also reports a snapshot of early CoServ U sign-ups. Between the two reported figures, registrants increased from 171 to 204 and course registrations from 606 to 722. Those numbers describe program registration activity reported in the newsletter, <strong>not</strong> a measured effect of the newsletter itself.</p><div class="numbers"><div class="number"><strong>171 → 204</strong><span>EMPLOYEES REGISTERED / FEBRUARY SNAPSHOT</span></div><div class="number"><strong>606 → 722</strong><span>COURSE REGISTRATIONS / FEBRUARY SNAPSHOT</span></div></div><p class="proof">Counts are reproduced from the February 2025 issue. No newsletter open-rate, click-through, or attributable engagement figures are available here, so none are claimed.</p></div></section>
-<section class="section chapter"><aside class="side"><div class="mono">05 — THE TAKEAWAY</div><em>Communication<br/>is part of the<br/>learning experience.</em></aside><div class="content"><h2>A channel can do more than deliver information.</h2><p>A newsletter won't replace a thoughtful training program. But it can help employees navigate one: understand what needs attention, find opportunities that fit, and encounter a useful idea they weren't looking for.</p><p>For me, the most interesting part was making space for both kinds of learning: the required and the self-directed. One keeps the organization moving. The other gives people room to grow.</p><a class="cta" href="/work/">← Explore more work</a> <a class="cta" href="/work/designing-learning-around-the-learner/">Related case study ↗</a></div></section></div></main>
+<section class="section chapter"><aside class="side"><div class="mono">05 — THE TAKEAWAY</div><em>Communication<br/>is part of the<br/>learning experience.</em></aside><div class="content"><h2>A channel can do more than deliver information.</h2><p>A newsletter won't replace a thoughtful training program. But it can help employees navigate one: understand what needs attention, find opportunities that fit, and encounter a useful idea they weren't looking for.</p><p>For me, the most interesting part was making space for both kinds of learning: the required and the self-directed. One keeps the organization moving. The other gives people room to grow.</p></div></section></div></main>
 <footer><div class="wrap"><span>© 2026 ERIC T. MARAY · SEMPER PRORSUM · ALWAYS FORWARD</span><span><a href="/">HOME</a>   /   <a href="/work/">WORK</a>   /   <a href="/contact/">SAY HELLO</a></span></div></footer>
 
 <script>
@@ -152,4 +298,67 @@
   goTo(0);
 })();
 </script>
-</body></html>
+<script>
+const lightbox = document.createElement('dialog');
+lightbox.className = 'image-lightbox';
+lightbox.setAttribute('aria-label', 'Enlarged newsletter image');
+
+lightbox.innerHTML = `
+  <button type="button" class="lightbox-close"
+          aria-label="Close image">&times;</button>
+  <img alt="">
+`;
+
+document.body.appendChild(lightbox);
+
+const enlargedImage = lightbox.querySelector('img');
+
+document.addEventListener('click', event => {
+  const link = event.target.closest('a[data-lightbox]');
+  if (!link) return;
+
+  event.preventDefault();
+
+  const thumbnail = link.querySelector('img');
+  enlargedImage.src = link.href;
+  enlargedImage.alt = thumbnail?.alt || 'Newsletter image';
+  lightbox.showModal();
+});
+
+lightbox.querySelector('.lightbox-close')
+  .addEventListener('click', () => lightbox.close());
+
+lightbox.addEventListener('click', event => {
+  if (event.target === lightbox) lightbox.close();
+});
+
+lightbox.addEventListener('close', () => {
+  enlargedImage.removeAttribute('src');
+});
+</script>
+
+<button type="button" id="backToTop" class="back-to-top"
+        aria-label="Back to top" title="Back to top">↑</button>
+
+<script>
+  const backToTop = document.getElementById('backToTop');
+
+  function updateBackToTop() {
+    backToTop.classList.toggle('is-visible', window.scrollY > 500);
+  }
+
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        ? 'instant'
+        : 'smooth'
+    });
+  });
+
+  window.addEventListener('scroll', updateBackToTop, { passive: true });
+  updateBackToTop();
+</script>
+
+</body>
+</html>
