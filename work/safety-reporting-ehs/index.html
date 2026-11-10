@@ -11,6 +11,21 @@
 :root{--bg:#0a0a0a;--paper:#f4f1ea;--muted:#aaa39a;--gold:#d4a574;--line:#433b35;--panel:#171411}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% 0,#231a13 0,transparent 38%),var(--bg);color:var(--paper);font:17px/1.72 'Fraunces',Georgia,serif;-webkit-font-smoothing:antialiased}a{color:inherit}a:focus-visible{outline:2px solid var(--gold);outline-offset:4px}p,h1,h2,h3{margin-top:0}.mono{font-family:'JetBrains Mono',monospace}.wrap{max-width:1320px;margin:0 auto;padding:0 clamp(22px,5.4vw,76px)}
 header{border-bottom:1px solid var(--line);padding:16px clamp(22px,5.4vw,76px);display:flex;align-items:center;justify-content:space-between;gap:20px;font:10px/1.4 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase}header a{text-decoration:none}header a:hover{color:var(--gold)}.navlinks{display:flex;flex-wrap:wrap;gap:clamp(12px,2vw,30px);color:#c0b6ad}.gold{color:var(--gold)}
+.hero-mockup {
+  padding: 12px;
+}
+
+.hero-mockup a {
+  display: block;
+  cursor: zoom-in;
+}
+
+.hero-mockup img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}  
 .hero{min-height:560px;padding:72px 0 84px;display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.83fr);gap:clamp(35px,6vw,100px);align-items:center}.eyebrow{font:10px/1.5 'JetBrains Mono',monospace;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}h1{font:300 clamp(3.45rem,6.4vw,6.65rem)/1.04 'Fraunces',Georgia,serif;letter-spacing:-.052em;margin:22px 0 24px}h1 em{font-weight:300;color:var(--gold)}.lede{font-size:clamp(1.12rem,1.6vw,1.38rem);line-height:1.55;max-width:690px;color:#e1d9d0}.metadata{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;border-top:1px solid var(--line);margin-top:33px;padding-top:22px}.metadata b{font:10px 'JetBrains Mono',monospace;letter-spacing:.12em;color:var(--gold);display:block;margin-bottom:10px}.metadata span{font-size:14px;line-height:1.5}
 .cover{background:radial-gradient(circle at 76% 22%,#33261b,transparent 56%),repeating-linear-gradient(90deg,transparent 0 43px,#ffffff05 44px),#101010;border:1px solid #59483b;aspect-ratio:1.34;display:flex;align-items:center;justify-content:center;padding:10%;box-shadow:0 26px 65px #0009}.cover-frame{transform:rotate(-5deg);height:80%;width:100%;border:1px solid #ae7b49;display:flex;flex-direction:column;justify-content:center;gap:26px;padding:12%;color:var(--gold)}.cover-frame strong{font:400 clamp(1.35rem,2.6vw,2.4rem)/1.45 'JetBrains Mono',monospace;letter-spacing:.13em}.cover-frame span{font:10px 'JetBrains Mono',monospace;letter-spacing:.17em;color:#b2a99f}.cover-caption{text-align:center;color:var(--muted);font:10px 'JetBrains Mono',monospace;letter-spacing:.14em;margin-top:17px}
 .section{border-top:1px solid var(--line);padding:66px 0 78px}.chapter{display:grid;grid-template-columns:215px minmax(0,1fr);gap:clamp(25px,5vw,85px)}.side{font:10px 'JetBrains Mono',monospace;letter-spacing:.12em;color:#aaa39a}.side:after{content:"";display:block;border-bottom:1px solid var(--line);margin-top:16px}.side em{font:italic 1.45rem/1.25 'Fraunces',serif;color:var(--gold);display:block;margin-top:18px;letter-spacing:0}.content h2{font:300 clamp(2.2rem,3.8vw,3.55rem)/1.12 'Fraunces',serif;letter-spacing:-.036em;margin-bottom:22px}.content p{color:#d9d1ca;max-width:850px}.content strong{color:var(--paper)}.muted{color:var(--muted)}
@@ -295,7 +310,31 @@ footer .wrap.portfolio-footer-row {
 <p class="lede">Making safety easier to report, easier to understand, and harder to overlook.</p>
 <p>Building a more accessible safety-reporting experience, then connecting it to a broader vision for environmental, health, and safety operations.</p>
 <div class="metadata"><div><b>ORGANIZATION</b><span>Mustang Special Utility District</span></div><div><b>ROLE</b><span>Safety / Workforce Operations</span></div><div><b>PERIOD</b><span>2025–2026</span></div></div>
-</div><div><div class="photo-wrap"><a aria-label="Enlarge graphic: Safety Reporting Form interface concept, including employee-ID search, basic information fields, department and facility selections, and Save and Next controls" class="graphic-lightbox-trigger" data-lightbox="" href="/work/safety-reporting-ehs/assets/safety-reporting-form-concept.webp"><img alt="Safety Reporting Form interface concept, including employee-ID search, basic information fields, department and facility selections, and Save and Next controls" height="944" src="/work/safety-reporting-ehs/assets/safety-reporting-form-concept.webp" width="932"/></a></div><div class="photo-note">Safety Reporting Form — project design screenshot; identifying information and live employee submissions are not shown.</div></div></section>
+
+</div>
+<div>
+  <div class="photo-wrap">
+    <a
+      class="graphic-lightbox-trigger"
+      data-lightbox
+      href="/work/safety-reporting-ehs/assets/reporting-form-device-mockup.png.png"
+      aria-label="Enlarge Safety Reporting Form device mockup"
+    >
+      <img
+        src="/work/safety-reporting-ehs/assets/reporting-form-device-mockup.png.png"
+        alt="Safety Reporting Form displayed in a device mockup"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </a>
+  </div>
+
+  <div class="photo-note">
+    Safety Reporting Form — device mockup illustrating the reporting experience.
+  </div>
+</div>
+</section>
 <section class="section chapter"><aside class="side">01 — THE CHALLENGE<em>Access is part<br/>of safety.</em></aside><div class="content"><h2>A reporting system only works when people use it.</h2>
 <p>Safety reporting had been distributed across multiple forms and processes. That made an already-sensitive task feel more administrative than helpful, particularly when people needed to report a hazard, near miss, injury, incident, or property damage quickly.</p>
 <p>I approached the problem as more than a form redesign: how could one familiar entry point make reporting accessible across the organization, improve the quality of information captured, and support more timely follow-through?</p>
