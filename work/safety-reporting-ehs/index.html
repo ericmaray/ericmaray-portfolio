@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 
+<!DOCTYPE html>
+
 <html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>From Reporting to Response | Eric T. Maray</title>
 <meta content="A safety reporting and EHS system design case study using Jotform, Microsoft 365 and a developing Power Automate workflow approach." name="description"/>
@@ -49,8 +51,243 @@ header{border-bottom:1px solid var(--line);padding:16px clamp(22px,5.4vw,76px);d
 @media(max-width:1000px){.response-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.response-flow>div:nth-child(2):after{content:none}}
 @media(max-width:580px){.response-flow{grid-template-columns:1fr}.response-flow>div:after{content:none!important}.field-context{padding:20px 18px}}
 @media(prefers-reduced-motion:reduce){.artifact-figure img{transition:none}}
+
+
+/* SHARED PORTFOLIO PATTERN — HEADER, CASE NAVIGATION, FOOTER, BACK TO TOP */
+/* Header: use main site's branding, destinations and contact CTA. */
+header.portfolio-header {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 76px;
+  padding: 20px clamp(22px,5.4vw,76px);
+  border-bottom: 1px solid var(--line);
+  background: rgba(10,10,10,.9);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.portfolio-header .site-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  flex: 0 0 auto;
+  color: var(--paper);
+  text-decoration: none;
+  white-space: nowrap;
+  font: 400 13px/1.4 'JetBrains Mono',monospace;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.portfolio-header .brand-dot { color: var(--gold); }
+.portfolio-header .brand-subtitle { color: #8b8680; font-size: 11px; }
+.portfolio-header .navlinks {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: clamp(12px,1.65vw,28px);
+  color: #8b8680;
+}
+.portfolio-header .navlinks a {
+  white-space: nowrap;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.portfolio-header .navlinks a[aria-current="page"] { color: var(--paper); }
+.portfolio-header .header-contact {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 9px;
+  white-space: nowrap;
+  color: var(--paper);
+  font: 400 12px 'JetBrains Mono',monospace;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.portfolio-header .contact-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+.portfolio-header .mobile-menu { display: none; }
+@media(max-width:1120px) {
+  .portfolio-header .navlinks,
+  .portfolio-header .header-contact { display: none; }
+  .portfolio-header .mobile-menu { display: block; margin-left: auto; }
+}
+@media(max-width:620px) {
+  header.portfolio-header { min-height: 64px; padding: 12px 18px; }
+  .portfolio-header .site-brand { font-size: 12px; }
+  .portfolio-header .brand-subtitle { display: none; }
+}
+
+/* Navigation: intentionally separated left and right, not centered together. */
+.case-study-end-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  width: 100%;
+  max-width: 1320px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 48px clamp(22px,5.4vw,76px) 76px;
+  border-top: 1px solid var(--line);
+}
+.case-study-end-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 12px 22px;
+  border: 1px solid rgba(244,241,234,.2);
+  border-radius: 999px;
+  background: transparent;
+  box-shadow: none;
+  color: #8b8680;
+  text-decoration: none;
+  transform: none;
+  transition: border-color .2s,background .2s,color .2s;
+}
+.case-study-end-link:hover,
+.case-study-end-link:focus-visible {
+  border-color: rgba(212,165,116,.55);
+  background: rgba(212,165,116,.04);
+  transform: none;
+}
+.case-study-end-kicker { display: none; }
+.case-study-end-title {
+  color: inherit;
+  font: 400 10px/1.5 'JetBrains Mono',monospace;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.case-study-end-link:hover,.case-study-end-link:focus-visible { color: var(--gold); }
+@media(max-width:640px) {
+  .case-study-end-nav { padding: 36px 18px 56px; gap: 12px; }
+  .case-study-end-link { padding: 11px 16px; min-height: 42px; }
+  .case-study-end-title { font-size: 9px; letter-spacing: .06em; }
+}
+
+/* Footer: single, adjacent local-time label + live clock. */
+footer .wrap.portfolio-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+}
+.footer-clock {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  white-space: nowrap;
+}
+.footer-clock-label { color: #8b8680; opacity: .7; }
+.footer-clock-time { color: var(--paper); }
+.footer-links { display: inline-flex; align-items: center; gap: 24px; }
+
+/* Scroll-to-top: shown after 500px, on all screen sizes. */
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(212,165,116,.55);
+  border-radius: 50%;
+  background: #191919;
+  color: var(--gold);
+  font: 24px/1 'DM Sans',sans-serif;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity .25s, visibility .25s, transform .25s;
+}
+.back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.back-to-top:hover { background: #302217; border-color: var(--gold); }
+.back-to-top:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+@media(max-width:640px) { .back-to-top { right: 16px; bottom: 20px; width: 44px; height: 44px; } }
+@media(prefers-reduced-motion:reduce) { .case-study-end-link,.back-to-top { transition: none; } }
+
+
+
+/* Final case study: a single return link aligned left. */
+.case-study-end-nav--single {justify-content:flex-start;}
+
+/* Graphics open in an accessible in-page lightbox instead of a new tab. */
+.graphic-lightbox-trigger { display:block; cursor:zoom-in; }
+.graphic-lightbox-trigger:focus-visible { outline:2px solid var(--gold,#d4a574); outline-offset:4px; }
+.graphic-lightbox-trigger img { display:block; max-width:100%; }
+.graphic-lightbox {
+  position:fixed; inset:0; box-sizing:border-box; max-width:none; max-height:none;
+  width:100vw; height:100dvh; margin:0; padding:50px 24px 24px;
+  border:0; background:rgba(9,9,9,.96); color:#f4f1ea;
+  overflow:auto; overscroll-behavior:contain;
+}
+.graphic-lightbox:not([open]) { display:none; }
+.graphic-lightbox[open] { display:flex; align-items:center; justify-content:center; }
+.graphic-lightbox::backdrop { background:rgba(0,0,0,.88); }
+.graphic-lightbox img { display:block; width:auto; height:auto; max-width:100%; max-height:calc(100dvh - 90px); object-fit:contain; }
+.graphic-lightbox-close {
+  position:fixed; top:18px; right:22px; z-index:2; width:44px; height:44px;
+  border:1px solid rgba(244,241,234,.4); border-radius:50%; background:#181818;
+  color:#f4f1ea; font-size:27px; line-height:1; cursor:pointer;
+}
+.graphic-lightbox-close:hover,.graphic-lightbox-close:focus-visible { border-color:var(--gold,#d4a574); color:var(--gold,#d4a574); }
+@media(max-width:640px){ .graphic-lightbox {padding:64px 12px 18px;} .graphic-lightbox-close{top:12px;right:12px;} }
 </style></head><body><aside aria-hidden="true" class="portfolio-rail"><span>Eric Maray · Portfolio MMXXVI</span></aside>
-<header><a class="site-brand" href="/"><span class="gold">●</span> ERIC T. MARAY / PORTFOLIO</a><nav aria-label="Main navigation" class="navlinks"><a href="/">HOME</a><a href="/work/">WORK</a><a href="/philosophy/">PHILOSOPHY</a><a href="/capabilities/">SKILLS</a><a href="/contact/">CONTACT</a></nav><a class="gold back-link" href="/work/">← BACK TO WORK</a><details class="mobile-menu"><summary aria-label="Open navigation">MENU ☰</summary><nav aria-label="Mobile navigation" class="mobile-links"><a href="/">Home</a><a href="/work/">Work</a><a href="/philosophy/">Philosophy</a><a href="/personal/">Personal</a><a href="/journey/">Journey</a><a href="/capabilities/">Skills</a><a href="/reading/">Reading</a><a href="/contact/">Contact</a></nav></details></header>
+<header class="portfolio-header">
+<a aria-label="Eric Maray — Home" class="site-brand" href="/">
+<span aria-hidden="true" class="brand-dot">●</span>
+<span>E. MARAY</span>
+<span class="brand-subtitle">/ L&amp;D · OD</span>
+</a>
+<nav aria-label="Main navigation" class="navlinks">
+<a href="/">HOME</a>
+<a href="/philosophy/">PHILOSOPHY</a>
+<a href="/personal/">PERSONAL</a>
+<a aria-current="page" href="/work/">WORK</a>
+<a href="/journey/">JOURNEY</a>
+<a href="/capabilities/">SKILLS</a>
+<a href="/reading/">READING</a>
+</nav>
+<a class="header-contact" href="/contact/">
+<span aria-hidden="true" class="contact-dot"></span>HAPPY TO CHAT
+  </a>
+<details class="mobile-menu">
+<summary aria-label="Open navigation">MENU ☰</summary>
+<nav aria-label="Mobile navigation" class="mobile-links">
+<a href="/">HOME</a>
+<a href="/philosophy/">PHILOSOPHY</a>
+<a href="/personal/">PERSONAL</a>
+<a aria-current="page" href="/work/">WORK</a>
+<a href="/journey/">JOURNEY</a>
+<a href="/capabilities/">SKILLS</a>
+<a href="/reading/">READING</a>
+<a href="/contact/">CONTACT</a>
+</nav>
+</details>
+</header>
 <main class="wrap">
 <section class="hero"><div>
 <div class="eyebrow">✦ CASE STUDY / SAFETY SYSTEMS &amp; DIGITAL WORKFLOWS</div>
@@ -58,14 +295,14 @@ header{border-bottom:1px solid var(--line);padding:16px clamp(22px,5.4vw,76px);d
 <p class="lede">Making safety easier to report, easier to understand, and harder to overlook.</p>
 <p>Building a more accessible safety-reporting experience, then connecting it to a broader vision for environmental, health, and safety operations.</p>
 <div class="metadata"><div><b>ORGANIZATION</b><span>Mustang Special Utility District</span></div><div><b>ROLE</b><span>Safety / Workforce Operations</span></div><div><b>PERIOD</b><span>2025–2026</span></div></div>
-</div><div><div class="photo-wrap"><img alt="Safety Reporting Form interface concept, including employee-ID search, basic information fields, department and facility selections, and Save and Next controls" height="944" src="./assets/reporting-form-device-mockup.png.png" width="932"/></div><div class="photo-note">Safety Reporting Form — project design screenshot; identifying information and live employee submissions are not shown.</div></div></section>
+</div><div><div class="photo-wrap"><a aria-label="Enlarge graphic: Safety Reporting Form interface concept, including employee-ID search, basic information fields, department and facility selections, and Save and Next controls" class="graphic-lightbox-trigger" data-lightbox="" href="/work/safety-reporting-ehs/assets/safety-reporting-form-concept.webp"><img alt="Safety Reporting Form interface concept, including employee-ID search, basic information fields, department and facility selections, and Save and Next controls" height="944" src="/work/safety-reporting-ehs/assets/safety-reporting-form-concept.webp" width="932"/></a></div><div class="photo-note">Safety Reporting Form — project design screenshot; identifying information and live employee submissions are not shown.</div></div></section>
 <section class="section chapter"><aside class="side">01 — THE CHALLENGE<em>Access is part<br/>of safety.</em></aside><div class="content"><h2>A reporting system only works when people use it.</h2>
 <p>Safety reporting had been distributed across multiple forms and processes. That made an already-sensitive task feel more administrative than helpful, particularly when people needed to report a hazard, near miss, injury, incident, or property damage quickly.</p>
 <p>I approached the problem as more than a form redesign: how could one familiar entry point make reporting accessible across the organization, improve the quality of information captured, and support more timely follow-through?</p>
 <div class="impact"><div><b>6 → 1</b><span>DESIGN GOAL: CONSOLIDATE SIX REPORTING FORMS INTO ONE ADAPTIVE EXPERIENCE</span></div><div><b>Everyone</b><span>DESIGNED FOR EMPLOYEE ACCESS, NOT JUST A LIMITED GROUP OF FORM USERS</span></div></div>
 <p class="caption">The six-to-one figure describes the consolidation strategy developed for the new form, not a verified count of fully retired legacy workflows.</p></div></section>
-<section class="section chapter"><aside class="side">02 — THE EXPERIENCE<em>One entry point.<br/>Relevant questions.</em></aside><div class="content"><h2>A simpler way to speak up.</h2>
-<p>The Safety Reporting Form — promoted through the internal communications page — was designed to capture different kinds of events without making every employee navigate every possible question.</p>
+<section class="section chapter"><aside class="side">02 — THE EXPERIENCE<em>One entry point.<br/>Relevant questions.</em></aside><div class="content"><h2>THE DROP: a simpler way to speak up.</h2>
+<p>The Safety Reporting Form — promoted through the internal <strong>THE DROP</strong> experience — was designed to capture different kinds of events without making every employee navigate every possible question.</p>
 <div class="featuregrid">
 <div class="feature"><h3>Accessible entry</h3><p>Direct link and QR-code access to the form, with the intranet offering a familiar starting point for employees.</p></div>
 <div class="feature"><h3>Less repetitive typing</h3><p>An employee-ID lookup designed to populate known identifying information, with manual entry when a match was unavailable.</p></div>
@@ -80,7 +317,7 @@ header{border-bottom:1px solid var(--line);padding:16px clamp(22px,5.4vw,76px);d
 <p class="note">This is a simplified project workflow, not a claim that every stage was automatically integrated or fully deployed.</p>
 <p class="note">The 2026 Accident Reporting &amp; Response Process toolkit was co-prepared with Megan Queen, Risk &amp; Benefits Analyst. It documents the existing FastField/manual reporting options at that time and is cited here for the response philosophy—not as proof that the Jotform replacement had been adopted organization-wide.</p></div></section>
 <section class="section chapter"><aside class="side">04 — THE PLATFORM<em>Beyond a<br/>single form.</em></aside><div class="content"><h2>Building the foundations of an EHS system.</h2>
-<p>As reporting evolved, I began developing a broader safety-management platform that would bring related work into a more coherent environment: a dashboard for visibility, job safety analysis (JSA) management, reporting, and a separate field-assessment experience for managers and safety staff.</p><figure class="artifact-figure dashboard-figure"><a aria-label="Open full-size EHS dashboard mockup" href="/work/safety-reporting-ehs/assets/ehs-dashboard-mockup.webp" rel="noopener" target="_blank"><img alt="Conceptual EHS dashboard with reporting-status cards, recent reports, status distribution, navigation, and safety quick actions" height="1080" loading="lazy" src="/work/safety-reporting-ehs/assets/ehs-dashboard-mockup.webp" width="1920"/></a><figcaption><strong>EHS dashboard concept.</strong> An exploratory design for bringing reporting, review status, field activity and follow-up into one workspace. The figures and example reports shown are illustrative mockup data—not operational performance metrics. <span>Click to enlarge.</span></figcaption></figure>
+<p>As reporting evolved, I began developing a broader safety-management platform that would bring related work into a more coherent environment: a dashboard for visibility, job safety analysis (JSA) management, reporting, and a separate field-assessment experience for managers and safety staff.</p><figure class="artifact-figure dashboard-figure"><a aria-label="Enlarge graphic: Conceptual EHS dashboard with reporting-status cards, recent reports, status distribution, navigation, and safety quick actions" class="graphic-lightbox-trigger" data-lightbox="" href="/work/safety-reporting-ehs/assets/ehs-dashboard-mockup.webp"><img alt="Conceptual EHS dashboard with reporting-status cards, recent reports, status distribution, navigation, and safety quick actions" height="1080" loading="lazy" src="/work/safety-reporting-ehs/assets/ehs-dashboard-mockup.webp" width="1920"/></a><figcaption><strong>EHS dashboard concept.</strong> An exploratory design for bringing reporting, review status, field activity and follow-up into one workspace. The figures and example reports shown are illustrative mockup data—not operational performance metrics. <span>Click to enlarge.</span></figcaption></figure>
 <div class="split"><div class="problem"><div class="eyebrow">DELIVERED COMPONENT</div><h3>Jotform reporting</h3><p>The redesigned reporting experience improved the way employees could submit safety information and how structured data could be collected.</p><div class="foot">OPERATIONAL FOUNDATION</div></div><div class="problem"><div class="eyebrow">PLATFORM DEVELOPMENT</div><h3>EHS workspace</h3><p>Dashboard visibility, JSA processes, assessments, and a wider safety-information environment remained under development rather than a fully finished product.</p><div class="foot">PARTIALLY DEVELOPED</div></div></div><div class="field-context"><div class="eyebrow">ADJACENT WORK / FIELD OPERATIONS</div><h3>Connecting the desk and the job site.</h3><p>The developing safety system was informed by related field-work practices: job safety analyses, supervisor observations, hazard-and-control checks, near-miss and “good catch” capture, and documented follow-up. These appeared in a separate draft field operations guide; they were design inputs and adjacent workstreams, not evidence that every module was deployed within the EHS platform.</p><div class="field-tags"><span>JSA &amp; HAZARD CONTROLS</span><span>FIELD OBSERVATIONS</span><span>GOOD CATCHES</span><span>SUPERVISOR REVIEW</span></div></div>
 <p>Microsoft 365 applications and Power Automate were part of the broader workflow and integration approach. The available project records do not establish which specific automations were deployed, so this case study distinguishes the platform architecture from proven production integrations.</p>
 <div class="inline-tags"><span>JOTFORM</span><span>MICROSOFT 365</span><span>POWER AUTOMATE / WORKFLOW DESIGN</span><span>SAFETY REPORTING</span><span>JSA MANAGEMENT</span><span>FIELD ASSESSMENTS</span></div>
@@ -90,7 +327,73 @@ header{border-bottom:1px solid var(--line);padding:16px clamp(22px,5.4vw,76px);d
 <p>The financial case also mattered: replacing the legacy FastField approach was estimated to offer substantial annual savings, but that figure was a <strong>projection, not verified realized savings</strong>. I chose not to present it as an achieved financial outcome.</p>
 <div class="callout"><strong>What the project demonstrates:</strong> experience design, low-friction employee access, conditional form logic, workflow thinking, data structure, and the ability to connect safety culture with practical digital systems.</div>
 <p>A form can capture an event. A well-designed system can make it easier for people to speak up, help others respond, and reveal what the organization needs to learn.</p>
-<a class="cta" href="/work/">← EXPLORE MORE WORK</a></div></section>
-</main>
-<footer><div class="wrap"><span>ERIC MARAY · PORTFOLIO MMXXVI</span><span>SEMPER PRORSUM · ALWAYS FORWARD</span><a href="/contact/">CONNECT ↗</a></div></footer>
-</body></html>
+</div></section>
+<nav aria-label="Case study navigation" class="case-study-end-nav case-study-end-nav--single"><a class="case-study-end-link" href="/work/"><span class="case-study-end-title">Return to Work</span></a></nav></main>
+<footer class="footer">
+<div class="wrap portfolio-footer-row">
+<span>© 2026 Eric T. Maray · Semper Prorsum · Always Forward</span>
+<div aria-label="Local time in Dallas-Fort Worth" class="footer-clock">
+<span class="footer-clock-label">Local Time</span>
+<span class="footer-clock-time" id="clock">DFW · --:--</span>
+</div>
+<div class="footer-links"><a href="/work/">Work</a><a href="/contact/">Say hello ↗</a></div>
+</div>
+</footer>
+<script>
+(function () {
+  const clock = document.getElementById('clock');
+  if (!clock) return;
+  const format = { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'America/Chicago' };
+  function tick() {
+    clock.textContent = 'DFW · ' + new Date().toLocaleTimeString('en-US', format);
+  }
+  tick();
+  window.setInterval(tick, 30000);
+})();
+</script><button aria-label="Back to top" class="back-to-top" id="backToTop" title="Back to top" type="button">↑</button><script>
+(function () {
+  const backToTop = document.getElementById('backToTop');
+  if (!backToTop) return;
+  function updateBackToTop() {
+    backToTop.classList.toggle('is-visible', window.scrollY > 500);
+  }
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+    });
+  });
+  window.addEventListener('scroll', updateBackToTop, {passive: true});
+  updateBackToTop();
+})();
+</script><script>
+(function () {
+  const dialog = document.createElement('dialog');
+  dialog.className = 'graphic-lightbox';
+  dialog.setAttribute('aria-label', 'Enlarged project graphic');
+  dialog.innerHTML = '<button type="button" class="graphic-lightbox-close" aria-label="Close image">&times;</button><img alt="">';
+  document.body.appendChild(dialog);
+  const image = dialog.querySelector('img');
+  const close = dialog.querySelector('.graphic-lightbox-close');
+  let previousFocus = null;
+
+  document.addEventListener('click', function (event) {
+    const link = event.target.closest('a[data-lightbox]');
+    if (!link) return;
+    event.preventDefault();
+    previousFocus = link;
+    image.src = link.href;
+    image.alt = link.querySelector('img')?.alt || 'Project graphic';
+    if (!dialog.open) dialog.showModal();
+  });
+  close.addEventListener('click', function () { dialog.close(); });
+  dialog.addEventListener('click', function (event) {
+    if (event.target === dialog) dialog.close();
+  });
+  dialog.addEventListener('close', function () {
+    image.removeAttribute('src');
+    if (previousFocus && document.contains(previousFocus)) previousFocus.focus();
+    previousFocus = null;
+  });
+})();
+</script></body></html>
