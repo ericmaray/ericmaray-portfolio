@@ -66,126 +66,245 @@
 .issue-progress{text-align:center;color:#c8b9aa;font-size:10px;letter-spacing:.12em}
 @media(max-width:680px){.issue-carousel{padding:12px}.issue-tabs{gap:3px}.month-tab{font-size:10px;letter-spacing:0;padding:10px 0}.issue-meta{display:block}.slide-count{display:none}.issue-controls button span{display:none}.issue-controls button{padding:10px 12px}.issue-progress{font-size:9px}}
 
-.image-lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  max-height: none;
-  box-sizing: border-box;
-  border: none;
-  padding: 65px 20px 25px;
-  background: rgba(0, 0, 0, 0.94);
-}
+/* Exact reference header and shared controls from Designing Learning. */
+:root { --paper: var(--ink); }
+/* Case-study mobile dropdown uses the same UX as Beyond the Checklist. */
+.mobile-menu { display: none; position: relative; font: 11px/1.4 'JetBrains Mono',monospace; letter-spacing: .1em; text-transform: uppercase; }
+.mobile-menu summary { list-style: none; cursor: pointer; border: 1px solid #67513e; padding: 10px 12px; color: var(--gold); white-space: nowrap; }
+.mobile-menu summary::-webkit-details-marker { display: none; }
+.mobile-links { position:absolute; right:0; top:calc(100% + 8px); display:flex; flex-direction:column; gap:0; min-width:200px; padding:14px; background:#171411; border:1px solid #66503b; box-shadow:0 20px 40px #000b; z-index:90; }
+.mobile-links a { display:block; padding:11px 8px; text-decoration:none; color:var(--ink); border-bottom:1px solid #352a21; }
+.mobile-links a:last-child { border-bottom:0; }
+.mobile-links a:hover { color:var(--gold); }
+/* Keep the footer on the same typography and spacing scale as the reference. */
+footer.footer { padding: 30px 0; font: 10px/1.6 'JetBrains Mono',monospace; letter-spacing: .1em; text-transform: uppercase; }
+footer.footer .portfolio-footer-row { max-width: 1320px; padding: 0 clamp(22px,5.4vw,76px); }
+.footer-links a { color:var(--muted); text-decoration:none; }
+.footer-links a:hover { color:var(--gold); }
+.footer-credit { max-width:1320px; margin:14px auto 0; padding:0 clamp(22px,5.4vw,76px); color:#8b8680; font:9px/1.5 'JetBrains Mono',monospace; }
 
-.image-lightbox:not([open]) {
-  display: none;
-}
-
-.image-lightbox[open] {
+/* SHARED PORTFOLIO PATTERN — HEADER, CASE NAVIGATION, FOOTER, BACK TO TOP */
+/* Header: use main site's branding, destinations and contact CTA. */
+header.portfolio-header {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  position: sticky;
+  top: 0;
+  z-index: 80;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 76px;
+  padding: 20px clamp(22px,5.4vw,76px);
+  border-bottom: 1px solid var(--line);
+  background: rgba(10,10,10,.9);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
-
-.image-lightbox img {
-  display: block;
-  max-width: 96%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
+.portfolio-header .site-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  flex: 0 0 auto;
+  color: var(--paper);
+  text-decoration: none;
+  white-space: nowrap;
+  font: 400 13px/1.4 'JetBrains Mono',monospace;
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
-
-.lightbox-close {
-  position: absolute;
-  top: 16px;
-  right: 22px;
-  width: 44px;
-  height: 44px;
-  border: 1px solid rgba(244,241,234,.35);
+.portfolio-header .brand-dot { color: var(--gold); }
+.portfolio-header .brand-subtitle { color: #8b8680; font-size: 11px; }
+.portfolio-header .navlinks {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: clamp(12px,1.65vw,28px);
+  color: #8b8680;
+}
+.portfolio-header .navlinks a {
+  white-space: nowrap;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.portfolio-header .navlinks a[aria-current="page"] { color: var(--paper); }
+.portfolio-header .header-contact {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 9px;
+  white-space: nowrap;
+  color: var(--paper);
+  font: 400 12px 'JetBrains Mono',monospace;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.portfolio-header .contact-dot {
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: #222;
-  color: #f4f1ea;
-  font-size: 26px;
-  cursor: pointer;
+  background: var(--gold);
 }
+.portfolio-header .mobile-menu { display: none; }
+@media(max-width:1120px) {
+  .portfolio-header .navlinks,
+  .portfolio-header .header-contact { display: none; }
+  .portfolio-header .mobile-menu { display: block; margin-left: auto; }
+}
+@media(max-width:620px) {
+  header.portfolio-header { min-height: 64px; padding: 12px 18px; }
+  .portfolio-header .site-brand { font-size: 12px; }
+  .portfolio-header .brand-subtitle { display: none; }
+}
+
+/* Navigation: intentionally separated left and right, not centered together. */
 .case-study-end-nav {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 16px;
-  margin: 50px 0 24px;
+  width: 100%;
+  max-width: 1320px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 48px clamp(22px,5.4vw,76px) 76px;
+  border-top: 1px solid var(--line);
 }
 .case-study-end-link {
-  display: flex;
-  flex-direction: column;
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  min-height: 104px;
-  padding: 22px;
+  width: auto;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 12px 22px;
   border: 1px solid rgba(244,241,234,.2);
-  border-radius: 3px;
-  color: #f4f1ea;
+  border-radius: 999px;
+  background: transparent;
+  box-shadow: none;
+  color: #8b8680;
   text-decoration: none;
-  transition: border-color .25s, background .25s;
+  transform: none;
+  transition: border-color .2s,background .2s,color .2s;
 }
 .case-study-end-link:hover,
 .case-study-end-link:focus-visible {
-  border-color: #d4a574;
-  background: rgba(212,165,116,.06);
+  border-color: rgba(212,165,116,.55);
+  background: rgba(212,165,116,.04);
+  transform: none;
 }
-.case-study-end-kicker {
-  color: #8b8680;
-  font-family: 'JetBrains Mono', monospace;
-  text-transform: uppercase;
-  letter-spacing: .14em;
-  font-size: 10px;
-  margin-bottom: 12px;
-}
+.case-study-end-kicker { display: none; }
 .case-study-end-title {
-  font-size: clamp(16px, 2vw, 21px);
-  line-height: 1.4;
+  color: inherit;
+  font: 400 10px/1.5 'JetBrains Mono',monospace;
+  letter-spacing: .12em;
+  text-transform: uppercase;
 }
+.case-study-end-link:hover,.case-study-end-link:focus-visible { color: var(--gold); }
+@media(max-width:640px) {
+  .case-study-end-nav { padding: 36px 18px 56px; gap: 12px; }
+  .case-study-end-link { padding: 11px 16px; min-height: 42px; }
+  .case-study-end-title { font-size: 9px; letter-spacing: .06em; }
+}
+
+/* Footer: single, adjacent local-time label + live clock. */
+footer .wrap.portfolio-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+}
+.footer-clock {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  white-space: nowrap;
+}
+.footer-clock-label { color: #8b8680; opacity: .7; }
+.footer-clock-time { color: var(--paper); }
+.footer-links { display: inline-flex; align-items: center; gap: 24px; }
+
+/* Scroll-to-top: shown after 500px, on all screen sizes. */
 .back-to-top {
   position: fixed;
-  right: max(18px, env(safe-area-inset-right));
-  bottom: max(18px, env(safe-area-inset-bottom));
+  right: 24px;
+  bottom: 24px;
   z-index: 1000;
+  display: grid;
+  place-items: center;
   width: 48px;
   height: 48px;
-  border: 1px solid rgba(212,165,116,.65);
+  border: 1px solid rgba(212,165,116,.55);
   border-radius: 50%;
-  color: #0a0a0a;
-  background: #d4a574;
-  font-size: 24px;
-  line-height: 1;
+  background: #191919;
+  color: var(--gold);
+  font: 24px/1 'DM Sans',sans-serif;
   cursor: pointer;
-  box-shadow: 0 6px 22px rgba(0,0,0,.28);
   opacity: 0;
   visibility: hidden;
   transform: translateY(12px);
-  transition: opacity .22s, visibility .22s, transform .22s;
+  transition: opacity .25s, visibility .25s, transform .25s;
 }
-.back-to-top.is-visible {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-.back-to-top:focus-visible { outline: 2px solid #f4f1ea; outline-offset: 3px; }
-@media (max-width: 600px) {
-  .case-study-end-nav { grid-template-columns: 1fr; gap: 10px; }
-  .case-study-end-link { min-height: 82px; padding: 18px; }
-  .back-to-top { right: max(14px, env(safe-area-inset-right)); bottom: max(14px, env(safe-area-inset-bottom)); width: 44px; height: 44px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .case-study-end-link, .back-to-top { transition: none; }
-}
+.back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.back-to-top:hover { background: #302217; border-color: var(--gold); }
+.back-to-top:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+@media(max-width:640px) { .back-to-top { right: 16px; bottom: 20px; width: 44px; height: 44px; } }
+@media(prefers-reduced-motion:reduce) { .case-study-end-link,.back-to-top { transition: none; } }
+
+
+/* Newsletter-only lightbox: leave the seven-month carousel unchanged. */
+.image-lightbox { position:fixed; inset:0; margin:auto; padding:0; width:min(96vw,1400px); height:min(94vh,1000px); max-width:none; max-height:none; border:1px solid rgba(212,165,116,.3); background:#0a0a0a; color:var(--ink); overflow:hidden; }
+.image-lightbox:not([open]) { display:none; }
+.image-lightbox[open] { display:flex; align-items:center; justify-content:center; }
+.image-lightbox::backdrop { background:rgba(0,0,0,.88); }
+.image-lightbox img { display:block; width:auto; height:auto; max-width:96%; max-height:92%; object-fit:contain; }
+.image-lightbox .lightbox-close { position:absolute; right:12px; top:12px; z-index:2; width:42px; height:42px; border:1px solid rgba(244,241,234,.45); border-radius:50%; background:#191919; color:#f4f1ea; font:26px/1 'DM Sans',sans-serif; cursor:pointer; }
+.image-lightbox .lightbox-close:hover { border-color:var(--gold); color:var(--gold); }
+a[data-lightbox] { cursor:zoom-in; }
+@media(max-width:640px) { .image-lightbox { width:98vw; height:90vh; } }
+
 </style></head><body>
-<header class="nav"><a href="/"><span class="gold">●</span> ERIC T. MARAY / PORTFOLIO</a><nav class="case-study-end-nav" aria-label="Case study navigation">
-  
-</nav><a class="gold" href="/work/">← BACK TO WORK</a></header>
-<main><div class="wrap"><section class="hero"><div><div class="eyebrow">✦   CASE STUDY / LEARNING COMMUNICATIONS</div><h1>Beyond the <em>Reminder.</em></h1><p class="lede">A monthly training newsletter became an opportunity to do more than announce deadlines. It could connect employees to learning, invite reflection, and give development a more human voice.</p><div class="hero-metadata"><div><b>ORGANIZATION</b><span>Denton County Electric Cooperative (CoServ)</span></div><div><b>ROLE</b><span>Training &amp; Development Specialist</span></div><div><b>PERIOD</b><span>2024–2025</span></div></div></div><div><div class="cover-stack"><img alt="Beyond the Reminder — case study cover artwork" class="case-cover-image" height="1086" src="assets/beyond-the-reminder-cover.webp" width="1448"/></div><p class="cover-caption">02 / CASE STUDY · LEARNING COMMUNICATIONS</p></div></section>
+<header class="portfolio-header">
+  <a class="site-brand" href="/" aria-label="Eric Maray — Home">
+    <span class="brand-dot" aria-hidden="true">●</span>
+    <span>E. MARAY</span>
+    <span class="brand-subtitle">/ L&amp;D · OD</span>
+  </a>
+  <nav class="navlinks" aria-label="Main navigation">
+    <a href="/">HOME</a>
+    <a href="/philosophy/">PHILOSOPHY</a>
+    <a href="/personal/">PERSONAL</a>
+    <a href="/work/" aria-current="page">WORK</a>
+    <a href="/journey/">JOURNEY</a>
+    <a href="/capabilities/">SKILLS</a>
+    <a href="/reading/">READING</a>
+  </nav>
+  <a class="header-contact" href="/contact/">
+    <span class="contact-dot" aria-hidden="true"></span>HAPPY TO CHAT
+  </a>
+  <details class="mobile-menu">
+    <summary aria-label="Open navigation">MENU ☰</summary>
+    <nav class="mobile-links" aria-label="Mobile navigation">
+      <a href="/">HOME</a>
+      <a href="/philosophy/">PHILOSOPHY</a>
+      <a href="/personal/">PERSONAL</a>
+      <a href="/work/" aria-current="page">WORK</a>
+      <a href="/journey/">JOURNEY</a>
+      <a href="/capabilities/">SKILLS</a>
+      <a href="/reading/">READING</a>
+      <a href="/contact/">CONTACT</a>
+    </nav>
+  </details>
+</header>
+<main><div class="wrap"><section class="hero"><div><div class="eyebrow">✦   CASE STUDY / LEARNING COMMUNICATIONS</div><h1>Beyond the <em>Reminder.</em></h1><p class="lede">A monthly training newsletter became an opportunity to do more than announce deadlines. It could connect employees to learning, invite reflection, and give development a more human voice.</p><div class="hero-metadata"><div><b>ORGANIZATION</b><span>Denton County Electric Cooperative (CoServ)</span></div><div><b>ROLE</b><span>Training &amp; Development Specialist</span></div><div><b>PERIOD</b><span>2024–2025</span></div></div></div><div><div class="cover-stack"><img alt="Beyond the Reminder — case study cover artwork" class="case-cover-image" height="1086" src="assets/beyond-the-reminder-cover.webp" width="1448"/></div><p class="cover-caption">02 / CASE STUDY · LEARNING COMMUNICATIONS</p></div></section>
 <section class="section chapter"><aside class="side"><div class="mono">01 — THE OPPORTUNITY</div><em>A familiar channel,<br/>reimagined.</em></aside><div class="content"><h2>The message had a job to do. So did the experience.</h2><p>When I began managing the monthly Training &amp; Development newsletter, I inherited an established communication channel. It already served an important purpose: keeping training in front of employees. But repetition had made it easy for the message to become another monthly reminder rather than something worth opening.</p><p>Employee feedback helped sharpen the question: what would make this communication genuinely useful, not simply another item in the inbox?</p><p>The opportunity wasn't to make it longer for the sake of being longer. It was to connect required learning with the courses, resources, ideas, and conversations that could help employees grow.</p><div class="note">The original pre-redesign newsletter issues aren't included in this portfolio. The examples below document the January–July 2025 approach and its expansion into a two-page format beginning in February.</div></div></section>
 <section class="section chapter"><aside class="side"><div class="mono">02 — THE DESIGN</div><em>Give the content<br/>a reason to matter.</em></aside><div class="content"><h2>A predictable structure, with room for curiosity.</h2><p>I kept the essentials easy to find and made room for something more useful alongside them. The recurring training topic remained prominent, while each issue gave employees another reason to engage with the communication.</p><div class="intent-grid"><div class="intent-card"><div class="mono">01 / MAKE IT FINDABLE</div><h3>Know what matters now.</h3><p>Put the current training topic, deadline, and key announcements where employees can find them quickly.</p></div><div class="intent-card"><div class="mono">02 / MAKE IT RELEVANT</div><h3>Connect learning to the moment.</h3><p>Use seasonal themes, current programs, practical resources, and real workplace context instead of repeating a generic message.</p></div><div class="intent-card"><div class="mono">03 / MAKE IT HUMAN</div><h3>Invite a little reflection.</h3><p>Use the expanded space for questions and small prompts about mindset, practice, wellbeing, and self-directed growth.</p></div></div></div></section>
 <section class="section chapter" id="issues"><aside class="side"><div class="mono">03 — THE ISSUES</div><em>Seven months.<br/>One evolving<br/>conversation.</em><p class="muted" style="font-size:15px">Seven issues, fourteen pages. Browse the two-page spreads without losing your place.</p></aside><div class="content"><h2>Explore the issues.</h2><p>Choose a month, or use the arrows to move through the collection. Open any spread at full size to read it in detail.</p>
@@ -193,78 +312,65 @@
 <div class="carousel-toolbar"><div class="issue-tabs" role="tablist" aria-label="Choose newsletter month"><button type="button" class="month-tab is-active" role="tab" id="tab-january" aria-selected="true" aria-controls="panel-january" data-index="0" tabindex="0">JAN</button><button type="button" class="month-tab" role="tab" id="tab-february" aria-selected="false" aria-controls="panel-february" data-index="1" tabindex="-1">FEB</button><button type="button" class="month-tab" role="tab" id="tab-march" aria-selected="false" aria-controls="panel-march" data-index="2" tabindex="-1">MAR</button><button type="button" class="month-tab" role="tab" id="tab-april" aria-selected="false" aria-controls="panel-april" data-index="3" tabindex="-1">APR</button><button type="button" class="month-tab" role="tab" id="tab-may" aria-selected="false" aria-controls="panel-may" data-index="4" tabindex="-1">MAY</button><button type="button" class="month-tab" role="tab" id="tab-june" aria-selected="false" aria-controls="panel-june" data-index="5" tabindex="-1">JUN</button><button type="button" class="month-tab" role="tab" id="tab-july" aria-selected="false" aria-controls="panel-july" data-index="6" tabindex="-1">JUL</button></div></div>
 <div class="issue-stage"><article class="issue-slide" id="panel-january" role="tabpanel" aria-labelledby="tab-january" data-index="0" >
 <div class="issue-meta"><div><span class="eyebrow">01 / JANUARY 2025 · TWO-PAGE ISSUE</span><h3>The new year begins</h3><p>The 2025 training plan, Academy housekeeping, the cold-stress topic, and practical suggestions for staying motivated.</p></div><span class="slide-count">01 / 07</span></div>
-<a class="issue-image-link"
-   href="assets/january-spread.webp"
-   data-lightbox
-   aria-label="Enlarge January 2025 newsletter spread">
-  <img class="issue-image"
-       src="assets/january-spread.webp"
-       alt="Original January 2025 Training and Development newsletter, both pages together"
-       loading="eager"
-       decoding="async">
-</a>
+<a class="issue-image-link" href="assets/january-spread.webp" data-lightbox aria-label="View full-size January 2025 newsletter spread"><img class="issue-image" src="assets/january-spread.webp" alt="Original January 2025 Training and Development newsletter, both pages together" loading="eager" decoding="async"></a>
 <div class="issue-image-note mono">SELECT IMAGE TO VIEW FULL SIZE ↗</div>
 </article>
 <article class="issue-slide" id="panel-february" role="tabpanel" aria-labelledby="tab-february" data-index="1" hidden>
 <div class="issue-meta"><div><span class="eyebrow">02 / FEBRUARY 2025 · TWO-PAGE ISSUE</span><h3>CoServ U begins</h3><p>Course registration updates, emergency preparedness, and growth-focused learning opportunities.</p></div><span class="slide-count">02 / 07</span></div>
-<a class="issue-image-link" href="assets/february-spread.webp" data-lightbox aria-label="Enlarge February 2025 newsletter spread">
-  <img class="issue-image" src="assets/february-spread.webp" alt="Original February 2025 Training and Development newsletter, both pages together" loading="lazy" decoding="async">
-</a>
+<a class="issue-image-link" href="assets/february-spread.webp" data-lightbox aria-label="View full-size February 2025 newsletter spread"><img class="issue-image" src="assets/february-spread.webp" alt="Original February 2025 Training and Development newsletter, both pages together" loading="lazy" decoding="async"></a>
 <div class="issue-image-note mono">SELECT IMAGE TO VIEW FULL SIZE ↗</div>
 </article>
 <article class="issue-slide" id="panel-march" role="tabpanel" aria-labelledby="tab-march" data-index="2" hidden>
 <div class="issue-meta"><div><span class="eyebrow">03 / MARCH 2025 · TWO-PAGE ISSUE</span><h3>The luck of learning</h3><p>A monthly training reminder paired with reflection on practice and building skills.</p></div><span class="slide-count">03 / 07</span></div>
-<a class="issue-image-link" href="assets/march-spread.webp" data-lightbox aria-label="Enlarge March 2025 newsletter spread">
-  <img class="issue-image" src="assets/march-spread.webp" alt="Original March 2025 Training and Development newsletter, both pages together" loading="lazy" decoding="async">
-</a>
+<a class="issue-image-link" href="assets/march-spread.webp" data-lightbox aria-label="View full-size March 2025 newsletter spread"><img class="issue-image" src="assets/march-spread.webp" alt="Original March 2025 Training and Development newsletter, both pages together" loading="lazy" decoding="async"></a>
 <div class="issue-image-note mono">SELECT IMAGE TO VIEW FULL SIZE ↗</div>
 </article>
 <article class="issue-slide" id="panel-april" role="tabpanel" aria-labelledby="tab-april" data-index="3" hidden>
 <div class="issue-meta"><div><span class="eyebrow">04 / APRIL 2025 · TWO-PAGE ISSUE</span><h3>Spring into growth</h3><p>Training updates and course events alongside a practical growth-mindset feature.</p></div><span class="slide-count">04 / 07</span></div>
-<a class="issue-image-link" href="assets/april-spread.webp" data-lightbox aria-label="Enlarge April 2025 newsletter spread">
-  <img class="issue-image" src="assets/april-spread.webp" alt="Original April 2025 Training and Development newsletter, both pages together" loading="lazy" decoding="async">
-</a>
+<a class="issue-image-link" href="assets/april-spread.webp" data-lightbox aria-label="View full-size April 2025 newsletter spread"><img class="issue-image" src="assets/april-spread.webp" alt="Original April 2025 Training and Development newsletter, both pages together" loading="lazy" decoding="async"></a>
 <div class="issue-image-note mono">SELECT IMAGE TO VIEW FULL SIZE ↗</div>
 </article>
 <article class="issue-slide" id="panel-may" role="tabpanel" aria-labelledby="tab-may" data-index="4" hidden>
 <div class="issue-meta"><div><span class="eyebrow">05 / MAY 2025 · TWO-PAGE ISSUE</span><h3>Mental health matters</h3><p>Heat-stress training and learning opportunities complemented by wellness resources and grounding techniques.</p></div><span class="slide-count">05 / 07</span></div>
-<a class="issue-image-link" href="assets/may-spread.webp" data-lightbox aria-label="Enlarge May 2025 newsletter spread">
-  <img class="issue-image" src="assets/may-spread.webp" alt="Original May 2025 Training and Development newsletter, both pages together" loading="lazy" decoding="async">
-</a>
+<a class="issue-image-link" href="assets/may-spread.webp" data-lightbox aria-label="View full-size May 2025 newsletter spread"><img class="issue-image" src="assets/may-spread.webp" alt="Original May 2025 Training and Development newsletter, both pages together" loading="lazy" decoding="async"></a>
 <div class="issue-image-note mono">SELECT IMAGE TO VIEW FULL SIZE ↗</div>
 </article>
 <article class="issue-slide" id="panel-june" role="tabpanel" aria-labelledby="tab-june" data-index="5" hidden>
 <div class="issue-meta"><div><span class="eyebrow">06 / JUNE 2025 · TWO-PAGE ISSUE</span><h3>Mid-year momentum</h3><p>Hazard awareness, development opportunities, and prompts for reflecting on midyear goals.</p></div><span class="slide-count">06 / 07</span></div>
-<a class="issue-image-link" href="assets/june-spread.webp" data-lightbox aria-label="Enlarge June 2025 newsletter spread">
-  <img class="issue-image" src="assets/june-spread.webp" alt="Original June 2025 Training and Development newsletter, both pages together" loading="lazy" decoding="async">
-</a>
+<a class="issue-image-link" href="assets/june-spread.webp" data-lightbox aria-label="View full-size June 2025 newsletter spread"><img class="issue-image" src="assets/june-spread.webp" alt="Original June 2025 Training and Development newsletter, both pages together" loading="lazy" decoding="async"></a>
 <div class="issue-image-note mono">SELECT IMAGE TO VIEW FULL SIZE ↗</div>
 </article>
 <article class="issue-slide" id="panel-july" role="tabpanel" aria-labelledby="tab-july" data-index="6" hidden>
 <div class="issue-meta"><div><span class="eyebrow">07 / JULY 2025 · TWO-PAGE ISSUE</span><h3>Ignite learning &amp; growth</h3><p>Social engineering, feedback, upcoming events, and encouragement for self-directed learning.</p></div><span class="slide-count">07 / 07</span></div>
-<a class="issue-image-link" href="assets/july-spread.webp" data-lightbox aria-label="Enlarge July 2025 newsletter spread">
-  <img class="issue-image" src="assets/july-spread.webp" alt="Original July 2025 Training and Development newsletter, both pages together" loading="lazy" decoding="async">
-</a>
+<a class="issue-image-link" href="assets/july-spread.webp" data-lightbox aria-label="View full-size July 2025 newsletter spread"><img class="issue-image" src="assets/july-spread.webp" alt="Original July 2025 Training and Development newsletter, both pages together" loading="lazy" decoding="async"></a>
 <div class="issue-image-note mono">SELECT IMAGE TO VIEW FULL SIZE ↗</div>
 </article></div>
 <div class="issue-controls"><button type="button" id="previousIssue" aria-label="Previous newsletter month">← <span>PREVIOUS</span></button><span class="issue-progress mono" id="issueProgress" aria-live="polite" aria-atomic="true">JANUARY 2025 · 01 / 07</span><button type="button" id="nextIssue" aria-label="Next newsletter month"><span>NEXT</span> →</button></div>
 </div>
 <p class="proof">Source: original Training &amp; Development newsletters, January–July 2025. All fourteen pages are included in the seven spreads, without additional cropping.</p></div></section>
 <section class="section chapter"><aside class="side"><div class="mono">04 — THE SIGNALS</div><em>Keeping it<br/>practical.</em></aside><div class="content"><h2>Give people something they can act on.</h2><p>The issues connect communications with concrete actions: complete required e-learning, register for CoServ U courses, view upcoming events, review resources, and share feedback about the learning experience.</p><p>The February issue also reports a snapshot of early CoServ U sign-ups. Between the two reported figures, registrants increased from 171 to 204 and course registrations from 606 to 722. Those numbers describe program registration activity reported in the newsletter, <strong>not</strong> a measured effect of the newsletter itself.</p><div class="numbers"><div class="number"><strong>171 → 204</strong><span>EMPLOYEES REGISTERED / FEBRUARY SNAPSHOT</span></div><div class="number"><strong>606 → 722</strong><span>COURSE REGISTRATIONS / FEBRUARY SNAPSHOT</span></div></div><p class="proof">Counts are reproduced from the February 2025 issue. No newsletter open-rate, click-through, or attributable engagement figures are available here, so none are claimed.</p></div></section>
-<section class="section chapter"><aside class="side"><div class="mono">05 — THE TAKEAWAY</div><em>Communication<br/>is part of the<br/>learning experience.</em></aside><div class="content"><h2>A channel can do more than deliver information.</h2><p>A newsletter won't replace a thoughtful training program. But it can help employees navigate one: understand what needs attention, find opportunities that fit, and encounter a useful idea they weren't looking for.</p><p>For me, the most interesting part was making space for both kinds of learning: the required and the self-directed. One keeps the organization moving. The other gives people room to grow.</p></div></section></div><nav class="case-study-end-nav" aria-label="Case study navigation">
-
+<section class="section chapter"><aside class="side"><div class="mono">05 — THE TAKEAWAY</div><em>Communication<br/>is part of the<br/>learning experience.</em></aside><div class="content"><h2>A channel can do more than deliver information.</h2><p>A newsletter won't replace a thoughtful training program. But it can help employees navigate one: understand what needs attention, find opportunities that fit, and encounter a useful idea they weren't looking for.</p><p>For me, the most interesting part was making space for both kinds of learning: the required and the self-directed. One keeps the organization moving. The other gives people room to grow.</p></div></section></div>
+<nav class="case-study-end-nav" aria-label="Case study navigation">
   <a href="/work/" class="case-study-end-link">
     <span class="case-study-end-kicker">All projects</span>
-    <span class="case-study-end-title">← Return to Work</span>
+    <span class="case-study-end-title">Return to Work</span>
   </a>
-
   <a href="/work/beyond-the-checklist/" class="case-study-end-link">
     <span class="case-study-end-kicker">Next case study</span>
-    <span class="case-study-end-title">Beyond the Checklist →</span>
+    <span class="case-study-end-title">View next case study</span>
   </a>
-
-</nav></main>
-<footer><div class="wrap"><span>© 2026 ERIC T. MARAY · SEMPER PRORSUM · ALWAYS FORWARD</span><span><a href="/">HOME</a>   /   <a href="/work/">WORK</a>   /   <a href="/contact/">SAY HELLO</a></span></div></footer>
+</nav>
+</main>
+<footer class="footer">
+  <div class="wrap portfolio-footer-row">
+    <span>© 2026 Eric T. Maray · Semper Prorsum · Always Forward</span>
+    <div class="footer-clock" aria-label="Local time in Dallas-Fort Worth">
+      <span class="footer-clock-label">Local Time</span>
+      <span class="footer-clock-time" id="clock">DFW · --:--</span>
+    </div>
+    <div class="footer-links"><a href="/work/">Work</a><a href="/contact/">Say hello ↗</a></div>
+  </div>
+</footer>
 
 <script>
 (function () {
@@ -303,67 +409,66 @@
   goTo(0);
 })();
 </script>
+
 <script>
-const lightbox = document.createElement('dialog');
-lightbox.className = 'image-lightbox';
-lightbox.setAttribute('aria-label', 'Enlarged newsletter image');
-
-lightbox.innerHTML = `
-  <button type="button" class="lightbox-close"
-          aria-label="Close image">&times;</button>
-  <img alt="">
-`;
-
-document.body.appendChild(lightbox);
-
-const enlargedImage = lightbox.querySelector('img');
-
-document.addEventListener('click', event => {
-  const link = event.target.closest('a[data-lightbox]');
-  if (!link) return;
-
-  event.preventDefault();
-
-  const thumbnail = link.querySelector('img');
-  enlargedImage.src = link.href;
-  enlargedImage.alt = thumbnail?.alt || 'Newsletter image';
-  lightbox.showModal();
-});
-
-lightbox.querySelector('.lightbox-close')
-  .addEventListener('click', () => lightbox.close());
-
-lightbox.addEventListener('click', event => {
-  if (event.target === lightbox) lightbox.close();
-});
-
-lightbox.addEventListener('close', () => {
-  enlargedImage.removeAttribute('src');
-});
+(function () {
+  const dialog = document.createElement('dialog');
+  dialog.className = 'image-lightbox';
+  dialog.setAttribute('aria-label','Enlarged newsletter image');
+  dialog.innerHTML = '<button type="button" class="lightbox-close" aria-label="Close image">&times;</button><img alt="">';
+  document.body.appendChild(dialog);
+  const image = dialog.querySelector('img');
+  let previousFocus;
+  document.addEventListener('click', function (event) {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+    const link = target.closest('a[data-lightbox]');
+    if (!link) return;
+    event.preventDefault();
+    if (typeof dialog.showModal !== 'function') { window.open(link.href, '_blank', 'noopener'); return; }
+    previousFocus = document.activeElement;
+    const preview = link.querySelector('img');
+    image.src = link.href;
+    image.alt = preview ? preview.alt : 'Full-size newsletter issue';
+    dialog.showModal();
+    dialog.querySelector('.lightbox-close').focus();
+  });
+  dialog.querySelector('.lightbox-close').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
+  dialog.addEventListener('close', () => {
+    image.removeAttribute('src');
+    if (previousFocus && previousFocus.isConnected) previousFocus.focus();
+  });
+})();
 </script>
-
-<button type="button" id="backToTop" class="back-to-top"
-        aria-label="Back to top" title="Back to top">↑</button>
-
 <script>
+(function () {
+  const clock = document.getElementById('clock');
+  if (!clock) return;
+  const format = { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'America/Chicago' };
+  function tick() {
+    clock.textContent = 'DFW · ' + new Date().toLocaleTimeString('en-US', format);
+  }
+  tick();
+  window.setInterval(tick, 30000);
+})();
+</script>
+<button type="button" id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+<script>
+(function () {
   const backToTop = document.getElementById('backToTop');
-
+  if (!backToTop) return;
   function updateBackToTop() {
     backToTop.classList.toggle('is-visible', window.scrollY > 500);
   }
-
   backToTop.addEventListener('click', () => {
     window.scrollTo({
       top: 0,
-      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
-        ? 'instant'
-        : 'smooth'
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
     });
   });
-
-  window.addEventListener('scroll', updateBackToTop, { passive: true });
+  window.addEventListener('scroll', updateBackToTop, {passive: true});
   updateBackToTop();
+})();
 </script>
-
-</body>
-</html>
+</body></html>
