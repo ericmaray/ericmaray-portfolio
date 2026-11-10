@@ -34,10 +34,290 @@
   .step h3{font-size:11px;letter-spacing:.12em}
   .step p{font-size:13px}
 }
+
+
+/* Match the reference color tokens without changing this case study palette. */
+:root { --paper: var(--ink); --line: var(--rule); }
+/* Case-study mobile dropdown uses the same UX as Beyond the Checklist. */
+.mobile-menu { display: none; position: relative; font: 11px/1.4 'JetBrains Mono',monospace; letter-spacing: .1em; text-transform: uppercase; }
+.mobile-menu summary { list-style: none; cursor: pointer; border: 1px solid #67513e; padding: 10px 12px; color: var(--gold); white-space: nowrap; }
+.mobile-menu summary::-webkit-details-marker { display: none; }
+.mobile-links { position:absolute; right:0; top:calc(100% + 8px); display:flex; flex-direction:column; gap:0; min-width:200px; padding:14px; background:#171411; border:1px solid #66503b; box-shadow:0 20px 40px #000b; z-index:90; }
+.mobile-links a { display:block; padding:11px 8px; text-decoration:none; color:var(--ink); border-bottom:1px solid #352a21; }
+.mobile-links a:last-child { border-bottom:0; }
+.mobile-links a:hover { color:var(--gold); }
+/* Keep the footer on the same typography and spacing scale as the reference. */
+footer.footer { padding: 30px 0; font: 10px/1.6 'JetBrains Mono',monospace; letter-spacing: .1em; text-transform: uppercase; }
+footer.footer .portfolio-footer-row { max-width: 1320px; padding: 0 clamp(22px,5.4vw,76px); }
+.footer-links a { color:var(--muted); text-decoration:none; }
+.footer-links a:hover { color:var(--gold); }
+.footer-credit { max-width:1320px; margin:14px auto 0; padding:0 clamp(22px,5.4vw,76px); color:#8b8680; font:9px/1.5 'JetBrains Mono',monospace; }
+
+/* SHARED PORTFOLIO PATTERN — HEADER, CASE NAVIGATION, FOOTER, BACK TO TOP */
+/* Header: use main site's branding, destinations and contact CTA. */
+header.portfolio-header {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 76px;
+  padding: 20px clamp(22px,5.4vw,76px);
+  border-bottom: 1px solid var(--line);
+  background: rgba(10,10,10,.9);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.portfolio-header .site-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  flex: 0 0 auto;
+  color: var(--paper);
+  text-decoration: none;
+  white-space: nowrap;
+  font: 400 13px/1.4 'JetBrains Mono',monospace;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.portfolio-header .brand-dot { color: var(--gold); }
+.portfolio-header .brand-subtitle { color: #8b8680; font-size: 11px; }
+.portfolio-header .navlinks {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: clamp(12px,1.65vw,28px);
+  color: #8b8680;
+}
+.portfolio-header .navlinks a {
+  white-space: nowrap;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.portfolio-header .navlinks a[aria-current="page"] { color: var(--paper); }
+.portfolio-header .header-contact {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 9px;
+  white-space: nowrap;
+  color: var(--paper);
+  font: 400 12px 'JetBrains Mono',monospace;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.portfolio-header .contact-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+.portfolio-header .mobile-menu { display: none; }
+@media(max-width:1120px) {
+  .portfolio-header .navlinks,
+  .portfolio-header .header-contact { display: none; }
+  .portfolio-header .mobile-menu { display: block; margin-left: auto; }
+}
+@media(max-width:620px) {
+  header.portfolio-header { min-height: 64px; padding: 12px 18px; }
+  .portfolio-header .site-brand { font-size: 12px; }
+  .portfolio-header .brand-subtitle { display: none; }
+}
+
+/* Navigation: intentionally separated left and right, not centered together. */
+.case-study-end-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  width: 100%;
+  max-width: 1320px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 48px clamp(22px,5.4vw,76px) 76px;
+  border-top: 1px solid var(--line);
+}
+.case-study-end-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 12px 22px;
+  border: 1px solid rgba(244,241,234,.2);
+  border-radius: 999px;
+  background: transparent;
+  box-shadow: none;
+  color: #8b8680;
+  text-decoration: none;
+  transform: none;
+  transition: border-color .2s,background .2s,color .2s;
+}
+.case-study-end-link:hover,
+.case-study-end-link:focus-visible {
+  border-color: rgba(212,165,116,.55);
+  background: rgba(212,165,116,.04);
+  transform: none;
+}
+.case-study-end-kicker { display: none; }
+.case-study-end-title {
+  color: inherit;
+  font: 400 10px/1.5 'JetBrains Mono',monospace;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.case-study-end-link:hover,.case-study-end-link:focus-visible { color: var(--gold); }
+@media(max-width:640px) {
+  .case-study-end-nav { padding: 36px 18px 56px; gap: 12px; }
+  .case-study-end-link { padding: 11px 16px; min-height: 42px; }
+  .case-study-end-title { font-size: 9px; letter-spacing: .06em; }
+}
+
+/* Footer: single, adjacent local-time label + live clock. */
+footer .wrap.portfolio-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+}
+.footer-clock {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  white-space: nowrap;
+}
+.footer-clock-label { color: #8b8680; opacity: .7; }
+.footer-clock-time { color: var(--paper); }
+.footer-links { display: inline-flex; align-items: center; gap: 24px; }
+
+/* Scroll-to-top: shown after 500px, on all screen sizes. */
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(212,165,116,.55);
+  border-radius: 50%;
+  background: #191919;
+  color: var(--gold);
+  font: 24px/1 'DM Sans',sans-serif;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity .25s, visibility .25s, transform .25s;
+}
+.back-to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.back-to-top:hover { background: #302217; border-color: var(--gold); }
+.back-to-top:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+@media(max-width:640px) { .back-to-top { right: 16px; bottom: 20px; width: 44px; height: 44px; } }
+@media(prefers-reduced-motion:reduce) { .case-study-end-link,.back-to-top { transition: none; } }
+
 </style></head><body>
-<header class="nav"><a href="/"><span class="gold">●</span> E. MARAY / L&amp;D · OD</a><div class="links"><a href="/#about">ABOUT</a><a href="/#philosophy">PHILOSOPHY</a><a href="/#personal">PERSONAL</a><a href="/#numbers">NUMBERS</a><a href="/#work">WORK</a><a href="/#skills">SKILLS</a><a href="/#reading">READING</a><a href="/#contact">CONTACT</a></div><a href="/#contact"><span class="gold">●</span> HAPPY TO CHAT</a></header>
+<header class="portfolio-header">
+  <a class="site-brand" href="/" aria-label="Eric Maray — Home">
+    <span class="brand-dot" aria-hidden="true">●</span>
+    <span>E. MARAY</span>
+    <span class="brand-subtitle">/ L&amp;D · OD</span>
+  </a>
+  <nav class="navlinks" aria-label="Main navigation">
+    <a href="/">HOME</a>
+    <a href="/philosophy/">PHILOSOPHY</a>
+    <a href="/personal/">PERSONAL</a>
+    <a href="/work/" aria-current="page">WORK</a>
+    <a href="/journey/">JOURNEY</a>
+    <a href="/capabilities/">SKILLS</a>
+    <a href="/reading/">READING</a>
+  </nav>
+  <a class="header-contact" href="/contact/">
+    <span class="contact-dot" aria-hidden="true"></span>HAPPY TO CHAT
+  </a>
+  <details class="mobile-menu">
+    <summary aria-label="Open navigation">MENU ☰</summary>
+    <nav class="mobile-links" aria-label="Mobile navigation">
+      <a href="/">HOME</a>
+      <a href="/philosophy/">PHILOSOPHY</a>
+      <a href="/personal/">PERSONAL</a>
+      <a href="/work/" aria-current="page">WORK</a>
+      <a href="/journey/">JOURNEY</a>
+      <a href="/capabilities/">SKILLS</a>
+      <a href="/reading/">READING</a>
+      <a href="/contact/">CONTACT</a>
+    </nav>
+  </details>
+</header>
 <main><div class="wrap"><section class="hero"><div><div class="eyebrow">✦ &nbsp; LEARNING EXPERIENCE DESIGN</div><h1>Designing Learning<br><em>Around the Learner.</em></h1><p class="lede">A people-centered approach to workforce learning — identifying real needs, curating relevant experiences, and redesigning how opportunities are communicated across the organization.</p><div class="meta"><div><small>ORGANIZATION</small><span>CoServ</span></div><div><small>ROLE</small><span>Training &amp; Development Specialist</span></div><div><small>FOCUS</small><span>Learning strategy · Program design · Instructor collaboration</span></div><div><small>YEAR</small><span>2025</span></div></div></div><div class="covers"><figure class="cover"><img src="assets/cover-2024.webp" alt="Original 2024 Training and Development Plan cover with outdoor adventure photography"><figcaption>BEFORE / 2024<span>Original training catalog</span></figcaption></figure><div class="arrow" aria-hidden="true">⟶</div><figure class="cover"><img src="assets/cover-2025.webp" alt="Actual redesigned 2025 Training and Development Plan cover showing an illuminated open doorway"><figcaption>AFTER / 2025<span>Redesigned training catalog</span></figcaption></figure></div></section>
 <section class="section chapter"><aside class="side"><div class="mono">01 — THE APPROACH</div><em>Listening, connecting,<br>and designing for<br>real needs.</em></aside><div class="content"><h2>The courses weren't the starting point. The people were.</h2><p>I began by listening — through everyday conversations and working relationships with employees and leaders — to understand what was working, what was challenging, and where learning could make a difference.</p><p>I paired those insights with a structured leadership survey to prioritize topics, then collaborated with instructors to tailor the content, deliver the experience, and continuously refine it based on feedback and emerging needs.</p><div class="steps"><div class="step"><div class="ico">♧</div><h3>LISTEN</h3><p>Conversations and working relationships to surface real needs.</p></div><div class="step"><div class="ico">▥</div><h3>PRIORITIZE</h3><p>Leadership surveys to focus on what would have the greatest impact.</p></div><div class="step"><div class="ico">◎</div><h3>CURATE</h3><p>Interview and select instructors with the right expertise and flexibility.</p></div><div class="step"><div class="ico">◇</div><h3>COLLABORATE</h3><p>Shape and adapt content to our environment and goals.</p></div><div class="step"><div class="ico">↻</div><h3>EVOLVE</h3><p>Use questions, feedback, and current events to continuously improve.</p></div></div></div></section>
 <section class="section chapter"><aside class="side"><div class="mono">02 — FEATURED COURSES</div><em>From insight<br>to action.</em><p>A closer look at selected courses that connected organizational needs, employee feedback, and practical development opportunities.</p></aside><div class="content"><div class="carousel" aria-label="Featured courses"><div class="mobile-course-nav" aria-label="Mobile course navigation"><button type="button" id="mobilePrev" aria-label="Previous featured course">←</button><span class="mobile-course-progress"><span class="mobile-course-label">FEATURED COURSES</span><span id="mobileCounter" aria-live="polite">01 / 11</span></span><button type="button" id="mobileNext" aria-label="Next featured course">→</button></div><div class="slide"><div class="image-card"><img id="cardImage" src="assets/course-living-our-values.webp" alt="Living Our Values course description and Key Takeaways from the original CoServ 2025 catalog"></div><div class="slide-copy"><span class="label" id="courseKind"></span><h3 id="courseTitle"></h3><div class="fact"><strong>MY CONTRIBUTION</strong><p id="courseRole"></p></div><div class="fact"><strong>WHY I SELECTED IT</strong><p id="courseWhy"></p></div></div></div><div class="controls"><button id="prev" aria-label="Previous course">‹</button><div class="dots" id="dots" aria-label="Choose featured course"></div><button id="next" aria-label="Next course">›</button><span class="counter" id="counter"></span></div></div><p class="note">Each course card is a purpose-designed image containing the original 2025 catalog description and Key Takeaways verbatim. Instructor names and schedules are omitted. Original PDFs are not provided.</p></div></section>
-<section class="section chapter"><aside class="side"><div class="mono">03 — THE DESIGN</div><em>Make it easier<br>to find what fits.</em></aside><div class="content"><h2>The catalog was the interface, not the entire solution.</h2><p>The redesigned 2025 plan organized learning requirements by audience, made course descriptions easier to scan, surfaced Key Takeaways, and offered a consolidated schedule. These decisions helped employees see what applied to them and why a course might be worth their time.</p><p>My contribution extended beyond the document: I developed the initial outline for <em>Living Our Values</em> and recruited the Chief of Operations to facilitate it; I proposed the two-step Excel pathway; and for other offerings, I selected and collaborated with instructors rather than independently authoring their courses.</p><p class="closing">How much work are we making the employee do just to understand what we're offering?</p><p class="note">This case study describes design intent and professional contributions. It does not claim measured improvements in culture, learning transfer, or performance.</p></div></section></div></main><footer class="footer"><div class="wrap">ERIC MARAY · SELECTED WORK &nbsp; / &nbsp; <a href="/#work">BACK TO PORTFOLIO</a> &nbsp; / &nbsp; COURSE ICONS: <a href="https://icons8.com/" target="_blank" rel="noopener noreferrer">ICONS8</a></div></footer>
-<script>const courses=[{"title": "Living Our Values", "description": "At CoServ, our values of Accountability, Integrity, Respect, Service, Excellence, and Safety are more than just guiding principles — they are the foundation of our success. \"Living Our Values\" is a course designed to help you connect these core values to your daily behavior, fostering a deeper sense of personal responsibility and professional growth.", "takeaways": "Core principles, personal responsibility, and professional growth.", "kind": "ORIGINAL INITIATIVE", "role": "Outlined the course and recruited the Chief of Operations to facilitate it.", "why": "Reinforce CoServ's six established values during rapid workforce growth.", "image": "assets/course-living-our-values.webp"}, {"title": "Excel Essentials", "description": "In this introductory class, you'll discover the foundational skills needed to navigate Microsoft Excel with confidence. From basic functions like data entry and formatting to creating simple formulas and charts, this session will equip you with essential tools to manage and analyze data efficiently. Perfect for beginners, \"Excel Essentials\" will empower you to harness the power of spreadsheets and improve your productivity. This workshop is also ideal for those who are self-taught and/or want a refresher on the application. Feel free to bring projects that you’re working on right now – or challenges you’ve faced in the past. This is a hands-on class and individual help is available.", "takeaways": "Foundational skills for MS Excel, productivity, and practical applications.", "kind": "ORIGINAL INITIATIVE", "role": "Proposed a foundational Excel course as the first step of a progressive learning pathway.", "why": "Help employees work more confidently and efficiently with spreadsheets.", "image": "assets/course-excel-essentials.webp"}, {"title": "Excel Power Moves", "description": "This intermediate-level Excel workshop takes your spreadsheet skills beyond the basics, diving into more advanced techniques to enhance productivity and data analysis. You’ll explore powerful tools like PivotTables, advanced formulas, conditional formatting, and data validation. Ideal for those familiar with the basics, this workshop will help you unlock Excel’s full potential and streamline your workflow, making complex tasks easier and faster. Get ready to level up your Excel game and impress with your newfound expertise! Feel free to bring projects that you’re working on right now – or challenges you’ve faced in the past. This is a hands-on class and individual help is available. *Must complete Excel Essentials to be able to register. < =", "takeaways": "Advanced skills for MS Excel, streamlining workflows, advanced techniques, and enhanced expertise.", "kind": "ORIGINAL INITIATIVE", "role": "Proposed the second, intermediate step in the Excel pathway.", "why": "Give employees a practical next step after learning the fundamentals.", "image": "assets/course-excel-power-moves.webp"}, {"title": "Battling Burnout", "description": "If a person has been in the workforce long enough, they have experienced positional fatigue, frustration and irritation with colleagues, negativity and cynicism, and possibly even inefficacy in their work. It’s called burnout, and no one is immune. Sadly, burnout can lead to feelings of depression, anxiety, and disengagement in the individual, and turnover, organizational upheaval, relational issues, and subpar work product in the workplace. When burnout is active in a workplace, everyone is negatively impacted by it.", "takeaways": "Preventing burnout, enhancing well-being, reducing turnover, and improving relationships.", "kind": "CURATED COURSE", "role": "Identified a relevant organizational need, selected an instructor, and collaborated on the learning experience.", "why": "Respond proactively to concerns about burnout and disengagement.", "image": "assets/course-battling-burnout.webp"}, {"title": "Live Like a Leader", "description": "Leadership expert and best-selling author John Maxwell once said, \"Leadership is influence. Nothing more, nothing less.\" Every person has a great deal of personal influence on the people around them, and how we use that influence determines the impact we will have on our team and its effectiveness. It is often mistakenly assumed that if we do not hold a leadership position, we cannot affect change around us. That idea causes apathy, frustration, and a skirting of responsibility.", "takeaways": "Empowering personal impact, fostering responsibility, and driving team effectiveness.", "kind": "CURATED COURSE", "role": "Selected an instructor and worked to align content with organizational needs.", "why": "Help employees recognize their influence regardless of job title.", "image": "assets/course-live-like-a-leader.webp"}, {"title": "Personal Growth", "description": "As individuals, we constantly face a choice: to embrace growth and learning or to allow ourselves to become stagnant. In this course, we discuss deeply into the significance of personal development, highlighting how it plays a crucial role in unlocking our full potential. We will explore various strategies and practical tips designed to inspire continuous growth, ensuring that we remain engaged and adaptable throughout our lives. By fostering a mindset of lifelong learning, we can cultivate our abilities and enrich our experiences, paving the way to a fulfilling and successful future.", "takeaways": "Lifelong growth, adaptability, and unlocking potential.", "kind": "CURATED COURSE", "role": "Selected an instructor and collaborated on learning relevance.", "why": "Encourage adaptability and continued development.", "image": "assets/course-personal-growth.webp"}, {"title": "Bridging the Generational Gap", "description": "It is a well-observed reality that individuals from different generations have unique styles of communication and distinct approaches to motivation and inspiration. These variations can create misunderstandings and barriers in both personal and professional relationships. Our challenge is to acknowledge these differences and actively work to close the gap that separates us. By fostering understanding and cooperation across generational lines, we can unlock the potential for greater collaboration and achievement. In this course, we will explore a variety of practical strategies designed to help you bridge those generational gaps effectively, enhancing communication and driving collective success.", "takeaways": "Enhancing collaboration, improving communication, and understanding differences.", "kind": "CURATED COURSE", "role": "Selected an instructor and collaborated on learning relevance.", "why": "Improve understanding and collaboration across generations.", "image": "assets/course-bridging-the-generational-gap.webp"}, {"title": "Listen Like a Pro", "description": "Unlock the secret to more effective and meaningful interactions through active listening! The art of active listening is a critical skill that helps to build trust, reduce misunderstandings, and position us to build stronger, healthier personal and professional relationships with others. Through interactive exercises and real- world scenarios, you'll learn how to truly hear and understand others from customers to colleagues and foster a collaborative and respectful environment. Join us for this transformative workshop and discover how mastering active listening can elevate your communication skills!", "takeaways": "Building trust, reducing misunderstandings, and strengthening relationships.", "kind": "CURATED COURSE", "role": "Selected an instructor and helped tailor the learning experience.", "why": "Strengthen listening and relationships across roles.", "image": "assets/course-listen-like-a-pro.webp"}, {"title": "Write to Win", "description": "Strengthen your written communication with Writing to Win! This engaging workshop will equip you with essential writing skills that enhance clarity, efficiency, and professionalism. By the end of the session, you’ll be able to better tailor messages to diverse audiences, draft clear and actionable content, and maintain a professional tone that resonates with everyone… from customers to colleagues. Join us for a fun and interactive experience where you’ll discover how to make your words work harder for you!", "takeaways": "Clear communication, accountability, and professional effectiveness.", "kind": "CURATED COURSE", "role": "Selected an instructor and helped tailor the learning experience.", "why": "Improve the clarity and usefulness of workplace communication.", "image": "assets/course-write-to-win.webp"}, {"title": "Crucial Conversations", "description": "In this engaging and interactive workshop, you will learn how to navigate difficult conversations with customers, co-workers, and members of the public in a way that leads to positive outcomes and increased good will. Combing theory and practice, you will walk out of class with a research-based plan allowing you to quickly identify high stake discussions, empower you to approach any conversation with confidence and clarity, and diffuse tension with constructive dialogue.", "takeaways": "High-stakes communication, emotional intelligence, and conflict resolution.", "kind": "CURATED COURSE", "role": "Selected an instructor and collaborated on course relevance.", "why": "Address difficult workplace conversations and conflict.", "image": "assets/course-crucial-conversations.webp"}, {"title": "Resilience Revolution", "description": "Do you wish you could bounce back from adversity more quickly? Would you like to learn how to turn difficult situations into opportunities to grow, develop, and become better than before? If so, this is the class for you. In a game show format, you’ll learn what resilience is, why it is valuable, and most importantly, practical tips for growing your resilience at home and work. As a group we’ll practice science-based techniques that you can begin using immediately to become stronger and better equipped to manage the inevitable challenges of life.", "takeaways": "Mental toughness, positivity, and overcoming challenges.", "kind": "CURATED COURSE", "role": "Selected an instructor and collaborated on course relevance.", "why": "Support resilience amid workplace challenges and change.", "image": "assets/course-resilience-revolution.webp"}];let current=0;const $=id=>document.getElementById(id);const dots=$('dots');courses.forEach((c,i)=>{const b=document.createElement('button');b.className='dot';b.type='button';b.setAttribute('aria-label','Show '+c.title);b.onclick=()=>show(i);dots.appendChild(b)});function show(i){current=(i+courses.length)%courses.length;const c=courses[current];$('cardImage').src=c.image;$('cardImage').alt=c.title+'. Original catalog description: '+c.description+' Key Takeaways: '+c.takeaways;$('courseKind').textContent=c.kind;$('courseTitle').textContent=c.title;$('courseRole').textContent=c.role;$('courseWhy').textContent=c.why;$('counter').textContent=String(current+1).padStart(2,'0')+' / '+courses.length;$('mobileCounter').textContent=String(current+1).padStart(2,'0')+' / '+courses.length;[...dots.children].forEach((b,j)=>b.setAttribute('aria-current',j===current?'true':'false'));}$('prev').onclick=()=>show(current-1);$('next').onclick=()=>show(current+1);$('mobilePrev').onclick=()=>show(current-1);$('mobileNext').onclick=()=>show(current+1);show(0);</script></body></html>
+<section class="section chapter"><aside class="side"><div class="mono">03 — THE DESIGN</div><em>Make it easier<br>to find what fits.</em></aside><div class="content"><h2>The catalog was the interface, not the entire solution.</h2><p>The redesigned 2025 plan organized learning requirements by audience, made course descriptions easier to scan, surfaced Key Takeaways, and offered a consolidated schedule. These decisions helped employees see what applied to them and why a course might be worth their time.</p><p>My contribution extended beyond the document: I developed the initial outline for <em>Living Our Values</em> and recruited the Chief of Operations to facilitate it; I proposed the two-step Excel pathway; and for other offerings, I selected and collaborated with instructors rather than independently authoring their courses.</p><p class="closing">How much work are we making the employee do just to understand what we're offering?</p><p class="note">This case study describes design intent and professional contributions. It does not claim measured improvements in culture, learning transfer, or performance.</p></div></section></div>
+<nav class="case-study-end-nav" aria-label="Case study navigation">
+  <a href="/work/" class="case-study-end-link">
+    <span class="case-study-end-kicker">All projects</span>
+    <span class="case-study-end-title">Return to Work</span>
+  </a>
+  <a href="/work/monthly-learning-newsletter/" class="case-study-end-link">
+    <span class="case-study-end-kicker">Next case study</span>
+    <span class="case-study-end-title">View next case study</span>
+  </a>
+</nav>
+</main><footer class="footer">
+  <div class="wrap portfolio-footer-row">
+    <span>© 2026 Eric T. Maray · Semper Prorsum · Always Forward</span>
+    <div class="footer-clock" aria-label="Local time in Dallas-Fort Worth">
+      <span class="footer-clock-label">Local Time</span>
+      <span class="footer-clock-time" id="clock">DFW · --:--</span>
+    </div>
+    <div class="footer-links"><a href="/work/">Work</a><a href="/contact/">Say hello ↗</a></div>
+  </div>
+  <div class="footer-credit">COURSE ICONS: <a href="https://icons8.com/" target="_blank" rel="noopener noreferrer">ICONS8</a></div>
+</footer>
+<script>const courses=[{"title": "Living Our Values", "description": "At CoServ, our values of Accountability, Integrity, Respect, Service, Excellence, and Safety are more than just guiding principles — they are the foundation of our success. \"Living Our Values\" is a course designed to help you connect these core values to your daily behavior, fostering a deeper sense of personal responsibility and professional growth.", "takeaways": "Core principles, personal responsibility, and professional growth.", "kind": "ORIGINAL INITIATIVE", "role": "Outlined the course and recruited the Chief of Operations to facilitate it.", "why": "Reinforce CoServ's six established values during rapid workforce growth.", "image": "assets/course-living-our-values.webp"}, {"title": "Excel Essentials", "description": "In this introductory class, you'll discover the foundational skills needed to navigate Microsoft Excel with confidence. From basic functions like data entry and formatting to creating simple formulas and charts, this session will equip you with essential tools to manage and analyze data efficiently. Perfect for beginners, \"Excel Essentials\" will empower you to harness the power of spreadsheets and improve your productivity. This workshop is also ideal for those who are self-taught and/or want a refresher on the application. Feel free to bring projects that you’re working on right now – or challenges you’ve faced in the past. This is a hands-on class and individual help is available.", "takeaways": "Foundational skills for MS Excel, productivity, and practical applications.", "kind": "ORIGINAL INITIATIVE", "role": "Proposed a foundational Excel course as the first step of a progressive learning pathway.", "why": "Help employees work more confidently and efficiently with spreadsheets.", "image": "assets/course-excel-essentials.webp"}, {"title": "Excel Power Moves", "description": "This intermediate-level Excel workshop takes your spreadsheet skills beyond the basics, diving into more advanced techniques to enhance productivity and data analysis. You’ll explore powerful tools like PivotTables, advanced formulas, conditional formatting, and data validation. Ideal for those familiar with the basics, this workshop will help you unlock Excel’s full potential and streamline your workflow, making complex tasks easier and faster. Get ready to level up your Excel game and impress with your newfound expertise! Feel free to bring projects that you’re working on right now – or challenges you’ve faced in the past. This is a hands-on class and individual help is available. *Must complete Excel Essentials to be able to register. < =", "takeaways": "Advanced skills for MS Excel, streamlining workflows, advanced techniques, and enhanced expertise.", "kind": "ORIGINAL INITIATIVE", "role": "Proposed the second, intermediate step in the Excel pathway.", "why": "Give employees a practical next step after learning the fundamentals.", "image": "assets/course-excel-power-moves.webp"}, {"title": "Battling Burnout", "description": "If a person has been in the workforce long enough, they have experienced positional fatigue, frustration and irritation with colleagues, negativity and cynicism, and possibly even inefficacy in their work. It’s called burnout, and no one is immune. Sadly, burnout can lead to feelings of depression, anxiety, and disengagement in the individual, and turnover, organizational upheaval, relational issues, and subpar work product in the workplace. When burnout is active in a workplace, everyone is negatively impacted by it.", "takeaways": "Preventing burnout, enhancing well-being, reducing turnover, and improving relationships.", "kind": "CURATED COURSE", "role": "Identified a relevant organizational need, selected an instructor, and collaborated on the learning experience.", "why": "Respond proactively to concerns about burnout and disengagement.", "image": "assets/course-battling-burnout.webp"}, {"title": "Live Like a Leader", "description": "Leadership expert and best-selling author John Maxwell once said, \"Leadership is influence. Nothing more, nothing less.\" Every person has a great deal of personal influence on the people around them, and how we use that influence determines the impact we will have on our team and its effectiveness. It is often mistakenly assumed that if we do not hold a leadership position, we cannot affect change around us. That idea causes apathy, frustration, and a skirting of responsibility.", "takeaways": "Empowering personal impact, fostering responsibility, and driving team effectiveness.", "kind": "CURATED COURSE", "role": "Selected an instructor and worked to align content with organizational needs.", "why": "Help employees recognize their influence regardless of job title.", "image": "assets/course-live-like-a-leader.webp"}, {"title": "Personal Growth", "description": "As individuals, we constantly face a choice: to embrace growth and learning or to allow ourselves to become stagnant. In this course, we discuss deeply into the significance of personal development, highlighting how it plays a crucial role in unlocking our full potential. We will explore various strategies and practical tips designed to inspire continuous growth, ensuring that we remain engaged and adaptable throughout our lives. By fostering a mindset of lifelong learning, we can cultivate our abilities and enrich our experiences, paving the way to a fulfilling and successful future.", "takeaways": "Lifelong growth, adaptability, and unlocking potential.", "kind": "CURATED COURSE", "role": "Selected an instructor and collaborated on learning relevance.", "why": "Encourage adaptability and continued development.", "image": "assets/course-personal-growth.webp"}, {"title": "Bridging the Generational Gap", "description": "It is a well-observed reality that individuals from different generations have unique styles of communication and distinct approaches to motivation and inspiration. These variations can create misunderstandings and barriers in both personal and professional relationships. Our challenge is to acknowledge these differences and actively work to close the gap that separates us. By fostering understanding and cooperation across generational lines, we can unlock the potential for greater collaboration and achievement. In this course, we will explore a variety of practical strategies designed to help you bridge those generational gaps effectively, enhancing communication and driving collective success.", "takeaways": "Enhancing collaboration, improving communication, and understanding differences.", "kind": "CURATED COURSE", "role": "Selected an instructor and collaborated on learning relevance.", "why": "Improve understanding and collaboration across generations.", "image": "assets/course-bridging-the-generational-gap.webp"}, {"title": "Listen Like a Pro", "description": "Unlock the secret to more effective and meaningful interactions through active listening! The art of active listening is a critical skill that helps to build trust, reduce misunderstandings, and position us to build stronger, healthier personal and professional relationships with others. Through interactive exercises and real- world scenarios, you'll learn how to truly hear and understand others from customers to colleagues and foster a collaborative and respectful environment. Join us for this transformative workshop and discover how mastering active listening can elevate your communication skills!", "takeaways": "Building trust, reducing misunderstandings, and strengthening relationships.", "kind": "CURATED COURSE", "role": "Selected an instructor and helped tailor the learning experience.", "why": "Strengthen listening and relationships across roles.", "image": "assets/course-listen-like-a-pro.webp"}, {"title": "Write to Win", "description": "Strengthen your written communication with Writing to Win! This engaging workshop will equip you with essential writing skills that enhance clarity, efficiency, and professionalism. By the end of the session, you’ll be able to better tailor messages to diverse audiences, draft clear and actionable content, and maintain a professional tone that resonates with everyone… from customers to colleagues. Join us for a fun and interactive experience where you’ll discover how to make your words work harder for you!", "takeaways": "Clear communication, accountability, and professional effectiveness.", "kind": "CURATED COURSE", "role": "Selected an instructor and helped tailor the learning experience.", "why": "Improve the clarity and usefulness of workplace communication.", "image": "assets/course-write-to-win.webp"}, {"title": "Crucial Conversations", "description": "In this engaging and interactive workshop, you will learn how to navigate difficult conversations with customers, co-workers, and members of the public in a way that leads to positive outcomes and increased good will. Combing theory and practice, you will walk out of class with a research-based plan allowing you to quickly identify high stake discussions, empower you to approach any conversation with confidence and clarity, and diffuse tension with constructive dialogue.", "takeaways": "High-stakes communication, emotional intelligence, and conflict resolution.", "kind": "CURATED COURSE", "role": "Selected an instructor and collaborated on course relevance.", "why": "Address difficult workplace conversations and conflict.", "image": "assets/course-crucial-conversations.webp"}, {"title": "Resilience Revolution", "description": "Do you wish you could bounce back from adversity more quickly? Would you like to learn how to turn difficult situations into opportunities to grow, develop, and become better than before? If so, this is the class for you. In a game show format, you’ll learn what resilience is, why it is valuable, and most importantly, practical tips for growing your resilience at home and work. As a group we’ll practice science-based techniques that you can begin using immediately to become stronger and better equipped to manage the inevitable challenges of life.", "takeaways": "Mental toughness, positivity, and overcoming challenges.", "kind": "CURATED COURSE", "role": "Selected an instructor and collaborated on course relevance.", "why": "Support resilience amid workplace challenges and change.", "image": "assets/course-resilience-revolution.webp"}];let current=0;const $=id=>document.getElementById(id);const dots=$('dots');courses.forEach((c,i)=>{const b=document.createElement('button');b.className='dot';b.type='button';b.setAttribute('aria-label','Show '+c.title);b.onclick=()=>show(i);dots.appendChild(b)});function show(i){current=(i+courses.length)%courses.length;const c=courses[current];$('cardImage').src=c.image;$('cardImage').alt=c.title+'. Original catalog description: '+c.description+' Key Takeaways: '+c.takeaways;$('courseKind').textContent=c.kind;$('courseTitle').textContent=c.title;$('courseRole').textContent=c.role;$('courseWhy').textContent=c.why;$('counter').textContent=String(current+1).padStart(2,'0')+' / '+courses.length;$('mobileCounter').textContent=String(current+1).padStart(2,'0')+' / '+courses.length;[...dots.children].forEach((b,j)=>b.setAttribute('aria-current',j===current?'true':'false'));}$('prev').onclick=()=>show(current-1);$('next').onclick=()=>show(current+1);$('mobilePrev').onclick=()=>show(current-1);$('mobileNext').onclick=()=>show(current+1);show(0);</script>
+<script>
+(function () {
+  const clock = document.getElementById('clock');
+  if (!clock) return;
+  const format = { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'America/Chicago' };
+  function tick() {
+    clock.textContent = 'DFW · ' + new Date().toLocaleTimeString('en-US', format);
+  }
+  tick();
+  window.setInterval(tick, 30000);
+})();
+</script>
+
+<button type="button" id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+<script>
+(function () {
+  const backToTop = document.getElementById('backToTop');
+  if (!backToTop) return;
+  function updateBackToTop() {
+    backToTop.classList.toggle('is-visible', window.scrollY > 500);
+  }
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+    });
+  });
+  window.addEventListener('scroll', updateBackToTop, {passive: true});
+  updateBackToTop();
+})();
+</script>
+
+</body></html>
