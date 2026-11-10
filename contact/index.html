@@ -94,6 +94,28 @@
 @media(max-width:640px){.route-card{min-height:150px;padding:22px}}
 .page-intro{padding-top:155px;padding-bottom:65px;max-width:1400px;margin:auto;padding-left:clamp(24px,5vw,64px);padding-right:clamp(24px,5vw,64px)}
 .page-intro h1{font-size:clamp(44px,6vw,90px);font-weight:300;letter-spacing:-.04em;line-height:1.07;margin:15px 0 24px}
+
+.contact-panel{max-width:820px;border-top:1px solid rgba(244,241,234,.15);padding-top:36px}
+.contact-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.contact-field{display:flex;flex-direction:column;gap:10px;min-width:0}
+.contact-field-full{grid-column:1/-1}
+.contact-field label{font:400 10px/1.6 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#a9a29a}
+.contact-field input,.contact-field textarea{width:100%;box-sizing:border-box;border:1px solid rgba(244,241,234,.23);border-radius:3px;background:#151411;color:#f4f1ea;padding:15px 17px;font:400 15px/1.5 'Fraunces',Georgia,serif;outline:none;transition:border-color .2s}
+.contact-field input::placeholder,.contact-field textarea::placeholder{color:#77716a}
+.contact-field input:focus,.contact-field textarea:focus{border-color:#d4a574}
+.contact-field textarea{resize:vertical;min-height:145px}
+.contact-action-row{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:28px}
+.contact-submit{border:1px solid #d4a574;border-radius:999px;background:#d4a574;color:#17120e;padding:14px 25px;font-size:11px;letter-spacing:.12em;cursor:pointer;transition:background .2s,color .2s}
+.contact-submit:hover{background:transparent;color:#d4a574}
+.contact-submit:disabled{opacity:.5;cursor:wait}
+.contact-status{min-height:24px;margin-top:18px;color:#d4a574;font-size:11px;letter-spacing:.03em}
+.contact-status.is-error{color:#f0a9a1}
+.contact-privacy{margin-top:6px;font:400 12px/1.7 'Fraunces',Georgia,serif;color:#8b8680}
+.contact-linkedin{margin-top:32px;color:#8b8680;font-size:10px;letter-spacing:.06em}
+.contact-linkedin a{color:#d4a574;text-underline-offset:4px}
+.contact-honeypot{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip-path:inset(50%)!important;white-space:nowrap!important}
+.contact-inline-time{display:inline-flex;align-items:center;gap:10px;white-space:nowrap}
+@media(max-width:640px){.contact-fields{grid-template-columns:1fr}.contact-action-row{align-items:flex-start}.contact-panel{padding-top:28px}}
 </style></head><body class="grain"><aside class="hidden lg:flex fixed left-6 top-0 h-screen items-center z-30 mono text-[11px] text-[#8b8680] tracking-[0.2em] uppercase">
 <span class="vertical">Eric Maray · Portfolio MMXXVI</span>
 </aside><header class="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-black/30 border-b hairline">
@@ -124,22 +146,30 @@
 <p class="mt-8 text-lg max-w-xl" style="color:rgba(244,241,234,0.7)">Whether it's about a role, a project, a chat over a virtual cup of coffee, or just comparing notes with someone else working in this space — I'd genuinely like to hear from you.</p>
 </div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-px mt-20 border hairline" style="background:rgba(244,241,234,0.1)">
-<a class="p-8 group transition-colors duration-500 no-underline" href="mailto:ericmaray@gmail.com" onmouseout="this.style.background='#0a0a0a';this.style.color='#f4f1ea'" onmouseover="this.style.background='#f4f1ea';this.style.color='#0a0a0a'" style="background:#0a0a0a">
-<div class="mono text-[11px] uppercase tracking-[0.2em] mb-6 text-[#8b8680]">Email</div>
-<div class="text-xl md:text-2xl font-light flex items-center justify-between gap-4"><span class="break-all">ericmaray@gmail.com</span><span style="color:var(--accent)">↗</span></div>
-</a>
-<a class="p-8 group transition-colors duration-500 no-underline" href="https://linkedin.com/in/ericmaray-od" onmouseout="this.style.background='#0a0a0a';this.style.color='#f4f1ea'" onmouseover="this.style.background='#f4f1ea';this.style.color='#0a0a0a'" rel="noopener" style="background:#0a0a0a" target="_blank">
-<div class="mono text-[11px] uppercase tracking-[0.2em] mb-6 text-[#8b8680]">LinkedIn</div>
-<div class="text-xl md:text-2xl font-light flex items-center justify-between gap-4"><span>in/ericmaray-od</span><span style="color:var(--accent)">↗</span></div>
-</a>
-<a class="p-8 group transition-colors duration-500 no-underline" href="tel:9315727440" onmouseout="this.style.background='#0a0a0a';this.style.color='#f4f1ea'" onmouseover="this.style.background='#f4f1ea';this.style.color='#0a0a0a'" style="background:#0a0a0a">
-<div class="mono text-[11px] uppercase tracking-[0.2em] mb-6 text-[#8b8680]">Direct</div>
-<div class="text-xl md:text-2xl font-light flex items-center justify-between gap-4"><span>931 · 572 · 7440</span><span style="color:var(--accent)">↗</span></div>
-</a>
+<div class="contact-panel mt-16" id="send-a-message">
+  <div class="mono text-[11px] uppercase tracking-[0.2em] mb-7" style="color:var(--accent)">SEND A MESSAGE / PRIVATE INQUIRY</div>
+  <form id="portfolioContactForm" class="contact-form" action="/api/contact" method="post" novalidate>
+    <div class="contact-fields">
+      <div class="contact-field"><label for="contactName">Your name *</label><input id="contactName" name="name" type="text" autocomplete="name" maxlength="100" required placeholder="How should I address you?" /></div>
+      <div class="contact-field"><label for="contactEmail">Your email *</label><input id="contactEmail" name="email" type="email" autocomplete="email" maxlength="254" required placeholder="Where can I reply?" /></div>
+      <div class="contact-field contact-field-full"><label for="contactSubject">What is this about? *</label><input id="contactSubject" name="subject" type="text" maxlength="110" required placeholder="An opportunity, a project, or an idea..." /></div>
+      <div class="contact-field contact-field-full"><label for="contactMessage">Your message *</label><textarea id="contactMessage" name="message" rows="6" minlength="10" maxlength="4000" required placeholder="What's on your mind?"></textarea></div>
+    </div>
+    <div class="contact-honeypot" aria-hidden="true"><label for="companyWebsite">Leave this blank</label><input id="companyWebsite" name="company_website" type="text" tabindex="-1" autocomplete="off" /></div>
+    <div class="contact-action-row"><div class="cf-turnstile" data-sitekey="REPLACE_WITH_TURNSTILE_SITE_KEY" data-action="portfolio_contact" data-theme="dark"></div><button class="contact-submit mono" type="submit" id="contactSubmit">SEND MESSAGE ↗</button></div>
+    <p id="contactStatus" class="contact-status mono" role="status" aria-live="polite"></p>
+    <p class="contact-privacy">Your information is used only to respond to your message.</p>
+  </form>
+  <div class="contact-linkedin mono">Prefer a professional network? <a href="https://linkedin.com/in/ericmaray-od" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a></div>
 </div>
-</section><section class="px-6 lg:px-16 py-16 max-w-[1400px] mx-auto border-t hairline"><span class="mono text-[11px] uppercase tracking-[.2em] text-[#d4a574]">Keep exploring</span><div class="flex flex-wrap gap-5 mt-6"><a class="cta-ghost" href="/">Back to introduction ↗</a><a class="cta-ghost" href="/work/">Selected work ↗</a></div></section></main><footer class="relative z-10 px-6 lg:px-16 py-10 mx-auto max-w-[1400px] border-t hairline flex flex-wrap gap-6 justify-between mono text-[11px] uppercase tracking-[0.14em] text-[#8b8680]">
-<span>© 2026 Eric T. Maray · Semper Prorsum · Always Forward</span><div><div class="opacity-40 mb-1">Local Time</div><div id="clock">— : —</div></div><div class="flex gap-6"><a href="/">Home</a><a href="/work/">Work</a></div></footer><script>
+<div class="mt-20 pt-8 border-t hairline grid grid-cols-2 md:grid-cols-4 gap-6 mono text-[11px] text-[#8b8680] uppercase tracking-[0.18em]">
+<div><div class="opacity-40 mb-1">© 2026</div><div>Eric T. Maray</div></div>
+<div><div class="opacity-40 mb-1">Motto</div><div style="color:var(--accent)">Semper Prorsum · Always Forward</div><div class="opacity-50 text-[9px] mt-1">Always Forward</div></div>
+<div class="contact-inline-time"><span class="opacity-40">Local Time</span><span id="clock">— : —</span></div>
+<div class="text-right"><a class="link-underline hover:text-[#f4f1ea]" href="#top">Back to top ↑</a></div>
+</div>
+</section><section class="px-6 lg:px-16 py-16 max-w-[1400px] mx-auto border-t hairline"><span class="mono text-[11px] uppercase tracking-[.2em] text-[#d4a574]">Keep exploring</span><div class="flex flex-wrap gap-5 mt-6"><a class="cta-ghost" href="/">Back to introduction ↗</a><a class="cta-ghost" href="/work/">Selected work ↗</a><a class="cta-ghost" href="/contact/">Say hello ↗</a></div></section></main><footer class="relative z-10 px-6 lg:px-16 py-10 mx-auto max-w-[1400px] border-t hairline flex flex-wrap gap-6 justify-between mono text-[11px] uppercase tracking-[0.14em] text-[#8b8680]">
+<span>© 2026 Eric T. Maray · Semper Prorsum · Always Forward</span><div class="flex gap-6"><a href="/">Home</a><a href="/work/">Work</a><a href="/contact/">Say hello ↗</a></div></footer><script>
   const clock = document.getElementById('clock');
   function tick() {
     const opts = { hour:'2-digit', minute:'2-digit', timeZone:'America/Chicago', hour12:false };
@@ -153,15 +183,48 @@
   menuBtn.addEventListener('click', () => { mobileMenu.classList.remove('hidden'); mobileMenu.classList.add('flex'); });
   closeBtn.addEventListener('click', () => { mobileMenu.classList.add('hidden'); mobileMenu.classList.remove('flex'); });
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mobileMenu.classList.add('hidden'); mobileMenu.classList.remove('flex'); }));
-
-  function submitBook(e) {
-    e.preventDefault();
-    const title = document.getElementById('bookTitle').value.trim();
-    const author = document.getElementById('bookAuthor').value.trim();
-    const note = document.getElementById('bookNote').value.trim();
-    if (!title) return;
-    const subject = encodeURIComponent('Book recommendation: ' + title);
-    const body = encodeURIComponent(`Title: ${title}\nAuthor: ${author}\nWhy it stuck: ${note}`);
-    window.location.href = `mailto:ericmaray@gmail.com?subject=${subject}&body=${body}`;
-  }
-</script></body></html>
+</script><script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script>
+(function () {
+  const form = document.getElementById('portfolioContactForm');
+  const button = document.getElementById('contactSubmit');
+  const status = document.getElementById('contactStatus');
+  if (!form || !button || !status) return;
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    status.textContent = '';
+    status.classList.remove('is-error');
+    if (!form.reportValidity()) return;
+    const data = new FormData(form);
+    const token = data.get('cf-turnstile-response');
+    if (!token) {
+      status.textContent = 'Please complete the security check before sending.';
+      status.classList.add('is-error');
+      return;
+    }
+    button.disabled = true;
+    button.textContent = 'SENDING…';
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: data.get('name'), email: data.get('email'),
+          subject: data.get('subject'), message: data.get('message'),
+          company_website: data.get('company_website'), turnstileToken: token }),
+      });
+      let result = {};
+      try { result = await response.json(); } catch (_) { /* generic error */ }
+      if (!response.ok) throw new Error(result.message || 'Unable to send. Please try again.');
+      status.textContent = result.message || 'Message sent. Thanks for reaching out!';
+      form.reset();
+    } catch (error) {
+      status.textContent = error.message || 'Unable to send. Please try again.';
+      status.classList.add('is-error');
+    } finally {
+      button.disabled = false;
+      button.textContent = 'SEND MESSAGE ↗';
+      if (window.turnstile) window.turnstile.reset();
+    }
+  });
+})();
+</script>
+</body></html>
