@@ -1,0 +1,80 @@
+/* Eric T. Maray — mobile layout polish
+   Add after existing styles on the main portfolio pages.
+   Desktop layout is deliberately unchanged.
+*/
+@media (max-width: 767px) {
+  /* Keep the site navigation familiar and compact. */
+  body > header nav { min-height: 66px; }
+
+  /* Reduce the unnecessarily tall introduction / section transitions. */
+  .page-intro {
+    padding-top: 116px;
+    padding-bottom: 39px;
+  }
+  .page-intro h1 {
+    margin-top: 13px;
+    margin-bottom: 17px;
+    font-size: clamp(42px, 10.5vw, 62px);
+    line-height: 1.08;
+    overflow-wrap: normal;
+  }
+
+  /* Home: shorten opening height; preserve breathing room. */
+  main > section:first-child.min-h-\[68vh\] {
+    min-height: 0;
+    padding-top: 116px;
+    padding-bottom: 48px;
+  }
+  main > #explore { padding-top: 58px; padding-bottom: 64px; }
+  main > #featured-projects { padding-top: 68px; padding-bottom: 72px; }
+
+  /* Subpages: avoid the doubled spacing from page intro + section padding. */
+  main > #philosophy > .relative,
+  main > #odin > .relative { padding-top: 72px; padding-bottom: 74px; }
+  main > #personal,
+  main > #experience,
+  main > #outcomes,
+  main > #skills,
+  main > #work { padding-top: 70px; padding-bottom: 76px; }
+
+  /* Section headings and dividers remain consistent with existing editorial styling. */
+  main > section .grid.grid-cols-12 { row-gap: 25px; }
+
+  /* On Personal, put the bison thought AFTER the narrative, not mid-story.
+     CSS ordering alters only visual placement on mobile; desktop is untouched. */
+  #personal .space-y-8 {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  #personal .space-y-8 > * { margin-top: 0 !important; }
+  #personal .space-y-8 > div[style*="border-left"] { order: 99; }
+  #personal .space-y-8 > div[style*="border-left"] {
+    margin-top: 8px !important;
+    padding-left: 20px;
+  }
+
+  /* More usable mobile page-end navigation, without oversized full-width pills. */
+  main > section .cta-ghost {
+    padding: 12px 18px;
+    font-size: 10px;
+    line-height: 1.45;
+    white-space: normal;
+    max-width: 100%;
+  }
+  /* "Keep exploring" section is already navigation: don't repeat its links in the footer. */
+  body > footer.relative.z-10 {
+    padding: 27px 24px 35px;
+    gap: 14px;
+    font-size: 10px;
+    line-height: 1.7;
+    letter-spacing: .10em;
+  }
+  body > footer.relative.z-10 > span { max-width: 100%; }
+  body > footer.relative.z-10 > div.flex.gap-6 { display: none !important; }
+}
+
+@media (max-width: 380px) {
+  .page-intro h1 { font-size: 41px; }
+  body > footer.relative.z-10 { padding-left: 20px; padding-right: 20px; }
+}
