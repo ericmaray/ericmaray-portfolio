@@ -94,6 +94,64 @@
 @media(max-width:640px){.route-card{min-height:150px;padding:22px}}
 .page-intro{padding-top:155px;padding-bottom:65px;max-width:1400px;margin:auto;padding-left:clamp(24px,5vw,64px);padding-right:clamp(24px,5vw,64px)}
 .page-intro h1{font-size:clamp(44px,6vw,90px);font-weight:300;letter-spacing:-.04em;line-height:1.07;margin:15px 0 24px}
+
+/* PORTFOLIO CONSISTENCY V2 — unified header, dropdown, spacing and signoff. */
+:root { --portfolio-gold:#d4a574; }
+html { scroll-padding-top:94px; }
+/* No content should sit invisibly behind the sticky masthead on anchor navigation. */
+[id] { scroll-margin-top:94px; }
+@media (max-width:767px) {
+  header.fixed, header.portfolio-header { background:rgba(10,10,10,.97)!important; backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
+  .page-intro { padding-top:116px!important; padding-bottom:20px!important; }
+  .page-intro h1 { margin-bottom:10px!important; }
+  .page-intro + section.section-bg { padding-top:30px!important; }
+  .page-intro + section:not(.section-bg) { padding-top:30px!important; }
+  header.fixed #menuBtn { gap:10px; min-width:110px; justify-content:center; }
+  header.fixed #menuBtn span { font-size:17px; line-height:1; letter-spacing:0; }
+  .portfolio-mobile-footer { padding-bottom:42px; }
+}
+/* This is the only bottom-of-page signoff on standard pages, at every viewport width. */
+body > footer:not(.portfolio-mobile-footer) { display:none!important; }
+.portfolio-mobile-footer { display:flex!important; flex-direction:column; align-items:flex-start; gap:15px; border-top:1px solid rgba(244,241,234,.14); width:100%; max-width:1400px; margin:0 auto; padding:42px clamp(24px,5vw,64px) 48px; color:#8b8680; background:#0a0a0a; font:400 11px/1.65 'JetBrains Mono',monospace; letter-spacing:.13em; text-transform:uppercase; }
+.portfolio-mobile-footer .portfolio-mobile-motto { color:var(--portfolio-gold); }
+.portfolio-mobile-footer .portfolio-mobile-time {display:flex; align-items:center; gap:12px; flex-wrap:wrap;}
+.portfolio-mobile-footer .portfolio-mobile-time-label { opacity:.58; }
+@media(min-width:768px) {
+ .portfolio-mobile-footer {flex-direction:row; align-items:center; justify-content:space-between; gap:24px; padding-top:30px; padding-bottom:36px; }
+ .portfolio-mobile-footer .portfolio-mobile-time {white-space:nowrap;}
+}
+/* Underlay is pointer-targetable to dismiss; body blur is confined to opened menus. */
+.portfolio-menu-underlay { position:fixed; inset:0; z-index:70; background:rgba(0,0,0,.48); backdrop-filter:blur(5px); -webkit-backdrop-filter:blur(5px); }
+.portfolio-menu-underlay[hidden] { display:none!important; }
+/* Main-site dropdown matches the existing case-study menu design. */
+#mobileMenu.portfolio-menu-overlay { position:fixed; inset:0; z-index:100; background:rgba(0,0,0,.30); backdrop-filter:blur(5px); -webkit-backdrop-filter:blur(5px); align-items:flex-start; justify-content:flex-end; padding:79px clamp(18px,5vw,38px) 22px; overflow-y:auto; }
+#mobileMenu.portfolio-menu-overlay.hidden {display:none!important;}
+#mobileMenu .portfolio-menu-panel {position:relative; width:min(100%,345px); padding:18px 22px 20px; border:1px solid #70553e; background:#171411; box-shadow:0 22px 60px rgba(0,0,0,.78); display:flex; flex-direction:column; gap:0; }
+#mobileMenu .portfolio-menu-close { display:flex; justify-content:flex-end; align-items:center; gap:8px; align-self:flex-end; border:0; background:transparent; color:#d4a574; padding:3px 0 14px; font:10px 'JetBrains Mono',monospace; letter-spacing:.12em; }
+#mobileMenu .portfolio-menu-panel a {display:block; width:100%; padding:12px 8px; border-bottom:1px solid #352a21; font:400 12px/1.55 'JetBrains Mono',monospace; letter-spacing:.13em; color:#f4f1ea; text-decoration:none; text-align:left; }
+#mobileMenu .portfolio-menu-panel a:last-child {border-bottom:0;}
+#mobileMenu .portfolio-menu-panel a:hover {color:#d4a574;}
+/* Case-study native details menus. */
+.portfolio-header { isolation:auto; }
+.portfolio-header .mobile-menu {position:relative; z-index:90;}
+.portfolio-header .mobile-menu summary {display:flex; align-items:center; justify-content:center; gap:9px; padding:11px 15px; min-width:110px; min-height:47px; border:1px solid #70553e; background:rgba(20,17,14,.65); color:#d4a574; font:400 12px/1 'JetBrains Mono',monospace; letter-spacing:.13em; list-style:none; cursor:pointer;}
+.portfolio-header .mobile-menu summary::-webkit-details-marker {display:none;}
+.portfolio-header .mobile-menu .mobile-links {position:absolute; top:calc(100% + 8px); right:0; width:min(345px,calc(100vw - 36px)); max-height:calc(100dvh - 100px); overflow-y:auto; padding:18px 22px; border:1px solid #70553e; background:#171411; box-shadow:0 22px 60px rgba(0,0,0,.78); z-index:95; }
+.portfolio-header .mobile-menu .mobile-links a {display:block; padding:12px 8px; border-bottom:1px solid #352a21; color:#f4f1ea; font:400 12px/1.55 'JetBrains Mono',monospace; letter-spacing:.13em; text-transform:uppercase;}
+.portfolio-header .mobile-menu .mobile-links a:last-child {border:0;}
+.portfolio-header .mobile-menu:not([open]) .mobile-links {display:none;}
+@media(min-width:768px) {#mobileMenu.portfolio-menu-overlay {display:none!important;}}
+
+/* The bison reflection is a reflective aside, not an interruption. */
+.bison-reflection {border-left:2px solid #d4a574; background:rgba(212,165,116,.035); padding:21px 24px!important; margin-top:26px!important; }
+.bison-reflection .bison-reflection-kicker {display:block; font:italic 400 clamp(1.45rem,4.6vw,2rem)/1.35 'Fraunces',Georgia,serif; color:#d4a574; margin:0 0 16px; }
+.bison-reflection .bison-reflection-signoff {display:block; font:400 10px/1.6 'JetBrains Mono',monospace; letter-spacing:.13em; text-transform:uppercase; color:#8b8680; margin-top:17px;}
+@media(max-width:767px){.personal-story-body > .bison-reflection{order:99;}}
+
+
+/* Correct the nested section padding that survived the first mobile spacing pass. */
+@media(max-width:767px){.page-intro + section.section-bg > .relative.py-28 {padding-top:32px!important; padding-bottom:52px!important;}}
+@media(min-width:768px) and (max-width:1100px){.page-intro + section.section-bg > .relative.py-28 {padding-top:58px!important;}}
 </style>
 <link rel="stylesheet" href="/assets/mobile-polish.css">
 <style id="mobile-layout-refresh">
@@ -163,9 +221,7 @@
     </a>
 <button class="md:hidden text-[#f4f1ea] text-xl" id="menuBtn" type="button" aria-label="Open navigation menu">MENU <span aria-hidden="true">≡</span></button>
 </nav>
-</header><div class="fixed inset-0 z-50 bg-[#0a0a0a] hidden flex-col items-center justify-center gap-8 mono uppercase tracking-[0.2em]" id="mobileMenu">
-<button class="absolute top-6 right-6 text-2xl" id="closeBtn">×</button>
-<a href="/">Home</a><a href="/philosophy/">How I Think</a><a href="/personal/">Beyond the Work</a><a href="/work/">Things I’ve Built</a><a href="/journey/">Where I’ve Been</a><a href="/capabilities/">Skills &amp; Capabilities</a><a href="/reading/">What I’m Reading</a><a href="/contact/">Contact</a></div><main class="relative z-10" id="top"><div class="page-intro"><div class="mono text-[11px] uppercase tracking-[.22em] text-[#d4a574]">Eric T. Maray / Beyond the Work</div><h1>Beyond the Work</h1><p class="text-lg text-[#aaa39a]">A few experiences that shaped me.</p></div><section class="section-bg relative border-t hairline overflow-hidden" id="odin">
+</header><div class="portfolio-menu-overlay hidden" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Site navigation"><nav class="portfolio-menu-panel" aria-label="Mobile navigation"><button class="portfolio-menu-close" type="button" id="closeBtn" aria-label="Close menu">CLOSE &times;</button><a href="/">Home</a><a href="/philosophy/">Philosophy</a><a href="/personal/">Personal</a><a href="/work/">Work</a><a href="/journey/">Journey</a><a href="/capabilities/">Skills</a><a href="/reading/">Reading</a><a href="/contact/">Contact</a></nav></div><main class="relative z-10" id="top"><div class="page-intro"><div class="mono text-[11px] uppercase tracking-[.22em] text-[#d4a574]">Eric T. Maray / Beyond the Work</div><h1>Beyond the Work</h1><p class="text-lg text-[#aaa39a]">A few experiences that shaped me.</p></div><section class="section-bg relative border-t hairline overflow-hidden" id="odin">
 <div class="relative px-6 lg:px-16 py-28 max-w-[1400px] mx-auto">
 <div class="grid grid-cols-12 gap-6 lg:gap-12 mb-16">
 <div class="col-span-12 lg:col-span-3">
@@ -222,9 +278,9 @@
 <p class="text-lg leading-relaxed" style="color:rgba(244,241,234,0.8)">I grew up in Fayetteville, North Carolina — which means I grew up around the military before I ever chose it. My family has had someone in uniform in every major conflict the United States has been part of. Service wasn't something I decided to do. It was something I was raised inside of.</p>
 <p class="leading-relaxed" style="color:rgba(244,241,234,0.75)">I later served two tours in Operation Enduring Freedom with the 101st Airborne Division. That chapter is a significant part of who I am.</p>
 <p class="leading-relaxed" style="color:rgba(244,241,234,0.75)">Growing up I played soccer, wrestled, ran track, and played baseball. I was competitive — genuinely passionate about getting better, and stubborn enough to outwork the people around me. Oddly, I didn't apply that same energy to school. Not because I didn't love learning — I did — but because I struggled with being told how I was supposed to learn. Conforming to a standard format for something as personal as learning never made sense to me. It still doesn't. That tension is probably why I ended up in L&amp;D.</p>
-<div class="pl-6 py-2 bison-reflection" style="border-left:2px solid var(--accent)">
+<div class="pl-6 py-2 bison-reflection" style="border-left:2px solid var(--accent)"><span class="bison-reflection-kicker">Into the storm.</span>
 <p class="leading-relaxed" style="color:rgba(244,241,234,0.75)">There's something about bison that I find useful to think about. When a storm comes, most animals turn and run — which means they stay inside it longer. Bison turn into it. They move through it faster by going directly at what most things avoid. I don't know that I chose that approach consciously, but looking back at the decisions that shaped my path, it's a fair description of the pattern.</p>
-</div>
+<span class="bison-reflection-signoff">— A perspective I keep returning to.</span></div>
 <p class="leading-relaxed" style="color:rgba(244,241,234,0.75)">My career hasn't followed a straight line. It's been more of a lattice than a ladder — a lot of sideways moves that turned out to be the right ones, mostly because I said yes to things other people passed on. That comes from the same place as the service orientation: a willingness to go where you're needed, even when it's uncomfortable.</p>
 <p class="leading-relaxed" style="color:rgba(244,241,234,0.8)">I'm a husband to Cassandra and a father to two boys. For a long time now, becoming better — as a professional, as a person — has been something I do for them as much as for myself. They're the reason the work has stakes.</p>
 </div>
@@ -271,4 +327,4 @@
   tick(); window.setInterval(tick,30000);
 })();
 </script>
-</body></html>
+<script>(function(){const clocks=document.querySelectorAll('.portfolio-mobile-clock');function tick(){const t=new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:false,timeZone:'America/Chicago'});clocks.forEach(x=>x.textContent='DFW · '+t)}tick();setInterval(tick,30000)})();</script></body></html>
