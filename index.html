@@ -94,6 +94,54 @@
 @media(max-width:640px){.route-card{min-height:150px;padding:22px}}
 .page-intro{padding-top:155px;padding-bottom:65px;max-width:1400px;margin:auto;padding-left:clamp(24px,5vw,64px);padding-right:clamp(24px,5vw,64px)}
 .page-intro h1{font-size:clamp(44px,6vw,90px);font-weight:300;letter-spacing:-.04em;line-height:1.07;margin:15px 0 24px}
+
+/* PORTFOLIO CONSISTENCY V2 — unified header, dropdown, spacing and signoff. */
+:root { --portfolio-gold:#d4a574; }
+html { scroll-padding-top:94px; }
+/* No content should sit invisibly behind the sticky masthead on anchor navigation. */
+[id] { scroll-margin-top:94px; }
+@media (max-width:767px) {
+  header.fixed, header.portfolio-header { background:rgba(10,10,10,.97)!important; backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
+  .page-intro { padding-top:116px!important; padding-bottom:20px!important; }
+  .page-intro h1 { margin-bottom:10px!important; }
+  .page-intro + section.section-bg { padding-top:30px!important; }
+  .page-intro + section:not(.section-bg) { padding-top:30px!important; }
+  header.fixed #menuBtn { gap:10px; min-width:110px; justify-content:center; }
+  header.fixed #menuBtn span { font-size:17px; line-height:1; letter-spacing:0; }
+  .portfolio-mobile-footer { padding-bottom:42px; }
+}
+/* This is the only bottom-of-page signoff on standard pages, at every viewport width. */
+body > footer:not(.portfolio-mobile-footer) { display:none!important; }
+.portfolio-mobile-footer { display:flex!important; flex-direction:column; align-items:flex-start; gap:15px; border-top:1px solid rgba(244,241,234,.14); width:100%; max-width:1400px; margin:0 auto; padding:42px clamp(24px,5vw,64px) 48px; color:#8b8680; background:#0a0a0a; font:400 11px/1.65 'JetBrains Mono',monospace; letter-spacing:.13em; text-transform:uppercase; }
+.portfolio-mobile-footer .portfolio-mobile-motto { color:var(--portfolio-gold); }
+.portfolio-mobile-footer .portfolio-mobile-time {display:flex; align-items:center; gap:12px; flex-wrap:wrap;}
+.portfolio-mobile-footer .portfolio-mobile-time-label { opacity:.58; }
+@media(min-width:768px) {
+ .portfolio-mobile-footer {flex-direction:row; align-items:center; justify-content:space-between; gap:24px; padding-top:30px; padding-bottom:36px; }
+ .portfolio-mobile-footer .portfolio-mobile-time {white-space:nowrap;}
+}
+/* Underlay is pointer-targetable to dismiss; body blur is confined to opened menus. */
+.portfolio-menu-underlay { position:fixed; inset:0; z-index:70; background:rgba(0,0,0,.48); backdrop-filter:blur(5px); -webkit-backdrop-filter:blur(5px); }
+.portfolio-menu-underlay[hidden] { display:none!important; }
+/* Main-site dropdown matches the existing case-study menu design. */
+#mobileMenu.portfolio-menu-overlay { position:fixed; inset:0; z-index:100; background:rgba(0,0,0,.30); backdrop-filter:blur(5px); -webkit-backdrop-filter:blur(5px); align-items:flex-start; justify-content:flex-end; padding:79px clamp(18px,5vw,38px) 22px; overflow-y:auto; }
+#mobileMenu.portfolio-menu-overlay.hidden {display:none!important;}
+#mobileMenu .portfolio-menu-panel {position:relative; width:min(100%,345px); padding:18px 22px 20px; border:1px solid #70553e; background:#171411; box-shadow:0 22px 60px rgba(0,0,0,.78); display:flex; flex-direction:column; gap:0; }
+#mobileMenu .portfolio-menu-close { display:flex; justify-content:flex-end; align-items:center; gap:8px; align-self:flex-end; border:0; background:transparent; color:#d4a574; padding:3px 0 14px; font:10px 'JetBrains Mono',monospace; letter-spacing:.12em; }
+#mobileMenu .portfolio-menu-panel a {display:block; width:100%; padding:12px 8px; border-bottom:1px solid #352a21; font:400 12px/1.55 'JetBrains Mono',monospace; letter-spacing:.13em; color:#f4f1ea; text-decoration:none; text-align:left; }
+#mobileMenu .portfolio-menu-panel a:last-child {border-bottom:0;}
+#mobileMenu .portfolio-menu-panel a:hover {color:#d4a574;}
+/* Case-study native details menus. */
+.portfolio-header { isolation:auto; }
+.portfolio-header .mobile-menu {position:relative; z-index:90;}
+.portfolio-header .mobile-menu summary {display:flex; align-items:center; justify-content:center; gap:9px; padding:11px 15px; min-width:110px; min-height:47px; border:1px solid #70553e; background:rgba(20,17,14,.65); color:#d4a574; font:400 12px/1 'JetBrains Mono',monospace; letter-spacing:.13em; list-style:none; cursor:pointer;}
+.portfolio-header .mobile-menu summary::-webkit-details-marker {display:none;}
+.portfolio-header .mobile-menu .mobile-links {position:absolute; top:calc(100% + 8px); right:0; width:min(345px,calc(100vw - 36px)); max-height:calc(100dvh - 100px); overflow-y:auto; padding:18px 22px; border:1px solid #70553e; background:#171411; box-shadow:0 22px 60px rgba(0,0,0,.78); z-index:95; }
+.portfolio-header .mobile-menu .mobile-links a {display:block; padding:12px 8px; border-bottom:1px solid #352a21; color:#f4f1ea; font:400 12px/1.55 'JetBrains Mono',monospace; letter-spacing:.13em; text-transform:uppercase;}
+.portfolio-header .mobile-menu .mobile-links a:last-child {border:0;}
+.portfolio-header .mobile-menu:not([open]) .mobile-links {display:none;}
+@media(min-width:768px) {#mobileMenu.portfolio-menu-overlay {display:none!important;}}
+
 </style><style id="mobile-layout-refresh">
 /* MOBILE REFRESH 2026-11-11 — only applies to handheld widths. */
 @media (max-width: 767px) {
@@ -152,9 +200,7 @@
     </a>
 <button class="md:hidden text-[#f4f1ea] text-xl" id="menuBtn" type="button" aria-label="Open navigation menu">MENU <span aria-hidden="true">≡</span></button>
 </nav>
-</header><div class="fixed inset-0 z-50 bg-[#0a0a0a] hidden flex-col items-center justify-center gap-8 mono uppercase tracking-[0.2em]" id="mobileMenu">
-<button class="absolute top-6 right-6 text-2xl" id="closeBtn">×</button>
-<a href="/">Home</a><a href="/philosophy/">How I Think</a><a href="/personal/">Beyond the Work</a><a href="/work/">Things I’ve Built</a><a href="/journey/">Where I’ve Been</a><a href="/capabilities/">Skills &amp; Capabilities</a><a href="/reading/">What I’m Reading</a><a href="/contact/">Contact</a></div><main class="relative z-10" id="top">
+</header><div class="portfolio-menu-overlay hidden" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Site navigation"><nav class="portfolio-menu-panel" aria-label="Mobile navigation"><button class="portfolio-menu-close" type="button" id="closeBtn" aria-label="Close menu">CLOSE &times;</button><a href="/">Home</a><a href="/philosophy/">Philosophy</a><a href="/personal/">Personal</a><a href="/work/">Work</a><a href="/journey/">Journey</a><a href="/capabilities/">Skills</a><a href="/reading/">Reading</a><a href="/contact/">Contact</a></nav></div><main class="relative z-10" id="top">
 <section class="section-bg px-6 lg:px-16 max-w-[1400px] mx-auto relative flex flex-col justify-center min-h-[68vh] overflow-hidden pt-36 pb-12"><div aria-hidden="true" style="position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0">
 <img alt="" src="/assets/original-banner.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;opacity:0.18;mix-blend-mode:luminosity"/>
 <div style="position:absolute;inset:0;background:linear-gradient(to right,#0a0a0a 0%,transparent 38%,transparent 70%,#0a0a0a 100%)"></div>
@@ -215,5 +261,5 @@
   tick(); window.setInterval(tick,30000);
 })();
 </script>
-</body></html>
+<script>(function(){const clocks=document.querySelectorAll('.portfolio-mobile-clock');function tick(){const t=new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:false,timeZone:'America/Chicago'});clocks.forEach(x=>x.textContent='DFW · '+t)}tick();setInterval(tick,30000)})();</script></body></html>
 
