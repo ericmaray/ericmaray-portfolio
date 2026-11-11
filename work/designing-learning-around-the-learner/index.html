@@ -229,7 +229,81 @@ footer .wrap.portfolio-footer-row {
 @media(max-width:640px) { .back-to-top { right: 16px; bottom: 20px; width: 44px; height: 44px; } }
 @media(prefers-reduced-motion:reduce) { .case-study-end-link,.back-to-top { transition: none; } }
 
-</style></head><body>
+</style><style id="mobile-layout-refresh">
+/* MOBILE REFRESH 2026-11-11 — only applies to handheld widths. */
+@media (max-width: 767px) {
+  html { scroll-padding-top: 90px; }
+  header.fixed, header.portfolio-header { min-height: 72px; }
+  header.fixed > nav { min-height: 72px; padding-top: 13px; padding-bottom: 13px; }
+  header.fixed #menuBtn {
+    display: inline-flex !important; align-items: center; justify-content: center;
+    min-width: 100px; min-height: 48px; padding: 10px 15px;
+    border: 1px solid #70553e; border-radius: 0;
+    background: rgba(20,17,14,.58); color: #d4a574;
+    font: 400 12px/1 'JetBrains Mono',monospace;
+    letter-spacing: .16em; white-space: nowrap;
+  }
+  header.fixed #menuBtn:focus-visible { outline: 2px solid #d4a574; outline-offset: 3px; }
+  /* Keep mobile mastheads compact; avoid oversized gaps at the start of content. */
+  .page-intro { padding-top: 128px !important; padding-bottom: 35px !important; }
+  .page-intro h1 { margin-bottom: 8px !important; }
+  .section-bg { scroll-margin-top: 76px; }
+  main > section.section-bg { padding-top: 48px; padding-bottom: 56px; }
+  .portfolio-mobile-footer {
+    display: flex !important; flex-direction: column; align-items: flex-start; gap: 19px;
+    width: 100%; margin: 0 auto; padding: 43px 24px 58px;
+    border-top: 1px solid rgba(244,241,234,.16);
+    color: #8b8680; background: #0a0a0a;
+    font: 400 10px/1.65 'JetBrains Mono',monospace;
+    letter-spacing: .15em; text-transform: uppercase;
+  }
+  .portfolio-mobile-footer .portfolio-mobile-motto { color:#d4a574; }
+  .portfolio-mobile-footer .portfolio-mobile-time {
+    display:flex; justify-content:flex-start; align-items:center; gap:12px;
+    white-space:nowrap; color:#8b8680;
+  }
+  .portfolio-mobile-footer .portfolio-mobile-time-label { opacity:.6; }
+  .portfolio-mobile-footer .portfolio-mobile-clock { color:#8b8680; }
+  /* The end-of-page CTA already handles navigation. Avoid a repeated footer link row. */
+  body > footer:not(.portfolio-mobile-footer) { display:none !important; }
+  /* Keep exploring buttons wrap naturally and don't create horizontally scrolling rows. */
+  .cta-ghost { max-width:100%; white-space:normal; text-align:center; }
+}
+@media (min-width: 768px) { .portfolio-mobile-footer { display:none !important; } }
+
+/* Case studies use exactly the same compact mobile footer as the other pages. */
+@media (max-width: 767px) {
+ header.portfolio-header .mobile-menu summary {
+   display:flex; align-items:center; justify-content:center;
+   min-height:48px; min-width:100px; padding:10px 15px;
+   font:400 12px/1 'JetBrains Mono',monospace; letter-spacing:.13em;
+   border:1px solid #70553e; color:#d4a574;
+ }
+ header.portfolio-header { min-height:72px; padding:12px 18px; }
+ .portfolio-mobile-footer { padding-left:24px; padding-right:24px; }
+ .case-study-end-nav { gap:18px; padding-bottom:38px; }
+}
+
+@media (max-width:767px){
+  .covers { display:grid; grid-template-columns:minmax(0,1fr) 26px minmax(0,1fr); align-items:start; gap:8px; }
+  .covers .cover { min-width:0; margin:0; }
+  .covers .cover-art { display:flex; align-items:center; justify-content:center; height:clamp(210px,58vw,310px); }
+  .covers .cover-art img { width:100%; max-width:100%; height:100%; max-height:100%; object-fit:contain; object-position:center center; box-shadow:none; }
+  .covers .cover figcaption { margin-top:14px; min-height:56px; font-size:9px; }
+  .covers .arrow { font-size:24px; padding:0; align-self:center; transform:translateY(-22px); }
+  .mobile-course-nav {
+    position:sticky !important; top:82px !important; z-index:90 !important;
+    display:flex; align-items:center; justify-content:space-between;
+    margin:-13px -13px 16px !important; padding:10px 13px !important;
+    background:rgba(21,19,18,.98); border:1px solid #876749;
+    box-shadow:0 10px 28px rgba(0,0,0,.88);
+    -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+  }
+  .mobile-course-nav button { min-height:44px; min-width:44px; border-radius:50%; }
+  .carousel { overflow:visible !important; }
+}
+</style>
+</head><body>
 <header class="portfolio-header">
   <a class="site-brand" href="/" aria-label="Eric Maray — Home">
     <span class="brand-dot" aria-hidden="true">●</span>
@@ -262,7 +336,7 @@ footer .wrap.portfolio-footer-row {
     </nav>
   </details>
 </header>
-<main><div class="wrap"><section class="hero"><div><div class="eyebrow">✦ &nbsp; LEARNING EXPERIENCE DESIGN</div><h1>Designing Learning<br><em>Around the Learner.</em></h1><p class="lede">A people-centered approach to workforce learning — identifying real needs, curating relevant experiences, and redesigning how opportunities are communicated across the organization.</p><div class="meta"><div><small>ORGANIZATION</small><span>CoServ</span></div><div><small>ROLE</small><span>Training &amp; Development Specialist</span></div><div><small>FOCUS</small><span>Learning strategy · Program design · Instructor collaboration</span></div><div><small>YEAR</small><span>2025</span></div></div></div><div class="covers"><figure class="cover"><img src="assets/cover-2024.webp" alt="Original 2024 Training and Development Plan cover with outdoor adventure photography"><figcaption>BEFORE / 2024<span>Original training catalog</span></figcaption></figure><div class="arrow" aria-hidden="true">⟶</div><figure class="cover"><img src="assets/cover-2025.webp" alt="Actual redesigned 2025 Training and Development Plan cover showing an illuminated open doorway"><figcaption>AFTER / 2025<span>Redesigned training catalog</span></figcaption></figure></div></section>
+<main><div class="wrap"><section class="hero"><div><div class="eyebrow">✦ &nbsp; LEARNING EXPERIENCE DESIGN</div><h1>Designing Learning<br><em>Around the Learner.</em></h1><p class="lede">A people-centered approach to workforce learning — identifying real needs, curating relevant experiences, and redesigning how opportunities are communicated across the organization.</p><div class="meta"><div><small>ORGANIZATION</small><span>CoServ</span></div><div><small>ROLE</small><span>Training &amp; Development Specialist</span></div><div><small>FOCUS</small><span>Learning strategy · Program design · Instructor collaboration</span></div><div><small>YEAR</small><span>2025</span></div></div></div><div class="covers"><figure class="cover"><div class="cover-art"><img src="assets/cover-2024.webp" alt="Original 2024 Training and Development Plan cover with outdoor adventure photography"></div><figcaption>BEFORE / 2024<span>Original training catalog</span></figcaption></figure><div class="arrow" aria-hidden="true">⟶</div><figure class="cover"><div class="cover-art"><img src="assets/cover-2025.webp" alt="Actual redesigned 2025 Training and Development Plan cover showing an illuminated open doorway"></div><figcaption>AFTER / 2025<span>Redesigned training catalog</span></figcaption></figure></div></section>
 <section class="section chapter"><aside class="side"><div class="mono">01 — THE APPROACH</div><em>Listening, connecting,<br>and designing for<br>real needs.</em></aside><div class="content"><h2>The courses weren't the starting point. The people were.</h2><p>I began by listening — through everyday conversations and working relationships with employees and leaders — to understand what was working, what was challenging, and where learning could make a difference.</p><p>I paired those insights with a structured leadership survey to prioritize topics, then collaborated with instructors to tailor the content, deliver the experience, and continuously refine it based on feedback and emerging needs.</p><div class="steps"><div class="step"><div class="ico">♧</div><h3>LISTEN</h3><p>Conversations and working relationships to surface real needs.</p></div><div class="step"><div class="ico">▥</div><h3>PRIORITIZE</h3><p>Leadership surveys to focus on what would have the greatest impact.</p></div><div class="step"><div class="ico">◎</div><h3>CURATE</h3><p>Interview and select instructors with the right expertise and flexibility.</p></div><div class="step"><div class="ico">◇</div><h3>COLLABORATE</h3><p>Shape and adapt content to our environment and goals.</p></div><div class="step"><div class="ico">↻</div><h3>EVOLVE</h3><p>Use questions, feedback, and current events to continuously improve.</p></div></div></div></section>
 <section class="section chapter"><aside class="side"><div class="mono">02 — FEATURED COURSES</div><em>From insight<br>to action.</em><p>A closer look at selected courses that connected organizational needs, employee feedback, and practical development opportunities.</p></aside><div class="content"><div class="carousel" aria-label="Featured courses"><div class="mobile-course-nav" aria-label="Mobile course navigation"><button type="button" id="mobilePrev" aria-label="Previous featured course">←</button><span class="mobile-course-progress"><span class="mobile-course-label">FEATURED COURSES</span><span id="mobileCounter" aria-live="polite">01 / 11</span></span><button type="button" id="mobileNext" aria-label="Next featured course">→</button></div><div class="slide"><div class="image-card"><img id="cardImage" src="assets/course-living-our-values.webp" alt="Living Our Values course description and Key Takeaways from the original CoServ 2025 catalog"></div><div class="slide-copy"><span class="label" id="courseKind"></span><h3 id="courseTitle"></h3><div class="fact"><strong>MY CONTRIBUTION</strong><p id="courseRole"></p></div><div class="fact"><strong>WHY I SELECTED IT</strong><p id="courseWhy"></p></div></div></div><div class="controls"><button id="prev" aria-label="Previous course">‹</button><div class="dots" id="dots" aria-label="Choose featured course"></div><button id="next" aria-label="Next course">›</button><span class="counter" id="counter"></span></div></div><p class="note">Each course card is a purpose-designed image containing the original 2025 catalog description and Key Takeaways verbatim. Instructor names and schedules are omitted. Original PDFs are not provided.</p></div></section>
 <section class="section chapter"><aside class="side"><div class="mono">03 — THE DESIGN</div><em>Make it easier<br>to find what fits.</em></aside><div class="content"><h2>The catalog was the interface, not the entire solution.</h2><p>The redesigned 2025 plan organized learning requirements by audience, made course descriptions easier to scan, surfaced Key Takeaways, and offered a consolidated schedule. These decisions helped employees see what applied to them and why a course might be worth their time.</p><p>My contribution extended beyond the document: I developed the initial outline for <em>Living Our Values</em> and recruited the Chief of Operations to facilitate it; I proposed the two-step Excel pathway; and for other offerings, I selected and collaborated with instructors rather than independently authoring their courses.</p><p class="closing">How much work are we making the employee do just to understand what we're offering?</p><p class="note">This case study describes design intent and professional contributions. It does not claim measured improvements in culture, learning transfer, or performance.</p></div></section></div>
@@ -320,4 +394,20 @@ footer .wrap.portfolio-footer-row {
 })();
 </script>
 
+
+<footer class="portfolio-mobile-footer" aria-label="Portfolio details on mobile">
+  <span>© 2026 Eric T. Maray</span>
+  <span class="portfolio-mobile-motto">Semper Prorsum · Always Forward</span>
+  <span class="portfolio-mobile-time"><span class="portfolio-mobile-time-label">Local Time</span><span class="portfolio-mobile-clock">DFW · --:--</span></span>
+</footer>
+
+<script>
+(function () {
+  const el = document.querySelector('.portfolio-mobile-footer .portfolio-mobile-clock');
+  if (!el) return;
+  const fmt = {hour:'2-digit',minute:'2-digit',hour12:false,timeZone:'America/Chicago'};
+  const tick = () => { el.textContent='DFW · '+new Date().toLocaleTimeString('en-US',fmt); };
+  tick(); window.setInterval(tick,30000);
+})();
+</script>
 </body></html>
