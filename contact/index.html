@@ -139,7 +139,64 @@
 /* Keep the LinkedIn invitation and action on separate lines. */
 #contact .contact-linkedin { display:flex; flex-direction:column; align-items:flex-start; gap:12px; }
 #contact .contact-linkedin-prompt { display:block; }
-</style></head><body class="grain"><aside class="hidden lg:flex fixed left-6 top-0 h-screen items-center z-30 mono text-[11px] text-[#8b8680] tracking-[0.2em] uppercase">
+</style><style id="mobile-layout-refresh">
+/* MOBILE REFRESH 2026-11-11 — only applies to handheld widths. */
+@media (max-width: 767px) {
+  html { scroll-padding-top: 90px; }
+  header.fixed, header.portfolio-header { min-height: 72px; }
+  header.fixed > nav { min-height: 72px; padding-top: 13px; padding-bottom: 13px; }
+  header.fixed #menuBtn {
+    display: inline-flex !important; align-items: center; justify-content: center;
+    min-width: 100px; min-height: 48px; padding: 10px 15px;
+    border: 1px solid #70553e; border-radius: 0;
+    background: rgba(20,17,14,.58); color: #d4a574;
+    font: 400 12px/1 'JetBrains Mono',monospace;
+    letter-spacing: .16em; white-space: nowrap;
+  }
+  header.fixed #menuBtn:focus-visible { outline: 2px solid #d4a574; outline-offset: 3px; }
+  /* Keep mobile mastheads compact; avoid oversized gaps at the start of content. */
+  .page-intro { padding-top: 128px !important; padding-bottom: 35px !important; }
+  .page-intro h1 { margin-bottom: 8px !important; }
+  .section-bg { scroll-margin-top: 76px; }
+  main > section.section-bg { padding-top: 48px; padding-bottom: 56px; }
+  .portfolio-mobile-footer {
+    display: flex !important; flex-direction: column; align-items: flex-start; gap: 19px;
+    width: 100%; margin: 0 auto; padding: 43px 24px 58px;
+    border-top: 1px solid rgba(244,241,234,.16);
+    color: #8b8680; background: #0a0a0a;
+    font: 400 10px/1.65 'JetBrains Mono',monospace;
+    letter-spacing: .15em; text-transform: uppercase;
+  }
+  .portfolio-mobile-footer .portfolio-mobile-motto { color:#d4a574; }
+  .portfolio-mobile-footer .portfolio-mobile-time {
+    display:flex; justify-content:flex-start; align-items:center; gap:12px;
+    white-space:nowrap; color:#8b8680;
+  }
+  .portfolio-mobile-footer .portfolio-mobile-time-label { opacity:.6; }
+  .portfolio-mobile-footer .portfolio-mobile-clock { color:#8b8680; }
+  /* The end-of-page CTA already handles navigation. Avoid a repeated footer link row. */
+  body > footer:not(.portfolio-mobile-footer) { display:none !important; }
+  /* Keep exploring buttons wrap naturally and don't create horizontally scrolling rows. */
+  .cta-ghost { max-width:100%; white-space:normal; text-align:center; }
+}
+@media (min-width: 768px) { .portfolio-mobile-footer { display:none !important; } }
+
+/* The Contact page is the reference for mobile sign-off typography. */
+@media (max-width: 767px) {
+  .page-intro { padding-bottom: 20px !important; }
+  #contact.section-bg { padding-top: 28px !important; padding-bottom: 46px !important; }
+  #contact .contact-intro { margin-bottom: 28px; }
+  #contact .contact-signoff {
+    display:flex; flex-direction:column; align-items:flex-start; gap:14px;
+    padding-top:38px; padding-bottom:36px;
+    font:400 10px/1.7 'JetBrains Mono',monospace;
+    letter-spacing:.14em; text-transform:uppercase;
+  }
+  #contact .contact-signoff-motto { color:#d4a574; }
+  #contact .contact-inline-time { gap:12px; }
+}
+</style>
+</head><body class="grain"><aside class="hidden lg:flex fixed left-6 top-0 h-screen items-center z-30 mono text-[11px] text-[#8b8680] tracking-[0.2em] uppercase">
 <span class="vertical">Eric Maray · Portfolio MMXXVI</span>
 </aside><header class="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-black/30 border-b hairline">
 <nav class="max-w-[1400px] mx-auto px-6 lg:px-16 py-5 flex items-center justify-between mono text-[12px] tracking-[0.12em] uppercase">
@@ -150,7 +207,7 @@
 </a>
 <ul class="hidden md:flex gap-8 text-[#8b8680] list-none"><li><a class="link-underline hover:text-[#f4f1ea]" href="/">Home</a></li><li><a class="link-underline hover:text-[#f4f1ea]" href="/philosophy/">Philosophy</a></li><li><a class="link-underline hover:text-[#f4f1ea]" href="/personal/">Personal</a></li><li><a class="link-underline hover:text-[#f4f1ea]" href="/work/">Work</a></li><li><a class="link-underline hover:text-[#f4f1ea]" href="/journey/">Journey</a></li><li><a class="link-underline hover:text-[#f4f1ea]" href="/capabilities/">Skills</a></li><li><a class="link-underline hover:text-[#f4f1ea]" href="/reading/">Reading</a></li></ul>
 
-<button class="md:hidden text-[#f4f1ea] text-xl" id="menuBtn">☰</button>
+<button class="md:hidden text-[#f4f1ea] text-xl" id="menuBtn" type="button" aria-label="Open navigation menu">MENU <span aria-hidden="true">≡</span></button>
 </nav>
 </header><div class="fixed inset-0 z-50 bg-[#0a0a0a] hidden flex-col items-center justify-center gap-8 mono uppercase tracking-[0.2em]" id="mobileMenu">
 <button class="absolute top-6 right-6 text-2xl" id="closeBtn">×</button>
