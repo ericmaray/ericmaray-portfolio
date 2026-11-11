@@ -96,6 +96,57 @@
 .page-intro h1{font-size:clamp(44px,6vw,90px);font-weight:300;letter-spacing:-.04em;line-height:1.07;margin:15px 0 24px}
 </style>
 <link rel="stylesheet" href="/assets/mobile-polish.css">
+<style id="mobile-layout-refresh">
+/* MOBILE REFRESH 2026-11-11 — only applies to handheld widths. */
+@media (max-width: 767px) {
+  html { scroll-padding-top: 90px; }
+  header.fixed, header.portfolio-header { min-height: 72px; }
+  header.fixed > nav { min-height: 72px; padding-top: 13px; padding-bottom: 13px; }
+  header.fixed #menuBtn {
+    display: inline-flex !important; align-items: center; justify-content: center;
+    min-width: 100px; min-height: 48px; padding: 10px 15px;
+    border: 1px solid #70553e; border-radius: 0;
+    background: rgba(20,17,14,.58); color: #d4a574;
+    font: 400 12px/1 'JetBrains Mono',monospace;
+    letter-spacing: .16em; white-space: nowrap;
+  }
+  header.fixed #menuBtn:focus-visible { outline: 2px solid #d4a574; outline-offset: 3px; }
+  /* Keep mobile mastheads compact; avoid oversized gaps at the start of content. */
+  .page-intro { padding-top: 128px !important; padding-bottom: 35px !important; }
+  .page-intro h1 { margin-bottom: 8px !important; }
+  .section-bg { scroll-margin-top: 76px; }
+  main > section.section-bg { padding-top: 48px; padding-bottom: 56px; }
+  .portfolio-mobile-footer {
+    display: flex !important; flex-direction: column; align-items: flex-start; gap: 19px;
+    width: 100%; margin: 0 auto; padding: 43px 24px 58px;
+    border-top: 1px solid rgba(244,241,234,.16);
+    color: #8b8680; background: #0a0a0a;
+    font: 400 10px/1.65 'JetBrains Mono',monospace;
+    letter-spacing: .15em; text-transform: uppercase;
+  }
+  .portfolio-mobile-footer .portfolio-mobile-motto { color:#d4a574; }
+  .portfolio-mobile-footer .portfolio-mobile-time {
+    display:flex; justify-content:flex-start; align-items:center; gap:12px;
+    white-space:nowrap; color:#8b8680;
+  }
+  .portfolio-mobile-footer .portfolio-mobile-time-label { opacity:.6; }
+  .portfolio-mobile-footer .portfolio-mobile-clock { color:#8b8680; }
+  /* The end-of-page CTA already handles navigation. Avoid a repeated footer link row. */
+  body > footer:not(.portfolio-mobile-footer) { display:none !important; }
+  /* Keep exploring buttons wrap naturally and don't create horizontally scrolling rows. */
+  .cta-ghost { max-width:100%; white-space:normal; text-align:center; }
+}
+@media (min-width: 768px) { .portfolio-mobile-footer { display:none !important; } }
+
+@media (max-width:767px){
+  .odin-title-desktop { display:none; }
+  .odin-title-mobile { display:block; font-size:clamp(2.45rem,9.4vw,3.45rem); line-height:1.13; }
+  .personal-story-body { display:flex; flex-direction:column; gap:1.65rem; }
+  .personal-story-body > * { margin-top:0 !important; }
+  .personal-story-body > .bison-reflection { order:10; margin-top:6px !important; }
+}
+@media (min-width:768px){ .odin-title-mobile {display:none;} }
+</style>
 </head><body class="grain"><aside class="hidden lg:flex fixed left-6 top-0 h-screen items-center z-30 mono text-[11px] text-[#8b8680] tracking-[0.2em] uppercase">
 <span class="vertical">Eric Maray · Portfolio MMXXVI</span>
 </aside><header class="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-black/30 border-b hairline">
@@ -110,7 +161,7 @@
 <span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background:var(--accent)"></span>
       Happy to chat
     </a>
-<button class="md:hidden text-[#f4f1ea] text-xl" id="menuBtn">☰</button>
+<button class="md:hidden text-[#f4f1ea] text-xl" id="menuBtn" type="button" aria-label="Open navigation menu">MENU <span aria-hidden="true">≡</span></button>
 </nav>
 </header><div class="fixed inset-0 z-50 bg-[#0a0a0a] hidden flex-col items-center justify-center gap-8 mono uppercase tracking-[0.2em]" id="mobileMenu">
 <button class="absolute top-6 right-6 text-2xl" id="closeBtn">×</button>
@@ -123,7 +174,7 @@
 <p class="italic mt-6 text-2xl" style="color:var(--accent)">Meet Odin.</p>
 </div>
 <div class="col-span-12 lg:col-span-9">
-<h2 class="text-4xl md:text-6xl font-light leading-[1.05] tracking-tight">What my dog taught me<br/>about <em style="color:var(--accent)">learning</em>.</h2>
+<h2 class="text-4xl md:text-6xl font-light leading-[1.05] tracking-tight"><span class="odin-title-desktop">What my dog taught me<br/>about <em style="color:var(--accent)">learning</em>.</span><span class="odin-title-mobile">What my dog<br/>taught me about<br/><em style="color:var(--accent)">learning</em>.</span></h2>
 </div>
 </div>
 <div class="grid grid-cols-12 gap-6 lg:gap-12 items-start">
@@ -167,11 +218,11 @@
 <div class="section-rule"></div>
 <p class="italic mt-6 text-2xl" style="color:var(--accent)">A little more about me.</p>
 </div>
-<div class="col-span-12 lg:col-span-8 lg:col-start-5 space-y-8">
+<div class="col-span-12 lg:col-span-8 lg:col-start-5 space-y-8 personal-story-body">
 <p class="text-lg leading-relaxed" style="color:rgba(244,241,234,0.8)">I grew up in Fayetteville, North Carolina — which means I grew up around the military before I ever chose it. My family has had someone in uniform in every major conflict the United States has been part of. Service wasn't something I decided to do. It was something I was raised inside of.</p>
 <p class="leading-relaxed" style="color:rgba(244,241,234,0.75)">I later served two tours in Operation Enduring Freedom with the 101st Airborne Division. That chapter is a significant part of who I am.</p>
 <p class="leading-relaxed" style="color:rgba(244,241,234,0.75)">Growing up I played soccer, wrestled, ran track, and played baseball. I was competitive — genuinely passionate about getting better, and stubborn enough to outwork the people around me. Oddly, I didn't apply that same energy to school. Not because I didn't love learning — I did — but because I struggled with being told how I was supposed to learn. Conforming to a standard format for something as personal as learning never made sense to me. It still doesn't. That tension is probably why I ended up in L&amp;D.</p>
-<div class="pl-6 py-2" style="border-left:2px solid var(--accent)">
+<div class="pl-6 py-2 bison-reflection" style="border-left:2px solid var(--accent)">
 <p class="leading-relaxed" style="color:rgba(244,241,234,0.75)">There's something about bison that I find useful to think about. When a storm comes, most animals turn and run — which means they stay inside it longer. Bison turn into it. They move through it faster by going directly at what most things avoid. I don't know that I chose that approach consciously, but looking back at the decisions that shaped my path, it's a fair description of the pattern.</p>
 </div>
 <p class="leading-relaxed" style="color:rgba(244,241,234,0.75)">My career hasn't followed a straight line. It's been more of a lattice than a ladder — a lot of sideways moves that turned out to be the right ones, mostly because I said yes to things other people passed on. That comes from the same place as the service orientation: a willingness to go where you're needed, even when it's uncomfortable.</p>
@@ -204,4 +255,20 @@
     const body = encodeURIComponent(`Title: ${title}\nAuthor: ${author}\nWhy it stuck: ${note}`);
     window.location.href = `mailto:ericmaray@gmail.com?subject=${subject}&body=${body}`;
   }
-</script></body></html>
+</script>
+<footer class="portfolio-mobile-footer" aria-label="Portfolio details on mobile">
+  <span>© 2026 Eric T. Maray</span>
+  <span class="portfolio-mobile-motto">Semper Prorsum · Always Forward</span>
+  <span class="portfolio-mobile-time"><span class="portfolio-mobile-time-label">Local Time</span><span class="portfolio-mobile-clock">DFW · --:--</span></span>
+</footer>
+
+<script>
+(function () {
+  const el = document.querySelector('.portfolio-mobile-footer .portfolio-mobile-clock');
+  if (!el) return;
+  const fmt = {hour:'2-digit',minute:'2-digit',hour12:false,timeZone:'America/Chicago'};
+  const tick = () => { el.textContent='DFW · '+new Date().toLocaleTimeString('en-US',fmt); };
+  tick(); window.setInterval(tick,30000);
+})();
+</script>
+</body></html>
