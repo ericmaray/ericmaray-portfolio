@@ -122,6 +122,48 @@
 @media(max-width:600px){.journey-employer{padding-bottom:49px}.journey-employer h3{font-size:25px}.journey-role{padding:23px 0}.journey-role-head{display:block}.journey-role-date{display:block;margin-top:8px}.journey-stats{grid-template-columns:1fr 1fr}.journey-stat{padding:12px 10px}.journey-stat strong{font-size:26px}.journey-stat span{font-size:9px}}
 </style>
 <link rel="stylesheet" href="/assets/mobile-polish.css">
+<style id="mobile-layout-refresh">
+/* MOBILE REFRESH 2026-11-11 — only applies to handheld widths. */
+@media (max-width: 767px) {
+  html { scroll-padding-top: 90px; }
+  header.fixed, header.portfolio-header { min-height: 72px; }
+  header.fixed > nav { min-height: 72px; padding-top: 13px; padding-bottom: 13px; }
+  header.fixed #menuBtn {
+    display: inline-flex !important; align-items: center; justify-content: center;
+    min-width: 100px; min-height: 48px; padding: 10px 15px;
+    border: 1px solid #70553e; border-radius: 0;
+    background: rgba(20,17,14,.58); color: #d4a574;
+    font: 400 12px/1 'JetBrains Mono',monospace;
+    letter-spacing: .16em; white-space: nowrap;
+  }
+  header.fixed #menuBtn:focus-visible { outline: 2px solid #d4a574; outline-offset: 3px; }
+  /* Keep mobile mastheads compact; avoid oversized gaps at the start of content. */
+  .page-intro { padding-top: 128px !important; padding-bottom: 35px !important; }
+  .page-intro h1 { margin-bottom: 8px !important; }
+  .section-bg { scroll-margin-top: 76px; }
+  main > section.section-bg { padding-top: 48px; padding-bottom: 56px; }
+  .portfolio-mobile-footer {
+    display: flex !important; flex-direction: column; align-items: flex-start; gap: 19px;
+    width: 100%; margin: 0 auto; padding: 43px 24px 58px;
+    border-top: 1px solid rgba(244,241,234,.16);
+    color: #8b8680; background: #0a0a0a;
+    font: 400 10px/1.65 'JetBrains Mono',monospace;
+    letter-spacing: .15em; text-transform: uppercase;
+  }
+  .portfolio-mobile-footer .portfolio-mobile-motto { color:#d4a574; }
+  .portfolio-mobile-footer .portfolio-mobile-time {
+    display:flex; justify-content:flex-start; align-items:center; gap:12px;
+    white-space:nowrap; color:#8b8680;
+  }
+  .portfolio-mobile-footer .portfolio-mobile-time-label { opacity:.6; }
+  .portfolio-mobile-footer .portfolio-mobile-clock { color:#8b8680; }
+  /* The end-of-page CTA already handles navigation. Avoid a repeated footer link row. */
+  body > footer:not(.portfolio-mobile-footer) { display:none !important; }
+  /* Keep exploring buttons wrap naturally and don't create horizontally scrolling rows. */
+  .cta-ghost { max-width:100%; white-space:normal; text-align:center; }
+}
+@media (min-width: 768px) { .portfolio-mobile-footer { display:none !important; } }
+@media(max-width:767px){ .journey-closing .journey-arrow { display:none; } .journey-closing { cursor:default; } }</style>
 </head><body class="grain"><aside class="hidden lg:flex fixed left-6 top-0 h-screen items-center z-30 mono text-[11px] text-[#8b8680] tracking-[0.2em] uppercase">
 <span class="vertical">Eric Maray · Portfolio MMXXVI</span>
 </aside><header class="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-black/30 border-b hairline">
@@ -136,7 +178,7 @@
 <span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background:var(--accent)"></span>
       Happy to chat
     </a>
-<button class="md:hidden text-[#f4f1ea] text-xl" id="menuBtn">☰</button>
+<button class="md:hidden text-[#f4f1ea] text-xl" id="menuBtn" type="button" aria-label="Open navigation menu">MENU <span aria-hidden="true">≡</span></button>
 </nav>
 </header><div class="fixed inset-0 z-50 bg-[#0a0a0a] hidden flex-col items-center justify-center gap-8 mono uppercase tracking-[0.2em]" id="mobileMenu">
 <button class="absolute top-6 right-6 text-2xl" id="closeBtn">×</button>
@@ -176,7 +218,7 @@
             <div class="journey-stat"><strong>130K+</strong><span>Customers served</span></div>
             <div class="journey-stat"><strong>80+</strong><span>Leaders &amp; field employees supported</span></div>
           </div>
-        </article><article class="journey-role"><div class="journey-role-head"><h4>Field Technician</h4><span class="journey-role-date mono">2014 – 2016</span></div><p class="journey-description">Built hands-on expertise in utility service and field safety, grounding later work in the realities of frontline operations.</p><div class="journey-small-label mono">Selected impact</div><ul class="journey-highlights"><li>Performed service installations and disconnections, leak investigations, and maintenance.</li><li>Applied operational procedures, hazard awareness, and practical troubleshooting in the field.</li></ul></article><article class="journey-role"><div class="journey-role-head"><h4>IT / GIS Analyst</h4><span class="journey-role-date mono">2014 – 2016</span></div><p class="journey-description">Connected geospatial data, mapping tools, and enterprise systems with operational decision-making.</p><div class="journey-small-label mono">Selected impact</div><ul class="journey-highlights"><li>Created and analyzed location-based operational information with ArcGIS and ArcFM.</li><li>Contributed to testing, documentation, and deployment of enterprise GIS system architecture.</li></ul></article></div></div><div class="journey-employer "><span class="timeline-dot" aria-hidden="true"></span><div class="journey-employer-meta mono"><span>2006 — 2014</span><span>United States &amp; Afghanistan</span></div><h3>United States Army</h3><div class="journey-roles"><article class="journey-role"><div class="journey-role-head"><h4>Staff Sergeant · Senior Geospatial Engineer / Operations &amp; Training Leadership</h4><span class="journey-role-date mono">2006 – 2014</span></div><p class="journey-description">Served in geospatial intelligence, operations, and military leadership roles, combining mission-critical technical analysis with personnel development and readiness.</p><div class="journey-small-label mono">Selected impact</div><ul class="journey-highlights"><li>Led and trained 70+ personnel while coordinating training and deployment readiness for 200+ service members.</li><li>Produced geospatial intelligence supporting planning, targeting, and operations during deployments to eastern Afghanistan.</li><li>Managed the 101st Airborne Division Terrain Team website and terrain database supporting NATO/ISAF operations.</li><li>Established and trained forward geospatial support teams; served as Senior Geospatial Analyst, GIS Operations Manager, and Platoon Sergeant.</li></ul><div class="journey-stats"><div class="journey-stat"><strong>70+</strong><span>Personnel led and trained</span></div><div class="journey-stat"><strong>200+</strong><span>Service members · readiness coordination</span></div></div></article></div></div></div></div></div></section><section class="section-bg px-6 lg:px-16 py-24 max-w-[1400px] mx-auto border-t hairline" id="outcomes"><div class="grid grid-cols-12 gap-6 lg:gap-12"><div class="col-span-12 lg:col-span-3"><div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.25em] mb-2">Across the journey</div><div class="section-rule"></div><p class="italic mt-6 text-2xl" style="color:var(--accent)">The thread that connects it all.</p></div><div class="col-span-12 lg:col-span-9"><h2 class="text-4xl md:text-6xl font-light leading-tight tracking-tight">Understand the problem.<br/><em style="color:var(--accent)">Connect the pieces.</em></h2><p class="mt-7 leading-relaxed max-w-2xl" style="color:rgba(244,241,234,.75)">Across very different environments, I've gravitated toward unfamiliar challenges, disconnected processes, and opportunities to help people do their best work. The tools and titles have changed. The approach hasn't.</p><div class="journey-closing mono">Build something useful. <span aria-hidden="true">↗</span></div></div></div></section><section class="px-6 lg:px-16 py-16 max-w-[1400px] mx-auto border-t hairline"><span class="mono text-[11px] uppercase tracking-[.2em] text-[#d4a574]">Keep exploring</span><div class="flex flex-wrap gap-5 mt-6"><a class="cta-ghost" href="/">Back to introduction ↗</a><a class="cta-ghost" href="/work/">Selected work ↗</a><a class="cta-ghost" href="/contact/">Say hello ↗</a></div></section></main><footer class="relative z-10 px-6 lg:px-16 py-10 mx-auto max-w-[1400px] border-t hairline flex flex-wrap gap-6 justify-between mono text-[11px] uppercase tracking-[0.14em] text-[#8b8680]">
+        </article><article class="journey-role"><div class="journey-role-head"><h4>Field Technician</h4><span class="journey-role-date mono">2014 – 2016</span></div><p class="journey-description">Built hands-on expertise in utility service and field safety, grounding later work in the realities of frontline operations.</p><div class="journey-small-label mono">Selected impact</div><ul class="journey-highlights"><li>Performed service installations and disconnections, leak investigations, and maintenance.</li><li>Applied operational procedures, hazard awareness, and practical troubleshooting in the field.</li></ul></article><article class="journey-role"><div class="journey-role-head"><h4>IT / GIS Analyst</h4><span class="journey-role-date mono">2014 – 2016</span></div><p class="journey-description">Connected geospatial data, mapping tools, and enterprise systems with operational decision-making.</p><div class="journey-small-label mono">Selected impact</div><ul class="journey-highlights"><li>Created and analyzed location-based operational information with ArcGIS and ArcFM.</li><li>Contributed to testing, documentation, and deployment of enterprise GIS system architecture.</li></ul></article></div></div><div class="journey-employer "><span class="timeline-dot" aria-hidden="true"></span><div class="journey-employer-meta mono"><span>2006 — 2014</span><span>United States &amp; Afghanistan</span></div><h3>United States Army</h3><div class="journey-roles"><article class="journey-role"><div class="journey-role-head"><h4>Staff Sergeant · Senior Geospatial Engineer / Operations &amp; Training Leadership</h4><span class="journey-role-date mono">2006 – 2014</span></div><p class="journey-description">Served in geospatial intelligence, operations, and military leadership roles, combining mission-critical technical analysis with personnel development and readiness.</p><div class="journey-small-label mono">Selected impact</div><ul class="journey-highlights"><li>Led and trained 70+ personnel while coordinating training and deployment readiness for 200+ service members.</li><li>Produced geospatial intelligence supporting planning, targeting, and operations during deployments to eastern Afghanistan.</li><li>Managed the 101st Airborne Division Terrain Team website and terrain database supporting NATO/ISAF operations.</li><li>Established and trained forward geospatial support teams; served as Senior Geospatial Analyst, GIS Operations Manager, and Platoon Sergeant.</li></ul><div class="journey-stats"><div class="journey-stat"><strong>70+</strong><span>Personnel led and trained</span></div><div class="journey-stat"><strong>200+</strong><span>Service members · readiness coordination</span></div></div></article></div></div></div></div></div></section><section class="section-bg px-6 lg:px-16 py-24 max-w-[1400px] mx-auto border-t hairline" id="outcomes"><div class="grid grid-cols-12 gap-6 lg:gap-12"><div class="col-span-12 lg:col-span-3"><div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.25em] mb-2">Across the journey</div><div class="section-rule"></div><p class="italic mt-6 text-2xl" style="color:var(--accent)">The thread that connects it all.</p></div><div class="col-span-12 lg:col-span-9"><h2 class="text-4xl md:text-6xl font-light leading-tight tracking-tight">Understand the problem.<br/><em style="color:var(--accent)">Connect the pieces.</em></h2><p class="mt-7 leading-relaxed max-w-2xl" style="color:rgba(244,241,234,.75)">Across very different environments, I've gravitated toward unfamiliar challenges, disconnected processes, and opportunities to help people do their best work. The tools and titles have changed. The approach hasn't.</p><div class="journey-closing mono">Build something useful. <span class="journey-arrow" aria-hidden="true">↗</span></div></div></div></section><section class="px-6 lg:px-16 py-16 max-w-[1400px] mx-auto border-t hairline"><span class="mono text-[11px] uppercase tracking-[.2em] text-[#d4a574]">Keep exploring</span><div class="flex flex-wrap gap-5 mt-6"><a class="cta-ghost" href="/">Back to introduction ↗</a><a class="cta-ghost" href="/work/">Selected work ↗</a><a class="cta-ghost" href="/contact/">Say hello ↗</a></div></section></main><footer class="relative z-10 px-6 lg:px-16 py-10 mx-auto max-w-[1400px] border-t hairline flex flex-wrap gap-6 justify-between mono text-[11px] uppercase tracking-[0.14em] text-[#8b8680]">
 <span>© 2026 Eric T. Maray · Semper Prorsum · Always Forward</span><div class="flex gap-6"><a href="/">Home</a><a href="/work/">Work</a><a href="/contact/">Say hello ↗</a></div></footer><script>
   const clock = document.getElementById('clock');
   function tick() {
@@ -202,4 +244,20 @@
     const body = encodeURIComponent(`Title: ${title}\nAuthor: ${author}\nWhy it stuck: ${note}`);
     window.location.href = `mailto:ericmaray@gmail.com?subject=${subject}&body=${body}`;
   }
-</script></body></html>
+</script>
+<footer class="portfolio-mobile-footer" aria-label="Portfolio details on mobile">
+  <span>© 2026 Eric T. Maray</span>
+  <span class="portfolio-mobile-motto">Semper Prorsum · Always Forward</span>
+  <span class="portfolio-mobile-time"><span class="portfolio-mobile-time-label">Local Time</span><span class="portfolio-mobile-clock">DFW · --:--</span></span>
+</footer>
+
+<script>
+(function () {
+  const el = document.querySelector('.portfolio-mobile-footer .portfolio-mobile-clock');
+  if (!el) return;
+  const fmt = {hour:'2-digit',minute:'2-digit',hour12:false,timeZone:'America/Chicago'};
+  const tick = () => { el.textContent='DFW · '+new Date().toLocaleTimeString('en-US',fmt); };
+  tick(); window.setInterval(tick,30000);
+})();
+</script>
+</body></html>
