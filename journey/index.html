@@ -1,6 +1,7 @@
 <!DOCTYPE html>
+
 <html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta name="description" content="Career progression and selected role-level impact across utility operations, geospatial systems, leadership development, workforce safety, and military service."/><title>Where I’ve Been | Eric T. Maray</title><script src="https://cdn.tailwindcss.com"></script>
+<meta content="Career progression and selected role-level impact across utility operations, geospatial systems, leadership development, workforce safety, and military service." name="description"/><title>Where I’ve Been | Eric T. Maray</title><script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&amp;family=JetBrains+Mono:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
 <style>
@@ -120,129 +121,14 @@
 .journey-closing{display:inline-flex;gap:15px;align-items:center;border-top:1px solid rgba(212,165,116,.4);margin-top:22px;padding-top:17px;color:var(--accent);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
 @media(max-width:900px){.journey-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.journey-employer{padding-bottom:49px}.journey-employer h3{font-size:25px}.journey-role{padding:23px 0}.journey-role-head{display:block}.journey-role-date{display:block;margin-top:8px}.journey-stats{grid-template-columns:1fr 1fr}.journey-stat{padding:12px 10px}.journey-stat strong{font-size:26px}.journey-stat span{font-size:9px}}
-
-/* PORTFOLIO CONSISTENCY V2 — unified header, dropdown, spacing and signoff. */
-:root { --portfolio-gold:#d4a574; }
-html { scroll-padding-top:94px; }
-/* No content should sit invisibly behind the sticky masthead on anchor navigation. */
-[id] { scroll-margin-top:94px; }
-@media (max-width:767px) {
-  header.fixed, header.portfolio-header { background:rgba(10,10,10,.97)!important; backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
-  .page-intro { padding-top:116px!important; padding-bottom:20px!important; }
-  .page-intro h1 { margin-bottom:10px!important; }
-  .page-intro + section.section-bg { padding-top:30px!important; }
-  .page-intro + section:not(.section-bg) { padding-top:30px!important; }
-  header.fixed #menuBtn { gap:10px; min-width:110px; justify-content:center; }
-  header.fixed #menuBtn span { font-size:17px; line-height:1; letter-spacing:0; }
-  .portfolio-mobile-footer { padding-bottom:42px; }
-}
-/* This is the only bottom-of-page signoff on standard pages, at every viewport width. */
-body > footer:not(.portfolio-mobile-footer) { display:none!important; }
-.portfolio-mobile-footer { display:flex!important; flex-direction:column; align-items:flex-start; gap:15px; border-top:1px solid rgba(244,241,234,.14); width:100%; max-width:1400px; margin:0 auto; padding:42px clamp(24px,5vw,64px) 48px; color:#8b8680; background:#0a0a0a; font:400 11px/1.65 'JetBrains Mono',monospace; letter-spacing:.13em; text-transform:uppercase; }
-.portfolio-mobile-footer .portfolio-mobile-motto { color:var(--portfolio-gold); }
-.portfolio-mobile-footer .portfolio-mobile-time {display:flex; align-items:center; gap:12px; flex-wrap:wrap;}
-.portfolio-mobile-footer .portfolio-mobile-time-label { opacity:.58; }
-@media(min-width:768px) {
- .portfolio-mobile-footer {flex-direction:row; align-items:center; justify-content:space-between; gap:24px; padding-top:30px; padding-bottom:36px; }
- .portfolio-mobile-footer .portfolio-mobile-time {white-space:nowrap;}
-}
-/* Underlay is pointer-targetable to dismiss; body blur is confined to opened menus. */
-.portfolio-menu-underlay { position:fixed; inset:0; z-index:70; background:rgba(0,0,0,.48); backdrop-filter:blur(5px); -webkit-backdrop-filter:blur(5px); }
-.portfolio-menu-underlay[hidden] { display:none!important; }
-/* Main-site dropdown matches the existing case-study menu design. */
-#mobileMenu.portfolio-menu-overlay { position:fixed; inset:0; z-index:100; background:rgba(0,0,0,.30); backdrop-filter:blur(5px); -webkit-backdrop-filter:blur(5px); align-items:flex-start; justify-content:flex-end; padding:79px clamp(18px,5vw,38px) 22px; overflow-y:auto; }
-#mobileMenu.portfolio-menu-overlay.hidden {display:none!important;}
-#mobileMenu .portfolio-menu-panel {position:relative; width:min(100%,345px); padding:18px 22px 20px; border:1px solid #70553e; background:#171411; box-shadow:0 22px 60px rgba(0,0,0,.78); display:flex; flex-direction:column; gap:0; }
-#mobileMenu .portfolio-menu-close { display:flex; justify-content:flex-end; align-items:center; gap:8px; align-self:flex-end; border:0; background:transparent; color:#d4a574; padding:3px 0 14px; font:10px 'JetBrains Mono',monospace; letter-spacing:.12em; }
-#mobileMenu .portfolio-menu-panel a {display:block; width:100%; padding:12px 8px; border-bottom:1px solid #352a21; font:400 12px/1.55 'JetBrains Mono',monospace; letter-spacing:.13em; color:#f4f1ea; text-decoration:none; text-align:left; }
-#mobileMenu .portfolio-menu-panel a:last-child {border-bottom:0;}
-#mobileMenu .portfolio-menu-panel a:hover {color:#d4a574;}
-/* Case-study native details menus. */
-.portfolio-header { isolation:auto; }
-.portfolio-header .mobile-menu {position:relative; z-index:90;}
-.portfolio-header .mobile-menu summary {display:flex; align-items:center; justify-content:center; gap:9px; padding:11px 15px; min-width:110px; min-height:47px; border:1px solid #70553e; background:rgba(20,17,14,.65); color:#d4a574; font:400 12px/1 'JetBrains Mono',monospace; letter-spacing:.13em; list-style:none; cursor:pointer;}
-.portfolio-header .mobile-menu summary::-webkit-details-marker {display:none;}
-.portfolio-header .mobile-menu .mobile-links {position:absolute; top:calc(100% + 8px); right:0; width:min(345px,calc(100vw - 36px)); max-height:calc(100dvh - 100px); overflow-y:auto; padding:18px 22px; border:1px solid #70553e; background:#171411; box-shadow:0 22px 60px rgba(0,0,0,.78); z-index:95; }
-.portfolio-header .mobile-menu .mobile-links a {display:block; padding:12px 8px; border-bottom:1px solid #352a21; color:#f4f1ea; font:400 12px/1.55 'JetBrains Mono',monospace; letter-spacing:.13em; text-transform:uppercase;}
-.portfolio-header .mobile-menu .mobile-links a:last-child {border:0;}
-.portfolio-header .mobile-menu:not([open]) .mobile-links {display:none;}
-@media(min-width:768px) {#mobileMenu.portfolio-menu-overlay {display:none!important;}}
-
-
-@media(max-width:767px){.page-intro + #experience {padding-top:36px!important;}}
-
-/* SHARED DESKTOP + MOBILE SIGNOFF — matches the Contact footer. */
-body > footer.site-signoff {
-  display:flex !important;
-  box-sizing:border-box;
-  width:100%; max-width:1400px;
-  margin:0 auto;
-  padding:26px clamp(24px,5vw,64px) 44px;
-  border-top:1px solid rgba(244,241,234,.12);
-  align-items:center; justify-content:space-between;
-  flex-direction:row; flex-wrap:wrap;
-  gap:16px 24px;
-  background:transparent;
-  color:#8b8680;
-  font:400 10px/1.6 'JetBrains Mono',monospace;
-  letter-spacing:.075em; text-transform:uppercase;
-}
-.site-signoff .site-signoff-motto {color:#d4a574}
-.site-signoff .site-signoff-time {display:inline-flex;align-items:center;gap:10px;white-space:nowrap}
-.site-signoff .site-signoff-time-label {opacity:.6}
-.site-signoff .site-signoff-credit {flex-basis:100%;font-size:9px;opacity:.8}
-.site-signoff .site-signoff-credit a {color:#d4a574;text-decoration:underline;text-underline-offset:3px}
-@media(max-width:640px) {
-  body > footer.site-signoff {
-    align-items:flex-start; flex-direction:column;
-    gap:12px; padding:26px 24px 48px;
-  }
-}
 </style>
-<link rel="stylesheet" href="/assets/mobile-polish.css">
-<style id="mobile-layout-refresh">
-/* MOBILE REFRESH 2026-11-11 — only applies to handheld widths. */
-@media (max-width: 767px) {
-  html { scroll-padding-top: 90px; }
-  header.fixed, header.portfolio-header { min-height: 72px; }
-  header.fixed > nav { min-height: 72px; padding-top: 13px; padding-bottom: 13px; }
-  header.fixed #menuBtn {
-    display: inline-flex !important; align-items: center; justify-content: center;
-    min-width: 100px; min-height: 48px; padding: 10px 15px;
-    border: 1px solid #70553e; border-radius: 0;
-    background: rgba(20,17,14,.58); color: #d4a574;
-    font: 400 12px/1 'JetBrains Mono',monospace;
-    letter-spacing: .16em; white-space: nowrap;
-  }
-  header.fixed #menuBtn:focus-visible { outline: 2px solid #d4a574; outline-offset: 3px; }
-  /* Keep mobile mastheads compact; avoid oversized gaps at the start of content. */
-  .page-intro { padding-top: 128px !important; padding-bottom: 35px !important; }
-  .page-intro h1 { margin-bottom: 8px !important; }
-  .section-bg { scroll-margin-top: 76px; }
-  main > section.section-bg { padding-top: 48px; padding-bottom: 56px; }
-  .portfolio-mobile-footer {
-    display: flex !important; flex-direction: column; align-items: flex-start; gap: 19px;
-    width: 100%; margin: 0 auto; padding: 43px 24px 58px;
-    border-top: 1px solid rgba(244,241,234,.16);
-    color: #8b8680; background: #0a0a0a;
-    font: 400 10px/1.65 'JetBrains Mono',monospace;
-    letter-spacing: .15em; text-transform: uppercase;
-  }
-  .portfolio-mobile-footer .portfolio-mobile-motto { color:#d4a574; }
-  .portfolio-mobile-footer .portfolio-mobile-time {
-    display:flex; justify-content:flex-start; align-items:center; gap:12px;
-    white-space:nowrap; color:#8b8680;
-  }
-  .portfolio-mobile-footer .portfolio-mobile-time-label { opacity:.6; }
-  .portfolio-mobile-footer .portfolio-mobile-clock { color:#8b8680; }
-  /* The end-of-page CTA already handles navigation. Avoid a repeated footer link row. */
-  body > footer:not(.portfolio-mobile-footer) { display:none !important; }
-  /* Keep exploring buttons wrap naturally and don't create horizontally scrolling rows. */
-  .cta-ghost { max-width:100%; white-space:normal; text-align:center; }
-}
-@media (min-width: 768px) { .portfolio-mobile-footer { display:none !important; } }
-@media(max-width:767px){ .journey-closing .journey-arrow { display:none; } .journey-closing { cursor:default; } }</style>
-</head><body class="grain"><aside class="hidden lg:flex fixed left-6 top-0 h-screen items-center z-30 mono text-[11px] text-[#8b8680] tracking-[0.2em] uppercase">
+<link href="/assets/mobile-polish.css" rel="stylesheet"/>
+<style>
+/* Unified Journey signoff: desktop and mobile */
+.site-signoff {display:flex!important;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 32px;border-top:1px solid rgba(244,241,234,.14);padding:38px clamp(24px,5vw,64px) 44px;max-width:1400px;margin:0 auto;color:#8b8680;background:#0a0a0a;font:400 11px/1.65 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;}
+.site-signoff-motto{color:#d4a574}.site-signoff-time{display:flex;align-items:center;gap:14px}.site-signoff-time-label{opacity:.65}
+@media(max-width:767px){.site-signoff{flex-direction:column;align-items:flex-start;gap:15px;padding-top:42px;padding-bottom:48px;}}
+</style></head><body class="grain"><aside class="hidden lg:flex fixed left-6 top-0 h-screen items-center z-30 mono text-[11px] text-[#8b8680] tracking-[0.2em] uppercase">
 <span class="vertical">Eric Maray · Portfolio MMXXVI</span>
 </aside><header class="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-black/30 border-b hairline">
 <nav class="max-w-[1400px] mx-auto px-6 lg:px-16 py-5 flex items-center justify-between mono text-[12px] tracking-[0.12em] uppercase">
@@ -256,9 +142,11 @@ body > footer.site-signoff {
 <span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background:var(--accent)"></span>
       Happy to chat
     </a>
-<button class="md:hidden text-[#f4f1ea] text-xl" id="menuBtn" type="button" aria-label="Open navigation menu">MENU <span aria-hidden="true">≡</span></button>
+<button class="md:hidden text-[#f4f1ea] text-xl" id="menuBtn">☰</button>
 </nav>
-</header><div class="portfolio-menu-overlay hidden" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Site navigation"><nav class="portfolio-menu-panel" aria-label="Mobile navigation"><button class="portfolio-menu-close" type="button" id="closeBtn" aria-label="Close menu">CLOSE &times;</button><a href="/">Home</a><a href="/philosophy/">Philosophy</a><a href="/personal/">Personal</a><a href="/work/">Work</a><a href="/journey/">Journey</a><a href="/capabilities/">Skills</a><a href="/reading/">Reading</a><a href="/contact/">Contact</a></nav></div><main class="relative z-10" id="top"><div class="page-intro"><div class="mono text-[11px] uppercase tracking-[.22em] text-[#d4a574]">Eric T. Maray / Where I’ve Been</div><h1>Where I’ve Been</h1><p class="text-lg text-[#aaa39a]">A career without straight lines.</p></div><section class="section-bg px-6 lg:px-16 py-32 max-w-[1400px] mx-auto border-t hairline" id="experience">
+</header><div class="fixed inset-0 z-50 bg-[#0a0a0a] hidden flex-col items-center justify-center gap-8 mono uppercase tracking-[0.2em]" id="mobileMenu">
+<button class="absolute top-6 right-6 text-2xl" id="closeBtn">×</button>
+<a href="/">Home</a><a href="/philosophy/">How I Think</a><a href="/personal/">Beyond the Work</a><a href="/work/">Things I’ve Built</a><a href="/journey/">Where I’ve Been</a><a href="/capabilities/">Skills &amp; Capabilities</a><a href="/reading/">What I’m Reading</a><a href="/contact/">Contact</a></div><main class="relative z-10" id="top"><div class="page-intro"><div class="mono text-[11px] uppercase tracking-[.22em] text-[#d4a574]">Eric T. Maray / Where I’ve Been</div><h1>Where I’ve Been</h1><p class="text-lg text-[#aaa39a]">A career without straight lines.</p></div><section class="section-bg px-6 lg:px-16 py-32 max-w-[1400px] mx-auto border-t hairline" id="experience">
 <!-- Mountain ridge vector -->
 <svg class="vec" preserveaspectratio="none" style="bottom:0;left:0;width:100%;opacity:0.03" viewbox="0 0 1400 200">
 <path d="M0 200 L0 140 L100 90 L200 120 L350 40 L500 100 L650 60 L800 110 L950 30 L1100 80 L1250 50 L1400 90 L1400 200 Z" fill="#f4f1ea"></path>
@@ -274,84 +162,20 @@ body > footer.site-signoff {
 <p class="mt-6 leading-relaxed max-w-2xl" style="color:rgba(244,241,234,0.7)">I've never approached my career as a ladder to climb. It's been more of a collection of experiences, opportunities, and occasionally unexpected directions. Each role brought something different, and none of those lessons stayed confined to the job where I learned them. Looking back, what connects them isn't an industry or a title, but a persistent curiosity about how things work and how they might work better.</p>
 </div>
 </div>
-<div class="grid grid-cols-12 gap-6 lg:gap-12"><div class="col-span-12 lg:col-span-9 lg:col-start-4"><div class="relative pl-8"><div class="timeline-rail"></div><div class="journey-employer journey-first"><span class="timeline-dot" aria-hidden="true"></span><div class="journey-employer-meta mono"><span>2025 — 2026</span><span>Aubrey, Texas</span></div><h3>Mustang Special Utility District</h3><div class="journey-roles"><article class="journey-role"><div class="journey-role-head"><h4>Senior Safety Specialist</h4><span class="journey-role-date mono">September 2025 – November 2026</span></div><p class="journey-description">Led utility safety and program development through a systems-oriented, employee-centered approach. The role expanded across workforce operations, HR processes, onboarding, reporting, and organizational improvement.</p><div class="journey-small-label mono">Selected impact</div><ul class="journey-highlights"><li>Developed a respiratory protection program and coordinated medical clearance, fit testing, and training; corrected prospective occupational health screening and clearance processes.</li><li>Designed a unified Jotform safety-reporting experience and advanced a broader EHS platform using Microsoft applications and workflow automation.</li><li>Modernized outdated pre-hire workflows, introduced role-specific learning paths, and rebuilt orientation around Respect, Integrity, Safety, and Innovation.</li><li>Redesigned the employee uniform program around consistency, usability, and more efficient procurement.</li></ul><div class="journey-stats"><div class="journey-stat"><strong>$45K</strong><span>Projected annual savings · safety-reporting form</span></div><div class="journey-stat"><strong>$7.5K</strong><span>Projected annual savings · EHS platform</span></div><div class="journey-stat"><strong>$37K</strong><span>Projected annual savings · uniform program</span></div></div></article></div></div><div class="journey-employer "><span class="timeline-dot" aria-hidden="true"></span><div class="journey-employer-meta mono"><span>2014 — 2025</span><span>Denton, Texas</span></div><h3>CoServ <span class="journey-company-detail">(Denton County Electric Cooperative)</span></h3><div class="journey-roles"><article class="journey-role"><div class="journey-role-head"><h4>Training &amp; Development Specialist</h4><span class="journey-role-date mono">February 2024 – July 2025</span></div><p class="journey-description">Designed and delivered learning across eight departments for a 500+ employee workforce, connecting compliance, leadership development, new-hire learning, and technical education to operational priorities.</p><div class="journey-small-label mono">Selected impact</div><ul class="journey-highlights"><li>Administered UKG Pro Learning, improving completion visibility and supporting a 97%+ company-wide training completion rate.</li><li>Led onboarding learning for 100+ employees and created a redesigned learning catalog and monthly Training &amp; Development newsletter.</li><li>Coordinated vendor-led learning, facilitator selection, training budgets, and contracts; identified approximately $15,000 in annual cost improvements.</li><li>Supported leadership development, individual development planning, and psychologically safe learning environments.</li></ul><div class="journey-stats"><div class="journey-stat"><strong>500+</strong><span>Employees supported</span></div><div class="journey-stat"><strong>97%+</strong><span>Reported training completion</span></div><div class="journey-stat"><strong>8</strong><span>Departments</span></div></div></article><article class="journey-role"><div class="journey-role-head"><h4>Job Training &amp; Safety Specialist</h4><span class="journey-role-date mono">November 2020 – February 2024</span></div><p class="journey-description">Led technical and safety training for natural gas operations, connecting field competency, regulatory qualifications, and career development. Developed structured training pathways using operational requirements and insights from incidents, near misses, and procedure changes.</p><div class="journey-small-label mono">Selected impact</div><ul class="journey-highlights">
-            <li>Developed a skills-and-compensation progression program for 60+ employees, aligning advancement criteria with applicable state and federal requirements and qualifications.</li>
-            <li>Designed the pathway to help new hires build verified competencies and progress over approximately five years, including preparation for future operational leadership opportunities.</li>
-            <li>Delivered Smith System defensive-driving training to 300+ employees and migrated training records into UKG Pro Learning to improve tracking and compliance visibility.</li>
-            <li>Used incident reports, near misses, and new procedures to guide targeted technical and safety learning.</li>
-          </ul><div class="journey-stats">
-            <div class="journey-stat"><strong>60+</strong><span>Employees in career progression program</span></div>
-            <div class="journey-stat"><strong>~5 years</strong><span>Designed progression pathway</span></div>
-            <div class="journey-stat"><strong>300+</strong><span>Defensive-driving learners</span></div>
-          </div>
-        </article><article class="journey-role"><div class="journey-role-head"><h4>Field Operations Supervisor</h4><span class="journey-role-date mono">July 2016 – November 2020</span></div><p class="journey-description">Managed daily natural gas field operations for approximately 20 technicians serving a customer base of more than 130,000. Balanced safe service delivery, crew scheduling, employee development, performance management, and the adoption of new operational technology.</p><div class="journey-small-label mono">Selected impact</div><ul class="journey-highlights">
-            <li>Supervised approximately 20 field technicians, coordinating assignments, coaching, evaluations, and field performance across a 130,000+ customer service area.</li>
-            <li>Served as a key connection between office and field teams during implementation of a new work management system, translating operational requirements into usable field workflows.</li>
-            <li>Provided ongoing system training and support for 80+ leaders and field employees through the transition and subsequent new-hire onboarding.</li>
-            <li>Developed a structured career-progression initiative that supported 67% team growth and provided NISC and ArcGIS subject-matter expertise.</li>
-          </ul><div class="journey-stats">
-            <div class="journey-stat"><strong>~20</strong><span>Technicians supervised</span></div>
-            <div class="journey-stat"><strong>130K+</strong><span>Customers served</span></div>
-            <div class="journey-stat"><strong>80+</strong><span>Leaders &amp; field employees supported</span></div>
-          </div>
-        </article>
-<!-- IT / GIS Analyst | 2015–2016 -->
-<article class="journey-role">
-  <div class="journey-role-head">
-    <h4>IT / GIS Analyst</h4>
-    <span class="journey-role-date mono">2015 – 2016</span>
-  </div>
-
-  <p class="journey-description">
-    Connected enterprise GIS systems with operational needs
-    through testing, deployment, documentation, and employee
-    training.
-  </p>
-
-  <div class="journey-small-label mono">Selected impact</div>
-  <ul class="journey-highlights">
-    <li>
-      Supported enterprise GIS testing, documentation,
-      and deployment across the organization.
-    </li>
-    <li>
-      Trained 200+ employees across five departments
-      on geospatial data and mapping tools.
-    </li>
-  </ul>
-</article>
-
-<!-- Field Technician | 2014–2015 -->
-<article class="journey-role">
-  <div class="journey-role-head">
-    <h4>Field Technician</h4>
-    <span class="journey-role-date mono">2014 – 2015</span>
-  </div>
-
-  <p class="journey-description">
-    Built firsthand experience in natural gas operations
-    while helping translate frontline feedback into
-    practical technology improvements.
-  </p>
-
-  <div class="journey-small-label mono">Selected impact</div>
-  <ul class="journey-highlights">
-    <li>
-      Performed gas service installations, leak
-      investigations, and maintenance.
-    </li>
-    <li>
-      Supported the ArcGIS Online rollout by identifying
-      field needs, informing system improvements,
-      and training 30+ field employees.
-    </li>
-  </ul>
-</article>
-</div></div><div class="journey-employer "><span class="timeline-dot" aria-hidden="true"></span><div class="journey-employer-meta mono"><span>2006 — 2014</span><span>United States &amp; Afghanistan</span></div><h3>United States Army</h3><div class="journey-roles"><article class="journey-role"><div class="journey-role-head"><h4>Staff Sergeant · Senior Geospatial Engineer / Operations &amp; Training Leadership</h4><span class="journey-role-date mono">2006 – 2014</span></div><p class="journey-description">Served in geospatial intelligence, operations, and military leadership roles, combining mission-critical technical analysis with personnel development and readiness.</p><div class="journey-small-label mono">Selected impact</div><ul class="journey-highlights"><li>Led and trained 70+ personnel while coordinating training and deployment readiness for 200+ service members.</li><li>Produced geospatial intelligence supporting planning, targeting, and operations during deployments to eastern Afghanistan.</li><li>Managed the 101st Airborne Division Terrain Team website and terrain database supporting NATO/ISAF operations.</li><li>Established and trained forward geospatial support teams; served as Senior Geospatial Analyst, GIS Operations Manager, and Platoon Sergeant.</li></ul><div class="journey-stats"><div class="journey-stat"><strong>70+</strong><span>Personnel led and trained</span></div><div class="journey-stat"><strong>200+</strong><span>Service members · readiness coordination</span></div></div></article></div></div></div></div></div></section><section class="section-bg px-6 lg:px-16 py-24 max-w-[1400px] mx-auto border-t hairline" id="outcomes"><div class="grid grid-cols-12 gap-6 lg:gap-12"><div class="col-span-12 lg:col-span-3"><div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.25em] mb-2">Across the journey</div><div class="section-rule"></div><p class="italic mt-6 text-2xl" style="color:var(--accent)">The thread that connects it all.</p></div><div class="col-span-12 lg:col-span-9"><h2 class="text-4xl md:text-6xl font-light leading-tight tracking-tight">Understand the problem.<br/><em style="color:var(--accent)">Connect the pieces.</em></h2><p class="mt-7 leading-relaxed max-w-2xl" style="color:rgba(244,241,234,.75)">Across very different environments, I've gravitated toward unfamiliar challenges, disconnected processes, and opportunities to help people do their best work. The tools and titles have changed. The approach hasn't.</p><div class="journey-closing mono">Build something useful. <span class="journey-arrow" aria-hidden="true">↗</span></div></div></div></section><section class="px-6 lg:px-16 py-16 max-w-[1400px] mx-auto border-t hairline"><span class="mono text-[11px] uppercase tracking-[.2em] text-[#d4a574]">Keep exploring</span><div class="flex flex-wrap gap-5 mt-6"><a class="cta-ghost" href="/">Back to introduction ↗</a><a class="cta-ghost" href="/work/">Selected work ↗</a><a class="cta-ghost" href="/contact/">Say hello ↗</a></div></section></main><footer aria-label="Portfolio details" class="site-signoff mono">
-  <span class="site-signoff-copyright">© 2026 Eric T. Maray</span>
-  <span class="site-signoff-motto">Semper Prorsum · Always Forward</span>
-  <span class="site-signoff-time"><span class="site-signoff-time-label">Local Time</span><span id="clock">DFW · --:--</span></span>
-  
+<div class="grid grid-cols-12 gap-6 lg:gap-12"><div class="col-span-12 lg:col-span-9 lg:col-start-4"><div class="relative pl-8"><div class="timeline-rail"></div><div class="journey-employer journey-first"><span aria-hidden="true" class="timeline-dot"></span><div class="journey-employer-meta mono"><span>2025 — 2026</span><span>Aubrey, Texas</span></div><h3>Mustang Special Utility District</h3><div class="journey-roles"><article class="journey-role"><div class="journey-role-head"><h4>Senior Safety Specialist</h4><span class="journey-role-date mono">September 2025 – November 2026</span></div><p class="journey-description">Led utility safety and program development through a systems-oriented, employee-centered approach. The role expanded across workforce operations, HR processes, onboarding, reporting, and organizational improvement.</p><div class="journey-small-label mono">Selected impact</div><ul class="journey-highlights"><li>Built utility safety program infrastructure, including respiratory protection, medical clearance, fit testing, and employee training.</li><li>Traced more than 100 missed pre-employment screenings and lapsed medical clearances to onboarding and vendor-transition failures; redesigned workflows to prevent recurring gaps.</li><li>Consolidated fragmented safety-reporting processes into an adaptive, QR-accessible Jotform and developed a supervisor response guide, connecting reporting to follow-up and accountability.</li><li>Redesigned onboarding, role-specific learning paths, safety communications, and employee uniform procurement; combined reporting, EHS, and uniform initiatives were projected to save approximately $89,500 annually.</li></ul><div class="journey-stats"><div class="journey-stat"><strong>100+</strong><span>Screenings / clearances identified</span></div><div class="journey-stat"><strong>$89.5K</strong><span>Projected combined annual savings</span></div><div class="journey-stat"><strong>150</strong><span>Utility employees</span></div></div></article></div></div><div class="journey-employer"><span aria-hidden="true" class="timeline-dot"></span><div class="journey-employer-meta mono"><span>2014 — 2025</span><span>Denton, Texas</span></div><h3>CoServ <span class="journey-company-detail">(Denton County Electric Cooperative)</span></h3><div class="journey-roles"><article class="journey-role"><div class="journey-role-head"><h4>Training &amp; Development Specialist</h4><span class="journey-role-date mono">February 2024 – July 2025</span></div><p class="journey-description">Designed and delivered learning across eight departments for a 500+ employee workforce, connecting compliance, leadership development, new-hire learning, and technical education to operational priorities.</p><div class="journey-small-label mono">Selected impact</div><ul class="journey-highlights"><li>Administered UKG Pro Learning for a 500+ employee workforce, creating role-based learning paths and organization-wide training that supported a 97%+ completion rate.</li><li>Designed and delivered learning across eight departments, including onboarding for 100+ new hires, compliance, technical skills, and leadership development.</li><li>Helped shift leadership development toward a pre-leadership cohort, preparing 30+ nominated high-potential employees for future leadership opportunities.</li><li>Redesigned the annual training catalog and monthly learning newsletter around employee feedback and leadership priorities; managed a ~$150K training budget and identified approximately $15K in annual savings.</li></ul><div class="journey-stats"><div class="journey-stat"><strong>500+</strong><span>Employees supported</span></div><div class="journey-stat"><strong>97%+</strong><span>Reported training completion</span></div><div class="journey-stat"><strong>8</strong><span>Departments</span></div></div></article><article class="journey-role"><div class="journey-role-head"><h4>Job Training &amp; Safety Specialist</h4><span class="journey-role-date mono">November 2020 – February 2024</span></div><p class="journey-description">Led technical and safety training for natural gas operations, connecting field competency, regulatory qualifications, and career development. Developed structured training pathways using operational requirements and insights from incidents, near misses, and procedure changes.</p><div class="journey-small-label mono">Selected impact</div><ul class="journey-highlights"><li>Developed a competency-based career and compensation progression pathway for 60+ employees, aligned with operational qualifications and regulatory requirements; all 12 operational leaders completed the program.</li><li>Helped implement the organization’s first LMS as one of two administrators, migrating training records and improving compliance visibility.</li><li>Revived the Smith System defensive-driving program and trained 300+ employees, strengthening driver readiness.</li><li>Used incidents, near misses, and procedural changes to identify competency gaps and develop targeted technical and safety learning for natural gas operations.</li></ul><div class="journey-stats">
+<div class="journey-stat"><strong>60+</strong><span>Employees in career progression program</span></div>
+<div class="journey-stat"><strong>~5 years</strong><span>Designed progression pathway</span></div>
+<div class="journey-stat"><strong>300+</strong><span>Defensive-driving learners</span></div>
+</div>
+</article><article class="journey-role"><div class="journey-role-head"><h4>Field Operations Supervisor</h4><span class="journey-role-date mono">July 2016 – November 2020</span></div><p class="journey-description">Managed daily natural gas field operations for approximately 20 technicians serving a customer base of more than 130,000. Balanced safe service delivery, crew scheduling, employee development, performance management, and the adoption of new operational technology.</p><div class="journey-small-label mono">Selected impact</div><ul class="journey-highlights"><li>Supervised approximately 20 field technicians serving 130,000+ customers, balancing field safety, service delivery, coaching, and performance development.</li><li>Bridged office and field operations during an enterprise work-management system rollout, translating operational requirements into practical workflows and training 80+ leaders and employees.</li><li>Developed a structured career-progression initiative that supported 67% team growth, combining technical competency with employee advancement.</li></ul><div class="journey-stats">
+<div class="journey-stat"><strong>~20</strong><span>Technicians supervised</span></div>
+<div class="journey-stat"><strong>130K+</strong><span>Customers served</span></div>
+<div class="journey-stat"><strong>80+</strong><span>Leaders &amp; field employees supported</span></div>
+</div>
+</article><article class="journey-role"><div class="journey-role-head"><h4>IT / GIS Analyst</h4><span class="journey-role-date mono">2015 – 2016</span></div><p class="journey-description">Connected enterprise GIS systems with operational needs through testing, deployment, documentation, and employee training.</p><div class="journey-small-label mono">Selected impact</div><ul class="journey-highlights"><li>Supported enterprise GIS testing, documentation, and deployment across the organization.</li><li>Trained 200+ employees across five departments on geospatial data and mapping tools.</li></ul></article><article class="journey-role"><div class="journey-role-head"><h4>Field Technician</h4><span class="journey-role-date mono">2014 – 2015</span></div><p class="journey-description">Built firsthand experience in natural gas operations while helping translate frontline feedback into practical technology improvements.</p><div class="journey-small-label mono">Selected impact</div><ul class="journey-highlights"><li>Performed gas service installations, leak investigations, and maintenance.</li><li>Supported the ArcGIS Online rollout by identifying field needs, informing system improvements, and training 30+ field employees.</li></ul></article></div></div><div class="journey-employer"><span aria-hidden="true" class="timeline-dot"></span><div class="journey-employer-meta mono"><span>2006 — 2014</span><span>United States &amp; Afghanistan</span></div><h3>United States Army</h3><div class="journey-roles"><article class="journey-role"><div class="journey-role-head"><h4>Staff Sergeant · Senior Geospatial Engineer / Operations &amp; Training Leadership</h4><span class="journey-role-date mono">2006 – 2014</span></div><p class="journey-description">Served in geospatial intelligence, operations, and military leadership roles, combining mission-critical technical analysis with personnel development and readiness.</p><div class="journey-small-label mono">Selected impact</div><ul class="journey-highlights"><li>Led and trained 70+ personnel while coordinating training and deployment readiness for 200+ service members.</li><li>Produced geospatial intelligence supporting planning, targeting, and operations during deployments to eastern Afghanistan.</li><li>Managed the 101st Airborne Division Terrain Team website and terrain database supporting NATO/ISAF operations.</li><li>Established and trained forward geospatial support teams; served as Senior Geospatial Analyst, GIS Operations Manager, and Platoon Sergeant.</li></ul><div class="journey-stats"><div class="journey-stat"><strong>70+</strong><span>Personnel led and trained</span></div><div class="journey-stat"><strong>200+</strong><span>Service members · readiness coordination</span></div></div></article></div></div></div></div></div></section><section class="section-bg px-6 lg:px-16 py-24 max-w-[1400px] mx-auto border-t hairline" id="outcomes"><div class="grid grid-cols-12 gap-6 lg:gap-12"><div class="col-span-12 lg:col-span-3"><div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.25em] mb-2">Across the journey</div><div class="section-rule"></div><p class="italic mt-6 text-2xl" style="color:var(--accent)">The thread that connects it all.</p></div><div class="col-span-12 lg:col-span-9"><h2 class="text-4xl md:text-6xl font-light leading-tight tracking-tight">Understand the problem.<br/><em style="color:var(--accent)">Connect the pieces.</em></h2><p class="mt-7 leading-relaxed max-w-2xl" style="color:rgba(244,241,234,.75)">Across very different environments, I've gravitated toward unfamiliar challenges, disconnected processes, and opportunities to help people do their best work. The tools and titles have changed. The approach hasn't.</p><div class="journey-closing mono">Build something useful. <span aria-hidden="true">↗</span></div></div></div></section><section class="px-6 lg:px-16 py-16 max-w-[1400px] mx-auto border-t hairline"><span class="mono text-[11px] uppercase tracking-[.2em] text-[#d4a574]">Keep exploring</span><div class="flex flex-wrap gap-5 mt-6"><a class="cta-ghost" href="/">Back to introduction ↗</a><a class="cta-ghost" href="/work/">Selected work ↗</a><a class="cta-ghost" href="/contact/">Say hello ↗</a></div></section></main><footer aria-label="Portfolio details" class="site-signoff mono">
+<span class="site-signoff-copyright">© 2026 Eric T. Maray</span>
+<span class="site-signoff-motto">Semper Prorsum · Always Forward</span>
+<span class="site-signoff-time"><span class="site-signoff-time-label">Local Time</span><span id="clock">DFW · --:--</span></span>
 </footer><script>
   const clock = document.getElementById('clock');
   function tick() {
@@ -377,15 +201,4 @@ body > footer.site-signoff {
     const body = encodeURIComponent(`Title: ${title}\nAuthor: ${author}\nWhy it stuck: ${note}`);
     window.location.href = `mailto:ericmaray@gmail.com?subject=${subject}&body=${body}`;
   }
-</script>
-
-<script>
-(function () {
-  const el = document.querySelector('.portfolio-mobile-footer .portfolio-mobile-clock');
-  if (!el) return;
-  const fmt = {hour:'2-digit',minute:'2-digit',hour12:false,timeZone:'America/Chicago'};
-  const tick = () => { el.textContent='DFW · '+new Date().toLocaleTimeString('en-US',fmt); };
-  tick(); window.setInterval(tick,30000);
-})();
-</script>
-<script>(function(){const clocks=document.querySelectorAll('.portfolio-mobile-clock');function tick(){const t=new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:false,timeZone:'America/Chicago'});clocks.forEach(x=>x.textContent='DFW · '+t)}tick();setInterval(tick,30000)})();</script></body></html>
+</script></body></html>
