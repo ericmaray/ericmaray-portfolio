@@ -119,6 +119,96 @@
 @media(max-width:640px) {
   .site-signoff {align-items:flex-start;flex-direction:column;gap:12px;padding-bottom:48px}
 }
+
+/* HOMEPAGE MOBILE MENU — CONSISTENT WITH CASE STUDIES */
+
+@media (max-width: 767px) {
+
+  header.fixed {
+    background: rgba(10,10,10,.97) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .portfolio-menu-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 110px;
+    min-height: 47px;
+    padding: 11px 15px;
+    border: 1px solid #70553e;
+    background: rgba(20,17,14,.65);
+    color: #d4a574;
+    font: 400 12px/1 'JetBrains Mono', monospace;
+    letter-spacing: .13em;
+    cursor: pointer;
+  }
+
+  .portfolio-menu-trigger span {
+    font-size: 19px;
+    letter-spacing: 0;
+  }
+
+  .portfolio-menu-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 86px 18px 22px;
+    background: rgba(0,0,0,.38);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+
+  .portfolio-menu-overlay.hidden {
+    display: none !important;
+  }
+
+  .portfolio-menu-panel {
+    width: min(345px, 100%);
+    max-height: calc(100dvh - 105px);
+    overflow-y: auto;
+    padding: 18px 22px;
+    border: 1px solid #70553e;
+    background: #171411;
+    box-shadow: 0 22px 60px rgba(0,0,0,.78);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .portfolio-menu-close {
+    align-self: flex-end;
+    color: #d4a574;
+    background: transparent;
+    border: 0;
+    padding: 4px 0 15px;
+    font: 11px 'JetBrains Mono', monospace;
+    cursor: pointer;
+  }
+
+  .portfolio-menu-panel a {
+    display: block;
+    padding: 12px 8px;
+    border-bottom: 1px solid #352a21;
+    color: #f4f1ea;
+    font: 12px/1.55 'JetBrains Mono', monospace;
+    letter-spacing: .13em;
+    text-decoration: none;
+  }
+
+  .portfolio-menu-panel a:last-child {
+    border-bottom: 0;
+  }
+
+  .portfolio-menu-panel a:hover {
+    color: #d4a574;
+  }
+}
+
 </style></head><body class="grain"><aside class="hidden lg:flex fixed left-6 top-0 h-screen items-center z-30 mono text-[11px] text-[#8b8680] tracking-[0.2em] uppercase">
 <span class="vertical">Eric Maray · Portfolio MMXXVI</span>
 </aside><header class="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-black/30 border-b hairline">
@@ -133,17 +223,51 @@
 <span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background:var(--accent)"></span>
       Happy to chat
     </a>
-<button class="md:hidden text-[#f4f1ea] text-xl" id="menuBtn">☰</button>
+
+<button
+  id="menuBtn"
+  type="button"
+  class="portfolio-menu-trigger md:hidden"
+  aria-label="Open navigation"
+  aria-controls="mobileMenu"
+  aria-expanded="false">
+  MENU <span aria-hidden="true">≡</span>
+</button>
+
 </nav>
-</header><div class="fixed inset-0 z-50 bg-[#0a0a0a] hidden flex-col items-center justify-center gap-8 mono uppercase tracking-[0.2em]" id="mobileMenu">
-<button class="absolute top-6 right-6 text-2xl" id="closeBtn">×</button>
-<a href="/">Home</a><a href="/philosophy/">How I Think</a><a href="/personal/">Beyond the Work</a><a href="/work/">Things I’ve Built</a><a href="/journey/">Where I’ve Been</a><a href="/capabilities/">Skills &amp; Capabilities</a><a href="/reading/">What I’m Reading</a><a href="/contact/">Contact</a></div><main class="relative z-10" id="top">
+</header>
+<div id="mobileMenu"
+     class="portfolio-menu-overlay hidden"
+     aria-label="Mobile navigation">
+
+  <nav class="portfolio-menu-panel"
+       aria-label="Main navigation">
+
+    <button id="closeBtn"
+            class="portfolio-menu-close"
+            type="button"
+            aria-label="Close navigation">
+      CLOSE ×
+    </button>
+
+    <a href="/">HOME</a>
+    <a href="/philosophy/">PHILOSOPHY</a>
+    <a href="/personal/">PERSONAL</a>
+    <a href="/work/">WORK</a>
+    <a href="/journey/">JOURNEY</a>
+    <a href="/capabilities/">SKILLS</a>
+    <a href="/reading/">READING</a>
+    <a href="/contact/">CONTACT</a>
+
+  </nav>
+</div>
+<main class="relative z-10" id="top">
 <section class="section-bg px-6 lg:px-16 max-w-[1400px] mx-auto relative flex flex-col justify-center min-h-[68vh] overflow-hidden pt-36 pb-12"><div aria-hidden="true" style="position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0">
 <img alt="" src="/assets/original-banner.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;opacity:0.18;mix-blend-mode:luminosity"/>
 <div style="position:absolute;inset:0;background:linear-gradient(to right,#0a0a0a 0%,transparent 38%,transparent 70%,#0a0a0a 100%)"></div>
 <div style="position:absolute;inset:0;background:linear-gradient(to bottom,#0a0a0a 0%,transparent 20%,transparent 75%,#0a0a0a 100%)"></div>
 </div><img alt="" aria-hidden="true" src="/assets/original-mountain-ridge.png" style="position:absolute;right:-60px;top:5%;width:70%;max-width:800px;opacity:0.06;pointer-events:none;mix-blend-mode:screen;z-index:0"/>
-<div class="mono text-[11px] uppercase tracking-[0.26em] text-[#d4a574] mb-10" style="position:relative;z-index:1">A personal introduction · Semper Prorsum · Always Forward</div>
+<div class="mono text-[11px] uppercase tracking-[0.26em] text-[#d4a574] mb-10" style="position:relative;z-index:1">A personal introduction</div>
 <h1 class="text-6xl md:text-8xl lg:text-[112px] font-light tracking-tight leading-[1.04] max-w-[1090px] mb-4" style="position:relative;z-index:1">Hi, I'm Eric.</h1>
 <h2 class="text-3xl md:text-5xl font-light italic mb-10" style="color:var(--accent);position:relative;z-index:1">Let me introduce myself.</h2>
 <div class="max-w-[780px] text-lg md:text-xl leading-relaxed" style="color:rgba(244,241,234,.81);position:relative;z-index:1"><p>I've never been particularly good at fitting neatly into a job title. I'm curious about people, ideas, and the systems that connect them — and I tend to follow that curiosity wherever it leads.</p></div>
@@ -167,12 +291,42 @@
   }
   tick(); setInterval(tick, 30000);
 
-  const menuBtn = document.getElementById('menuBtn');
-  const closeBtn = document.getElementById('closeBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  menuBtn.addEventListener('click', () => { mobileMenu.classList.remove('hidden'); mobileMenu.classList.add('flex'); });
-  closeBtn.addEventListener('click', () => { mobileMenu.classList.add('hidden'); mobileMenu.classList.remove('flex'); });
-  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mobileMenu.classList.add('hidden'); mobileMenu.classList.remove('flex'); }));
+  
+const menuBtn = document.getElementById('menuBtn');
+const closeBtn = document.getElementById('closeBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+
+function closeMobileMenu() {
+  mobileMenu.classList.add('hidden');
+  mobileMenu.classList.remove('flex');
+  menuBtn.setAttribute('aria-expanded', 'false');
+}
+
+menuBtn.addEventListener('click', () => {
+  mobileMenu.classList.remove('hidden');
+  mobileMenu.classList.add('flex');
+  menuBtn.setAttribute('aria-expanded', 'true');
+});
+
+closeBtn.addEventListener('click', closeMobileMenu);
+
+mobileMenu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', closeMobileMenu);
+});
+
+mobileMenu.addEventListener('click', (event) => {
+  if (event.target === mobileMenu) {
+    closeMobileMenu();
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' &&
+      !mobileMenu.classList.contains('hidden')) {
+    closeMobileMenu();
+    menuBtn.focus();
+  }
+});
 
   function submitBook(e) {
     e.preventDefault();
