@@ -128,6 +128,46 @@
 .site-signoff {display:flex!important;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 32px;border-top:1px solid rgba(244,241,234,.14);padding:38px clamp(24px,5vw,64px) 44px;max-width:1400px;margin:0 auto;color:#8b8680;background:#0a0a0a;font:400 11px/1.65 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;}
 .site-signoff-motto{color:#d4a574}.site-signoff-time{display:flex;align-items:center;gap:14px}.site-signoff-time-label{opacity:.65}
 @media(max-width:767px){.site-signoff{flex-direction:column;align-items:flex-start;gap:15px;padding-top:42px;padding-bottom:48px;}}
+</style><style>
+/* Journey introduction and responsive, HTML-native throughline */
+.journey-throughline-intro {padding-bottom:62px;}
+.journey-intro-heading {font:300 clamp(1.6rem,3.2vw,2.75rem)/1.18 'Fraunces',Georgia,serif;letter-spacing:-.025em;color:var(--paper);margin:3px 0 26px;}
+.journey-intro-heading em {color:var(--accent);font-weight:300;}
+.journey-intro-copy {max-width:920px;}
+.journey-intro-copy p {font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.74;color:#c7c0b8;margin:0 0 18px;}
+.journey-intro-copy .journey-intro-signature {color:#e0b787;font-style:italic;margin:25px 0 0;font-size:clamp(1.08rem,1.7vw,1.4rem);line-height:1.45;}
+.throughline-panel {margin-top:46px;padding:26px 26px 30px;border:1px solid rgba(212,165,116,.3);background:linear-gradient(132deg,rgba(212,165,116,.075),rgba(244,241,234,.017) 65%);position:relative;}
+.throughline-top {display:flex;justify-content:space-between;align-items:baseline;gap:12px 24px;flex-wrap:wrap;margin:0 0 24px;}
+.throughline-eyebrow {color:var(--accent);font-size:11px;letter-spacing:.2em;text-transform:uppercase;}
+.throughline-aside {color:#8b8680;font-size:10px;letter-spacing:.13em;text-transform:uppercase;}
+.throughline-steps {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin:0;padding:0;list-style:none;}
+.throughline-step {min-width:0;position:relative;padding:10px 22px 6px 0;display:flex;flex-direction:column;gap:7px;}
+.throughline-step:not(:first-child) {padding-left:24px;border-left:1px solid rgba(212,165,116,.24);}
+.throughline-index {font-size:10px;letter-spacing:.15em;color:var(--accent);}
+.throughline-step strong {font:400 clamp(1.25rem,2vw,1.75rem)/1.12 'Fraunces',serif;letter-spacing:-.025em;color:var(--paper);}
+.throughline-step > span:last-child {color:#a9a199;font:11px/1.6 'JetBrains Mono',monospace;}
+@media(max-width:900px) {
+  .throughline-steps {grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 0;}
+  .throughline-step:nth-child(3) {border-left:0;padding-left:0;}
+  .throughline-step:nth-child(n+3) {border-top:1px solid rgba(212,165,116,.17);padding-top:19px;}
+}
+@media(max-width:640px) {
+  .journey-throughline-intro {padding-top:104px!important;padding-bottom:30px!important;}
+  .journey-throughline-intro h1 {margin-bottom:16px;}
+  .journey-intro-heading {margin-bottom:22px;font-size:clamp(1.7rem,7.1vw,2.2rem);}
+  .journey-intro-copy p {font-size:15px;line-height:1.7;margin-bottom:16px;}
+  .journey-intro-copy .journey-intro-signature {font-size:1.12rem;margin-top:20px;}
+  .throughline-panel {margin-top:31px;padding:22px 20px 24px;}
+  .throughline-top {margin-bottom:14px;}
+  .throughline-steps {grid-template-columns:1fr;gap:0;}
+  .throughline-step,.throughline-step:not(:first-child),.throughline-step:nth-child(3) {border-left:0;padding:15px 0 15px 42px;}
+  .throughline-step:not(:first-child),.throughline-step:nth-child(n+3) {border-top:1px solid rgba(212,165,116,.18);}
+  .throughline-index {position:absolute;left:0;top:18px;}
+  .throughline-step strong {font-size:1.52rem;}
+  #experience {padding-top:44px!important;}
+  #experience > .grid:first-of-type {margin-bottom:28px;}
+}
+@media(min-width:641px) {#experience{padding-top:72px!important;}}
 </style></head><body class="grain"><aside class="hidden lg:flex fixed left-6 top-0 h-screen items-center z-30 mono text-[11px] text-[#8b8680] tracking-[0.2em] uppercase">
 <span class="vertical">Eric Maray · Portfolio MMXXVI</span>
 </aside><header class="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-black/30 border-b hairline">
@@ -146,7 +186,44 @@
 </nav>
 </header><div class="fixed inset-0 z-50 bg-[#0a0a0a] hidden flex-col items-center justify-center gap-8 mono uppercase tracking-[0.2em]" id="mobileMenu">
 <button class="absolute top-6 right-6 text-2xl" id="closeBtn">×</button>
-<a href="/">Home</a><a href="/philosophy/">How I Think</a><a href="/personal/">Beyond the Work</a><a href="/work/">Things I’ve Built</a><a href="/journey/">Where I’ve Been</a><a href="/capabilities/">Skills &amp; Capabilities</a><a href="/reading/">What I’m Reading</a><a href="/contact/">Contact</a></div><main class="relative z-10" id="top"><div class="page-intro"><div class="mono text-[11px] uppercase tracking-[.22em] text-[#d4a574]">Eric T. Maray / Where I’ve Been</div><h1>Where I’ve Been</h1><p class="text-lg text-[#aaa39a]">A career without straight lines.</p></div><section class="section-bg px-6 lg:px-16 py-32 max-w-[1400px] mx-auto border-t hairline" id="experience">
+<a href="/">Home</a><a href="/philosophy/">How I Think</a><a href="/personal/">Beyond the Work</a><a href="/work/">Things I’ve Built</a><a href="/journey/">Where I’ve Been</a><a href="/capabilities/">Skills &amp; Capabilities</a><a href="/reading/">What I’m Reading</a><a href="/contact/">Contact</a></div><main class="relative z-10" id="top"><div class="page-intro journey-throughline-intro">
+  <div class="mono text-[11px] uppercase tracking-[.22em] text-[#d4a574]">Eric T. Maray / Where I’ve Been</div>
+  <h1>Where I’ve Been</h1>
+  <p class="journey-intro-heading">Different roles. <em>A consistent approach.</em></p>
+  <div class="journey-intro-copy">
+    <p>My career has taken me through military operations, geospatial intelligence, field operations, leadership, learning and development, and organizational safety.</p>
+    <p>The common thread isn't the industry or job title. It's my ability to step into unfamiliar or complex environments, understand how people and systems work, identify what's getting in the way, and develop practical solutions that make things better.</p>
+    <p class="journey-intro-signature">Different challenges. Same instinct: figure it out, connect the pieces, and build something useful.</p>
+  </div>
+  <div class="throughline-panel" aria-labelledby="throughline-title">
+    <div class="throughline-top">
+      <span class="mono throughline-eyebrow" id="throughline-title">The throughline</span>
+      <span class="mono throughline-aside">From complexity to impact</span>
+    </div>
+    <ol class="throughline-steps" aria-label="How I create value">
+      <li class="throughline-step">
+        <span class="mono throughline-index">01</span>
+        <strong>Understand</strong>
+        <span>People, systems &amp; context</span>
+      </li>
+      <li class="throughline-step">
+        <span class="mono throughline-index">02</span>
+        <strong>Identify</strong>
+        <span>Gaps, friction &amp; opportunities</span>
+      </li>
+      <li class="throughline-step">
+        <span class="mono throughline-index">03</span>
+        <strong>Connect</strong>
+        <span>Ideas, resources &amp; solutions</span>
+      </li>
+      <li class="throughline-step">
+        <span class="mono throughline-index">04</span>
+        <strong>Improve</strong>
+        <span>Processes, capability &amp; outcomes</span>
+      </li>
+    </ol>
+  </div>
+</div><section class="section-bg px-6 lg:px-16 py-32 max-w-[1400px] mx-auto border-t hairline" id="experience">
 <!-- Mountain ridge vector -->
 <svg class="vec" preserveaspectratio="none" style="bottom:0;left:0;width:100%;opacity:0.03" viewbox="0 0 1400 200">
 <path d="M0 200 L0 140 L100 90 L200 120 L350 40 L500 100 L650 60 L800 110 L950 30 L1100 80 L1250 50 L1400 90 L1400 200 Z" fill="#f4f1ea"></path>
@@ -155,11 +232,11 @@
 <div class="col-span-12 lg:col-span-3">
 <div class="mono text-[11px] text-[#8b8680] uppercase tracking-[0.25em] mb-2">The Journey</div>
 <div class="section-rule"></div>
-<p class="italic mt-6 text-2xl" style="color:var(--accent)">Different paths. Shared perspective.</p>
+<p class="italic mt-6 text-2xl" style="color:var(--accent)">The work behind the approach.</p>
 </div>
 <div class="col-span-12 lg:col-span-9">
-<h2 class="text-4xl md:text-6xl font-light leading-tight tracking-tight">A path built through<br/><em style="color:var(--accent)">curiosity</em>.</h2>
-<p class="mt-6 leading-relaxed max-w-2xl" style="color:rgba(244,241,234,0.7)">I've never approached my career as a ladder to climb. It's been more of a collection of experiences, opportunities, and occasionally unexpected directions. Each role brought something different, and none of those lessons stayed confined to the job where I learned them. Looking back, what connects them isn't an industry or a title, but a persistent curiosity about how things work and how they might work better.</p>
+<h2 class="text-4xl md:text-6xl font-light leading-tight tracking-tight">Experience made<br/><em style="color:var(--accent)">practical</em>.</h2>
+<p class="mt-6 leading-relaxed max-w-2xl" style="color:rgba(244,241,234,0.7)">The roles below show how that approach developed across different teams, technologies, and operational environments—and what changed as a result.</p>
 </div>
 </div>
 <div class="grid grid-cols-12 gap-6 lg:gap-12"><div class="col-span-12 lg:col-span-9 lg:col-start-4"><div class="relative pl-8"><div class="timeline-rail"></div><div class="journey-employer journey-first"><span aria-hidden="true" class="timeline-dot"></span><div class="journey-employer-meta mono"><span>2025 — 2026</span><span>Aubrey, Texas</span></div><h3>Mustang Special Utility District</h3><div class="journey-roles"><article class="journey-role"><div class="journey-role-head"><h4>Senior Safety Specialist</h4><span class="journey-role-date mono">Sep 2025 – Oct 2026</span></div><p class="journey-description">Built employee-centered safety infrastructure for a 150-employee water utility, connecting occupational risk, workforce systems, onboarding, and operational readiness.</p><div class="journey-small-label mono">Selected impact</div><ul class="journey-highlights"><li>Established a respiratory protection program spanning medical clearance, fit testing, and technical training for approximately 100 operational employees.</li><li>Traced 100+ missed pre-employment screenings and lapsed medical clearances to systemic gaps across onboarding and vendor transitions; redesigned both workflows to require clearance before Day 1.</li><li>Unified fragmented reporting forms in a QR-accessible adaptive Jotform with a supervisor response guide; safety-reporting, EHS platform, and uniform program redesigns were projected to save approximately $89.5K annually.</li><li>Redesigned pre-hire and onboarding with role-specific learning pathways, values-led orientation, and HR, IT, and operations coordination.</li><li>Supported I-9/E-Verify processing, new-hire orientation, and resolution of administrative and system issues affecting employee readiness.</li></ul><div class="journey-stats"><div class="journey-stat"><strong>100+</strong><span>Screenings / clearances identified</span></div><div class="journey-stat"><strong>$89.5K</strong><span>Projected combined annual savings</span></div><div class="journey-stat"><strong>150</strong><span>Utility employees</span></div></div></article></div></div><div class="journey-employer"><span aria-hidden="true" class="timeline-dot"></span><div class="journey-employer-meta mono"><span>2014 — 2025</span><span>Corinth, Texas</span></div><h3>CoServ <span class="journey-company-detail">(Denton County Electric Cooperative)</span></h3><div class="journey-roles"><article class="journey-role"><div class="journey-role-head"><h4>Training &amp; Development Specialist</h4><span class="journey-role-date mono">Feb 2024 – Jul 2025</span></div><p class="journey-description">Designed and facilitated instructor-led, virtual, blended, and digital learning across eight departments for a 500+ employee workforce, connecting development opportunities with operational priorities.</p><div class="journey-small-label mono">Selected impact</div><ul class="journey-highlights"><li>Helped shift leadership development from reactive post-promotion training toward a pre-leadership cohort preparing 30+ high-potential employees for advancement.</li><li>Analyzed employee feedback, leadership priorities, and participation data to evaluate learning gaps and redesign the annual training catalog.</li><li>Administered UKG Pro Learning for 500+ employees, building role-based learning paths and compliance tracking that sustained a 97%+ enterprise completion rate.</li><li>Designed interactive, multimodal eLearning—including gamified modules and branching pathways—using Articulate 360, Camtasia, Canva, and Vyond.</li><li>Managed a ~$150K annual training budget, contracts, and facilitator selection; optimized resources to save approximately $15K annually without reducing program scope.</li></ul><div class="journey-stats"><div class="journey-stat"><strong>500+</strong><span>Employees supported</span></div><div class="journey-stat"><strong>97%+</strong><span>Reported training completion</span></div><div class="journey-stat"><strong>8</strong><span>Departments</span></div></div></article><article class="journey-role"><div class="journey-role-head"><h4>Job Training &amp; Safety Specialist</h4><span class="journey-role-date mono">Nov 2020 – Feb 2024</span></div><p class="journey-description">Developed competency-based career pathways and targeted safety learning for natural gas operations, using training design, regulatory requirements, and incident data to improve readiness.</p><div class="journey-small-label mono">Selected impact</div><ul class="journey-highlights"><li>Applied ADDIE to design a five-year competency and compensation progression framework for 60+ employees, connecting qualifications to clear advancement and future leadership opportunities.</li><li>Co-led the implementation of the organization’s first LMS (UKG Pro Learning) as one of two administrators, migrating legacy records to improve compliance visibility.</li><li>Used incident and near-miss information to target technical training and relaunched post-pandemic Smith System defensive driving, certifying 300+ employees and contributing to reduced insurance expenses.</li></ul><div class="journey-stats">
